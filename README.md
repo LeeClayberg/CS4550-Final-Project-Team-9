@@ -6,8 +6,9 @@ Each user will have their own comic book collection which will be found on their
 
 Two possible APIs I will use
 
-#https://www.programmableweb.com/api/comic-vine
-#https://www.programmableweb.com/api/marvel-comics
+https://www.programmableweb.com/api/comic-vine
+
+https://www.programmableweb.com/api/marvel-comics
 
 The Comic Vine API lets the user access and search through thousands of comic books, characters, creators and publishers. The database also includes information on concepts, locations, powers and objects within the comic books. The marvel Comics API provides information on creators, characters, series, storylines, individual issues, and crossover events in the Marvel Universe.
 
