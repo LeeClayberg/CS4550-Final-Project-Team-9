@@ -5,6 +5,7 @@ For my final project I want to make a website for people to look up comic book i
 Each user will have their own comic book collection which will be found on their profile. Using a search bar the user can look up comic book information and/or add the comic book to their collection. For someone without an account they will still be able to look up the information on the comic books but they cannot save to a collection. The users will be able to easily look at their own inventory and, if they choose, can make their collection public to anyone. They will also be able to mark the comic books in their inventory with a grade using the ten-point grading scale. I have found a few great APIs for this information below. I hope to possibly find a pricing api for the comic books but I have yet to find one that's reliable. That could be an added bonus for the users. The admin will be able to view all the user’s information from an admin page and view and/or delete reviews made by users.
 
 Two possible APIs I will use
+
 https://www.programmableweb.com/api/comic-vine
 https://www.programmableweb.com/api/marvel-comics
 
