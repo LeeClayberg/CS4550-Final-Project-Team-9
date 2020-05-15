@@ -1,4 +1,4 @@
-# cs4550-20sum1-team09-final-project
+# Final Project - Comics Control
 
 For my final project I want to make a website for people to look up comic book information and keep track of their own comic book inventory. Many people (including my dad) have collected comic books when they were younger and just have them stored in boxes collecting dust. This website will be able hold the user’s collection and display information about all the comics using the search feature. Some people might want to search for which comic books have which characters. The users will be able to find all this information on the site. Two types of users that would use the web application are the collectors(users) and the admin(s). Two goals the collector would have is to record their collection in their profile and be able to look up other comic books using the search feature. Two goals the admin would have is to keep track of the users and moderate reviews made by the users on the comic books. 
 
