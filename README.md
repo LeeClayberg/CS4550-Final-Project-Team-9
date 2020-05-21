@@ -1,4 +1,3 @@
-
 <div align="center">
   <img width="233" height="182" src="/ComicStack.png">
   <h2 align="center">
