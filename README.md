@@ -1,7 +1,7 @@
 
-<p align="center">
+<span align="center">
   <img width="233" height="182" src="/ComicStack.png">
-</p>
+</span>
 <h1 align="center">
     Final Project - Comic Stack
 </h1>
