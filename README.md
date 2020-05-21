@@ -5,5 +5,6 @@
     Final Project - Comic Stack
   </h2>
 </div>
-
-https://docs.google.com/document/d/18EJAZpbRbrJ60QNNJeSRD_OhAQhVmw9Sacd7saAI-4A/edit?usp=sharing
+<div align="center">
+  https://docs.google.com/document/d/18EJAZpbRbrJ60QNNJeSRD_OhAQhVmw9Sacd7saAI-4A/edit?usp=sharing
+</div>
