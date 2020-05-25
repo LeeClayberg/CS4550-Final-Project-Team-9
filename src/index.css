@@ -3,6 +3,10 @@ code {
     monospace;
 }
 
+body {
+  padding-top: 170px;
+}
+
 .navbar-size {
   height: 200px;
   padding: 0px;
@@ -92,6 +96,42 @@ code {
   left: 14px;
 }
 
+.search-area {
+  background-color: #e9ecef;
+  border: 2px solid black;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.search-area-top {
+  padding: 20px 10px;
+  padding-top: 0px;
+  font-size: 24px;
+}
+
+.card {
+  background-color: #CCCCCC;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 0px;
+  padding: 10px
+}
+
+.card-img {
+  border-radius: 0px;
+  border: 2px solid black;
+}
+
+.card-body {
+  padding: 5px 0px 0px;
+  margin: 0px;
+}
+
+.card-date {
+  width: 100%;
+  padding-top: 10px;
+  color: white;
+}
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";

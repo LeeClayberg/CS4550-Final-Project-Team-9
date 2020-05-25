@@ -1,6 +1,20 @@
 import React from 'react'
+import SearchResults from "./SearchResults";
+import SearchService from "../services/SearchService";
 
 class ComicStack extends React.Component {
+    state = {
+        issues: []
+    }
+
+    componentDidMount() {
+        SearchService.search("superman", 0)
+            .then(pageInfo =>
+                this.setState({
+                     issues: pageInfo.results
+                }))
+    }
+
     render() {
         return (
             <div className="container">
@@ -10,7 +24,7 @@ class ComicStack extends React.Component {
                             <div className="col-3">
                                 <img className="d-lg-none small_logo align-middle" src={require('../ComicStack.png')}
                                      alt="Card image cap"/>
-                                <div className="d-none d-lg-block logo-section align-middle">
+                                <div className="d-none d-lg-block logo-section">
                                     <img className="logo align-middle" src={require('../ComicStack.png')}
                                          alt="Card image cap"/>
                                 </div>
@@ -36,6 +50,7 @@ class ComicStack extends React.Component {
                         </div>
                     </div>
                 </div>
+                <SearchResults/>
             </div>
         )
     }
