@@ -22,27 +22,50 @@ class SearchResults extends React.Component {
                     }
                 </div>
                 <div className="wbdv-search-bottom-buttons">
-                    <div className="btn wbdv-page-btn font-weight-bold"
-                         onClick={() => this.props.search(1)}>
-                        1
-                    </div>
-                    ...
-                    <div className="btn wbdv-page-btn font-weight-bold"
-                         onClick={() => this.props.search(this.props.page - 1)}>
-                        {this.props.page - 1}
-                    </div>
+                    {
+                        this.props.page > 2 &&
+                        <div
+                            className="btn wbdv-page-btn font-weight-bold"
+                            onClick={() => this.props.search(1)}>
+                            1
+                        </div>
+                    }
+                    {
+                        this.props.page > 3 &&
+                        <span>
+                            ...
+                        </span>
+                    }
+                    {
+                        this.props.page > 1 &&
+                        <div className="btn wbdv-page-btn font-weight-bold"
+                             onClick={() => this.props.search(this.props.page - 1)}>
+                            {this.props.page - 1}
+                        </div>
+                    }
                     <div className="btn wbdv-page-btn wbdv-current-page font-weight-bold">
                         {this.props.page}
                     </div>
-                    <div className="btn wbdv-page-btn font-weight-bold"
-                         onClick={() => this.props.search(this.props.page + 1)}>
-                        {this.props.page + 1}
-                    </div>
-                    ...
-                    <div className="btn wbdv-page-btn font-weight-bold"
-                         onClick={() => this.props.search(this.props.pageCount)}>
-                        {this.props.pageCount}
-                    </div>
+                    {
+                        this.props.page < this.props.pageCount &&
+                        <div className="btn wbdv-page-btn font-weight-bold"
+                             onClick={() => this.props.search(this.props.page + 1)}>
+                            {this.props.page + 1}
+                        </div>
+                    }
+                    {
+                        this.props.page < this.props.pageCount - 2 &&
+                        <span>
+                            ...
+                        </span>
+                    }
+                    {
+                        this.props.page < this.props.pageCount - 1 &&
+                        <div className="btn wbdv-page-btn font-weight-bold"
+                             onClick={() => this.props.search(this.props.pageCount)}>
+                            {this.props.pageCount}
+                        </div>
+                    }
                 </div>
             </div>
         )
