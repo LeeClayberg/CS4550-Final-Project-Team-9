@@ -9,12 +9,14 @@ class SearchResultCard extends React.Component {
         return (
             <div className="col mb-4">
                 <div className="card">
-                    <img className="card-img-top card-img" src={'https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg'}
+                    <img className="card-img-top card-img" src={this.state.issue.image.super_url}
                          alt="Card image cap"/>
-                    <div className="row card-body font-weight-bold">
-                        Superman ft. Super Sons
+                    <div className="row card-body font-weight-bold text-truncate">
+                        {this.state.issue.name !== null ?
+                         this.state.issue.name :
+                        this.state.issue.volume.name + " #" + this.state.issue.issue_number}
                         <div className="card-date text-right">
-                            2019-10-09
+                            {this.state.issue.cover_date}
                         </div>
                     </div>
                 </div>

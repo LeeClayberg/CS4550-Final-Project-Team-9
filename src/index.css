@@ -7,9 +7,16 @@ body {
   padding-top: 170px;
 }
 
-.navbar-size {
+.navbar-settings {
   height: 200px;
   padding: 0px;
+  display: block;
+}
+
+.long-blank {
+  background-color: white;
+  height: 60px;
+  width: 100%;
 }
 
 .long-bar {
@@ -125,6 +132,10 @@ body {
 .card-body {
   padding: 5px 0px 0px;
   margin: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .card-date {

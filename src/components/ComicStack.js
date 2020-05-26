@@ -8,7 +8,7 @@ class ComicStack extends React.Component {
     }
 
     componentDidMount() {
-        SearchService.search("superman", 0)
+        SearchService.search("swamp thing", 2)
             .then(pageInfo =>
                 this.setState({
                      issues: pageInfo.results
@@ -19,7 +19,8 @@ class ComicStack extends React.Component {
         console.log(this.state.issues)
         return (
             <div className="container">
-                <div className="navbar fixed-top navbar-size">
+                <div className="navbar fixed-top navbar-settings">
+                    <div className="long-blank"/>
                     <div className="long-bar">
                         <div className="row">
                             <div className="col-3">
