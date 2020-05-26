@@ -5,7 +5,7 @@ class SearchResultCard extends React.Component {
         return (
             <div className="col mb-4">
                 <div className="card">
-                    <img className="card-img-top card-img" src={this.props.issue.image.super_url}
+                    <img className="card-img-top wbdv-card-img" src={this.props.issue.image.super_url}
                          alt="Card image cap"/>
                     <div className="row card-body font-weight-bold text-truncate">
                         {this.props.issue.name !== null ?
