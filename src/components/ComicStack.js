@@ -8,7 +8,7 @@ class ComicStack extends React.Component {
     }
 
     componentDidMount() {
-        SearchService.search("swamp thing", 2)
+        SearchService.search("Action Comics", 1)
             .then(pageInfo =>
                 this.setState({
                      issues: pageInfo.results
