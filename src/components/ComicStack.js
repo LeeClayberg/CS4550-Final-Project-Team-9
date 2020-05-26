@@ -16,6 +16,7 @@ class ComicStack extends React.Component {
     }
 
     render() {
+        console.log(this.state.issues)
         return (
             <div className="container">
                 <div className="navbar fixed-top navbar-size">
@@ -50,7 +51,8 @@ class ComicStack extends React.Component {
                         </div>
                     </div>
                 </div>
-                <SearchResults/>
+                <SearchResults
+                    issues={this.state.issues}/>
             </div>
         )
     }
