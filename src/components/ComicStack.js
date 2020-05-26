@@ -4,19 +4,31 @@ import SearchService from "../services/SearchService";
 
 class ComicStack extends React.Component {
     state = {
-        issues: []
+        issues: [],
+        searchString: ''
     }
 
     componentDidMount() {
-        SearchService.search("Action Comics", 1)
+        SearchService.search("", 1)
             .then(pageInfo =>
                 this.setState({
-                     issues: pageInfo.results
-                }))
+                    issues: pageInfo.results
+        }))
     }
 
+    updateSearchString = (newString) =>
+        this.setState(prevState => ({
+            searchString: newString
+        }))
+
+    search = () =>
+        SearchService.search(this.state.searchString, 1)
+            .then(pageInfo =>
+                this.setState({
+                    issues: pageInfo.results
+        }))
+
     render() {
-        console.log(this.state.issues)
         return (
             <div className="container">
                 <div className="navbar fixed-top navbar-settings">
@@ -33,9 +45,12 @@ class ComicStack extends React.Component {
                             </div>
                             <div className="col-7 col-md-6">
                                 <div className="input-group search-group">
-                                    <input type="text" className="form-control search-bar" placeholder="Search"/>
+                                    <input type="text" className="form-control search-bar" placeholder="Search"
+                                           onChange={(event) => this.updateSearchString(event.target.value)}
+                                           value={this.state.searchString}/>
                                     <div className="input-group-append">
-                                        <span className="input-group-text search-button-border" id="basic-addon1">
+                                        <span className="btn input-group-text search-button-border" id="basic-addon1"
+                                              onClick={() => this.search(true)}>
                                             <i className="fa fa-search fa-lg search-icon"></i>
                                         </span>
                                     </div>
@@ -53,6 +68,7 @@ class ComicStack extends React.Component {
                     </div>
                 </div>
                 <SearchResults
+                    {...console.log(this.state.issues)}
                     issues={this.state.issues}/>
             </div>
         )

@@ -3,6 +3,7 @@ import SearchResultCard from "./SearchResultCard";
 
 class SearchResults extends React.Component {
     render() {
+        console.log(this.props.issues)
         return (
             <div className="search-area">
                 <div className="row search-area-top">
@@ -17,6 +18,7 @@ class SearchResults extends React.Component {
                     {
                         this.props.issues.map(issue =>
                              <SearchResultCard
+                                 id={issue.id}
                                 issue={issue}/>)
                     }
                 </div>

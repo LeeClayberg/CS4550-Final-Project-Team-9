@@ -1,22 +1,18 @@
 import React from 'react'
 
 class SearchResultCard extends React.Component {
-    state = {
-        issue: this.props.issue
-    }
-
     render() {
         return (
             <div className="col mb-4">
                 <div className="card">
-                    <img className="card-img-top card-img" src={this.state.issue.image.super_url}
+                    <img className="card-img-top card-img" src={this.props.issue.image.super_url}
                          alt="Card image cap"/>
                     <div className="row card-body font-weight-bold text-truncate">
-                        {this.state.issue.name !== null ?
-                         this.state.issue.name :
-                        this.state.issue.volume.name + " #" + this.state.issue.issue_number}
+                        {this.props.issue.name !== null ?
+                         this.props.issue.name :
+                        this.props.issue.volume.name + " #" + this.props.issue.issue_number}
                         <div className="card-date text-right">
-                            {this.state.issue.cover_date}
+                            {this.props.issue.cover_date}
                         </div>
                     </div>
                 </div>
