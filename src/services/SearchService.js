@@ -4,6 +4,10 @@ const search = (content, page) =>
           "&resources=issue&format=json&limit=12&page=" + page + "&query=" + content)
         .then(response => response.json())
 
+const findIssueById = (id) =>
+    fetch("/issue/4000-" + id + "/?api_key=609b66edd3d828492cadbe8b2cc825f2d712aaef")
+        .then(response => response.json())
+
 export default {
     search
 }
