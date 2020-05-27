@@ -195,21 +195,36 @@ a:hover {
 }
 
 .wbdv-add-btn {
+  background-color: #CCCCCC;
   border: 2px solid black;
   height: 100%;
   width: 30%;
   text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
   padding: 5px;
 }
 
 .wbdv-top-info {
+  background-color: #DDDDDD;
   height: 45%;
   border-radius: 0px;
   border: 2px solid black;
-  padding: 8px;
+}
+
+.wbdv-info-row {
+  height: 20%;
+  margin: 0px;
+  font-size: 14px;
+  padding: 5px 0px;
+}
+
+.wbdv-info-row-column {
+  padding: 0px 10px;
 }
 
 .wbdv-top-chars {
+  background-color: #DDDDDD;
   height: 35%;
   border-radius: 0px;
   border: 2px solid black;
@@ -221,11 +236,16 @@ a:hover {
 }
 
 .wbdv-issue-description {
+  background-color: #DDDDDD;
   margin-top: 20px;
-  height: 300px;
   border-radius: 0px;
   border: 2px solid black;
   padding: 8px;
+}
+
+.wbdv-section-title {
+  font-size: 18px;
+  padding: 0px 0px 2px;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
