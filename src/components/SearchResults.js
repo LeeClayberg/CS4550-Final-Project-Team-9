@@ -1,7 +1,34 @@
 import React from 'react'
 import SearchResultCard from "./SearchResultCard";
+import SearchService from "../services/SearchService";
 
 class SearchResults extends React.Component {
+    state = {
+        issues: [],
+        page: 1,
+        pageCount: 1,
+    }
+
+    componentDidMount() {
+        this.search(this.state.page)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.match.params.query !== this.props.match.params.query) {
+            this.search(1)
+        }
+    }
+
+    search = (page) =>
+        SearchService.search(this.props.match.params.query, page)
+            .then(pageInfo =>
+                      this.setState({
+                                        page: page,
+                                        pageCount: Math.floor(
+                                            pageInfo.number_of_total_results / pageInfo.limit),
+                                        issues: pageInfo.results
+                                    }))
+
     render() {
         return (
             <div className="wbdv-search-area">
@@ -10,12 +37,12 @@ class SearchResults extends React.Component {
                         Search Results
                     </div>
                     <div className="col-6 text-right font-weight-bold">
-                        Page {this.props.page}
+                        Page {this.state.page}
                     </div>
                 </div>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                     {
-                        this.props.issues.map(issue =>
+                        this.state.issues.map(issue =>
                              <SearchResultCard
                                  id={issue.id}
                                 issue={issue}/>)
@@ -23,47 +50,47 @@ class SearchResults extends React.Component {
                 </div>
                 <div className="wbdv-search-bottom-buttons">
                     {
-                        this.props.page > 2 &&
+                        this.state.page > 2 &&
                         <div
                             className="btn wbdv-page-btn font-weight-bold"
-                            onClick={() => this.props.search(1)}>
+                            onClick={() => this.search(1)}>
                             1
                         </div>
                     }
                     {
-                        this.props.page > 3 &&
-                        <span>
+                        this.state.page > 3 &&
+                        <span className="font-weight-bold">
                             ...
                         </span>
                     }
                     {
-                        this.props.page > 1 &&
+                        this.state.page > 1 &&
                         <div className="btn wbdv-page-btn font-weight-bold"
-                             onClick={() => this.props.search(this.props.page - 1)}>
-                            {this.props.page - 1}
+                             onClick={() => this.search(this.state.page - 1)}>
+                            {this.state.page - 1}
                         </div>
                     }
                     <div className="btn wbdv-page-btn wbdv-current-page font-weight-bold">
-                        {this.props.page}
+                        {this.state.page}
                     </div>
                     {
-                        this.props.page < this.props.pageCount &&
+                        this.state.page < this.state.pageCount &&
                         <div className="btn wbdv-page-btn font-weight-bold"
-                             onClick={() => this.props.search(this.props.page + 1)}>
-                            {this.props.page + 1}
+                             onClick={() => this.search(this.state.page + 1)}>
+                            {this.state.page + 1}
                         </div>
                     }
                     {
-                        this.props.page < this.props.pageCount - 2 &&
-                        <span>
+                        this.state.page < this.state.pageCount - 2 &&
+                        <span className="font-weight-bold">
                             ...
                         </span>
                     }
                     {
-                        this.props.page < this.props.pageCount - 1 &&
+                        this.state.page < this.state.pageCount - 1 &&
                         <div className="btn wbdv-page-btn font-weight-bold"
-                             onClick={() => this.props.search(this.props.pageCount)}>
-                            {this.props.pageCount}
+                             onClick={() => this.search(this.state.pageCount)}>
+                            {this.state.pageCount}
                         </div>
                     }
                 </div>
