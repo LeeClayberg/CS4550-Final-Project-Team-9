@@ -122,6 +122,7 @@ a:hover {
 
 .card {
   background-color: #CCCCCC;
+  color: black;
   border-radius: 0px;
   border: 2px solid black;
   margin: 0px;
@@ -161,6 +162,70 @@ a:hover {
 
 .wbdv-current-page {
   background-color: #BBBBBB;
+}
+
+.wbdv-issue-info {
+  background-color: #e9ecef;
+  border: 2px solid black;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.wbdv-issue-reviews {
+  height: 100%;
+  background-color: #e9ecef;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.wbdv-issue-cover {
+  width: 100%;
+  border-radius: 0px;
+  border: 2px solid black;
+}
+
+.wbdv-basic-top-outer {
+  padding-left: 5px;
+}
+
+.wbdv-top-add-area {
+  height: 10%;
+  width: 100%;
+  padding: 0px;
+}
+
+.wbdv-add-btn {
+  border: 2px solid black;
+  height: 100%;
+  width: 30%;
+  text-align: center;
+  padding: 5px;
+}
+
+.wbdv-top-info {
+  height: 45%;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 8px;
+}
+
+.wbdv-top-chars {
+  height: 35%;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 8px;
+}
+
+.wbdv-top-spacer {
+  height: 5%;
+}
+
+.wbdv-issue-description {
+  margin-top: 20px;
+  height: 300px;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 8px;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";

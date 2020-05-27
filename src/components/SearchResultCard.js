@@ -1,9 +1,11 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 class SearchResultCard extends React.Component {
     render() {
         return (
             <div className="col mb-4">
+                <Link to={`/issue/${this.props.issue.id}`}>
                 <div className="card">
                     <img className="card-img-top wbdv-card-img" src={this.props.issue.image.super_url}
                          alt="Card image cap"/>
@@ -16,6 +18,7 @@ class SearchResultCard extends React.Component {
                         </div>
                     </div>
                 </div>
+                </Link>
             </div>
         )
     }
