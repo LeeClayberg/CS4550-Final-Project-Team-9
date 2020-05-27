@@ -181,6 +181,7 @@ a:hover {
   width: 100%;
   border-radius: 0px;
   border: 2px solid black;
+  min-height: 400px;
 }
 
 .wbdv-basic-top-outer {
@@ -214,7 +215,7 @@ a:hover {
 .wbdv-info-row {
   height: 20%;
   margin: 0px;
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px 0px;
 }
 
