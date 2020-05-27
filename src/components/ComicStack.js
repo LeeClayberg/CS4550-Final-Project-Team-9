@@ -10,7 +10,6 @@ class ComicStack extends React.Component {
             <BrowserRouter>
                 <Header/>
                 <div className="container">
-                    <Issue/>
                     <Route path="/search/:query" exact={true} component={SearchResults}/>
 
                     <Route path="/issue/:id" exact={true} component={Issue}/>

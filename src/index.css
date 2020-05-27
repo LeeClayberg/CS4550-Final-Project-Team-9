@@ -172,7 +172,6 @@ a:hover {
 }
 
 .wbdv-issue-reviews {
-  height: 100%;
   background-color: #e9ecef;
   border: 2px solid black;
   padding: 20px;
@@ -246,6 +245,83 @@ a:hover {
 .wbdv-section-title {
   font-size: 18px;
   padding: 0px 0px 2px;
+}
+
+.wbdv-review-title {
+  background-color: #DDDDDD;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-review-add {
+  background-color: #DDDDDD;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-review-list {
+  border-radius: 0px;
+}
+
+.wbdv-review {
+  background-color: #DDDDDD;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.wbdv-review+.wbdv-review {
+  border-top-width: 2px;
+}
+
+.wbdv-review-user {
+  background-color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 50%;
+  padding-left: 5px;
+}
+
+.wbdv-review-text {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-top: 10px;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.wbdv-issue-related-header {
+  background-color: #DDDDDD;
+  margin-top: 20px;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-cover-row {
+  margin: 0px;
+}
+
+.wbdv-related-cover {
+  margin-top: 20px;
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
