@@ -39,6 +39,10 @@ class Issue extends React.Component {
             ", " : "")
     }
 
+    displayListTooltip = (character, i) => {
+        return " " + character.name;
+    }
+
     render() {
         if(!this.state.issue) {
             return (<div/>)
@@ -65,7 +69,10 @@ class Issue extends React.Component {
                                 </div>
                                 <div className="wbdv-top-spacer"/>
                                 <div className="wbdv-top-info">
-                                    <div className="row wbdv-info-row">
+                                    <div className="row wbdv-info-row"
+                                         title={this.state.issue.name?
+                                                this.state.issue.name :
+                                                this.state.issue.volume.name + " #" + this.state.issue.issue_number}>
                                         <div className="col-3 wbdv-info-row-column font-weight-bold">
                                             Name:
                                         </div>
@@ -111,7 +118,8 @@ class Issue extends React.Component {
                                     </div>
                                 </div>
                                 <div className="wbdv-top-spacer"/>
-                                <div className="wbdv-top-chars">
+                                <div className="wbdv-top-chars"
+                                     title={this.state.issue.character_credits.map(this.displayListTooltip)}>
                                     <div className="font-weight-bold wbdv-section-title">Characters</div>
                                     {this.state.issue.character_credits.map(this.displayList)}
                                 </div>
@@ -119,10 +127,12 @@ class Issue extends React.Component {
                         </span>
                         <div className="wbdv-issue-description">
                             <div className="font-weight-bold wbdv-section-title">Description</div>
-                            {parse(this.state.issue.description, {replace: ({ attribs, children }) => {
+                            {this.state.issue.description?
+                             parse(this.state.issue.description, {replace: ({ attribs, children }) => {
                                 if (!attribs) return;
                                 if (attribs.href) {
-                                    return React.createElement('a', {}, domToReact(children,))}}})}
+                                    return React.createElement('a', {}, domToReact(children,))}}}):
+                            "N/A"}
                         </div>
                         <div className="wbdv-issue-related-header">
                                 Related Issues
