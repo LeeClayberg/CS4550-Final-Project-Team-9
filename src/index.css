@@ -229,6 +229,12 @@ a:hover {
   border-radius: 0px;
   border: 2px solid black;
   padding: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 .wbdv-top-spacer {

@@ -11,4 +11,10 @@ module.exports = function(app) {
               target: 'https://comicvine.gamespot.com/api',
               changeOrigin: true}
     ));
+
+    app.use(createProxyMiddleware('/issues',
+           {
+               target: 'https://comicvine.gamespot.com/api',
+               changeOrigin: true}
+    ));
 }

@@ -1,20 +1,36 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import SearchService from "../services/SearchService";
-import ReactHtmlParser from 'react-html-parser';
+import parse, { domToReact } from 'html-react-parser';
+import RelatedCover from "./RelatedCover";
 
 class Issue extends React.Component {
     state = {
-        issue: null
+        issue: null,
+        related: []
     }
 
     componentDidMount() {
-        SearchService.findIssueById(this.props.match.params.id)
-            .then(issue => {
-                console.log(issue.results);
-                this.setState({
-                    issue: issue.results
-                })})
+        this.reload()
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.match.params.id !== this.props.match.params.id) {
+            this.reload()
+        }
+    }
+
+    reload = () =>
+        SearchService.findIssueById(this.props.match.params.id)
+            .then(issue => issue.results)
+            .then(issue => {
+                this.setState({
+                    issue: issue
+                });
+                SearchService.findRelatedIssues(issue)
+                    .then(issues => {
+                        this.setState({
+                            related: issues.results
+            })})})
 
     displayList = (character, i) => {
         return character.name +
@@ -97,32 +113,21 @@ class Issue extends React.Component {
                         </span>
                         <div className="wbdv-issue-description">
                             <div className="font-weight-bold wbdv-section-title">Description</div>
-                            {ReactHtmlParser(this.state.issue.description)}
+                            {parse(this.state.issue.description, {replace: ({ attribs, children }) => {
+                                if (!attribs) return;
+                                if (attribs.href) {
+                                    return React.createElement('a', {}, domToReact(children,))}}})}
                         </div>
                         <div className="wbdv-issue-related-header">
                                 Related Issues
                         </div>
                         <div className="row row-cols-5 wbdv-cover-row">
-                            <div className="col">
-                                <img className="wbdv-related-cover" src={"https://comicvine1.cbsistatic.com/uploads/scale_large/11/117763/2403520-ss16.png"}
-                                     alt="Card image cap"/>
-                            </div>
-                            <div className="col">
-                                <img className="wbdv-related-cover" src={"https://comicvine1.cbsistatic.com/uploads/scale_large/11/117763/2403520-ss16.png"}
-                                     alt="Card image cap"/>
-                            </div>
-                            <div className="col">
-                                <img className="wbdv-related-cover" src={"https://comicvine1.cbsistatic.com/uploads/scale_large/11/117763/2403520-ss16.png"}
-                                     alt="Card image cap"/>
-                            </div>
-                            <div className="col">
-                                <img className="wbdv-related-cover" src={"https://comicvine1.cbsistatic.com/uploads/scale_large/11/117763/2403520-ss16.png"}
-                                     alt="Card image cap"/>
-                            </div>
-                            <div className="col">
-                                <img className="wbdv-related-cover" src={"https://comicvine1.cbsistatic.com/uploads/scale_large/11/117763/2403520-ss16.png"}
-                                     alt="Card image cap"/>
-                            </div>
+                            {
+                                this.state.related.map(issue =>
+                                                          <RelatedCover
+                                                              id={issue.id}
+                                                              issue={issue}/>)
+                            }
                         </div>
                     </div>
                 </div>

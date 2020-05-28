@@ -24,8 +24,9 @@ class SearchResults extends React.Component {
             .then(pageInfo =>
                       this.setState({
                                         page: page,
-                                        pageCount: Math.floor(
+                                        pageCount: Math.min(Math.floor(
                                             pageInfo.number_of_total_results / pageInfo.limit),
+                                                833),
                                         issues: pageInfo.results
                                     }))
 
