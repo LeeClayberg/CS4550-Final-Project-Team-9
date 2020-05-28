@@ -49,14 +49,14 @@ class Issue extends React.Component {
         }
         return (
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-lg-8">
                     <div className="wbdv-issue-info">
                         <span className="row">
-                            <div className="col-md-5">
+                            <div className="col-lg-5">
                                 <img className="wbdv-issue-cover" src={this.state.issue.image.super_url}
                                      alt="Card image cap"/>
                             </div>
-                            <span className="col-md-7 wbdv-basic-top-outer">
+                            <span className="col-lg-7 wbdv-basic-top-outer">
                                 <div className="wbdv-top-add-area">
                                     <button className="btn wbdv-add-btn float-right"
                                         onClick={function () {
@@ -99,18 +99,18 @@ class Issue extends React.Component {
                                         </div>
                                     </div>
                                     <div className="row wbdv-info-row">
-                                        <div className="col-4 wbdv-info-row-column font-weight-bold">
+                                        <div className="col-6 wbdv-info-row-column font-weight-bold">
                                             Cover Date:
                                         </div>
-                                        <div className="col-8 wbdv-info-row-column text-right text-truncate">
+                                        <div className="col-6 wbdv-info-row-column text-right text-truncate">
                                             {this.state.issue.cover_date}
                                         </div>
                                     </div>
                                     <div className="row wbdv-info-row">
-                                        <div className="col-4 wbdv-info-row-column font-weight-bold">
+                                        <div className="col-6 wbdv-info-row-column font-weight-bold">
                                             In Store Date:
                                         </div>
-                                        <div className="col-8 wbdv-info-row-column text-right text-truncate">
+                                        <div className="col-6 wbdv-info-row-column text-right text-truncate">
                                              {this.state.issue.store_date?
                                               this.state.issue.store_date :
                                               "N/A"}
@@ -147,7 +147,7 @@ class Issue extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-lg-4">
                     <div className="wbdv-issue-reviews">
                         <span className="row">
                             <div className="col-10">
