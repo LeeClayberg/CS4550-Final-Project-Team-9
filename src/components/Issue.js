@@ -15,7 +15,8 @@ class Issue extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(prevProps.match.params.id !== this.props.match.params.id) {
-            this.reload()
+            window.scrollTo({top: 0, behavior: "smooth"});
+            this.reload();
         }
     }
 
