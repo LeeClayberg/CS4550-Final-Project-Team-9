@@ -15,12 +15,19 @@ a:hover {
   height: 200px;
   padding: 0px;
   display: block;
+  pointer-events: none;
+  touch-action:none;
+}
+
+.wbdv-top-bar-height {
+  height: 100%;
 }
 
 .wbdv-long-blank {
   background-color: white;
   height: 60px;
   width: 100%;
+  pointer-events: auto;
 }
 
 .wbdv-long-bar {
@@ -31,6 +38,7 @@ a:hover {
   border-left: 0px;
   border-right: 0px;
   padding: 15px 10px;
+  pointer-events: auto;
 }
 
 .wbdv-logo-section {
@@ -168,6 +176,7 @@ a:hover {
   background-color: #e9ecef;
   border: 2px solid black;
   margin-top: 30px;
+  margin-bottom: 20px;
   padding: 20px;
 }
 
@@ -182,10 +191,12 @@ a:hover {
   border-radius: 0px;
   border: 2px solid black;
   min-height: 400px;
+  margin-bottom: 20px;
 }
 
 .wbdv-basic-top-outer {
-  padding-left: 5px;
+  min-height: 400px;
+  margin-bottom: 20px;
 }
 
 .wbdv-top-add-area {
@@ -196,6 +207,7 @@ a:hover {
 
 .wbdv-add-btn {
   background-color: #CCCCCC;
+  border-radius: 0px;
   border: 2px solid black;
   height: 100%;
   width: 30%;
@@ -243,7 +255,6 @@ a:hover {
 
 .wbdv-issue-description {
   background-color: #DDDDDD;
-  margin-top: 20px;
   border-radius: 0px;
   border: 2px solid black;
   padding: 8px;
@@ -263,6 +274,10 @@ a:hover {
   font-weight: bolder;
 }
 
+.wbdv-review-add-col {
+  padding-left: 0px;
+}
+
 .wbdv-review-add {
   background-color: #DDDDDD;
   border-radius: 0px;
@@ -270,6 +285,9 @@ a:hover {
   text-align: center;
   font-size: 1.2em;
   font-weight: bolder;
+  line-height: 28px;
+  padding: 0px;
+  width: 100%;
 }
 
 .wbdv-review-list {

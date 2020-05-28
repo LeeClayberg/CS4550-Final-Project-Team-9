@@ -45,18 +45,23 @@ class Issue extends React.Component {
         }
         return (
             <div className="row">
-                <div className="col-8">
+                <div className="col-md-8">
                     <div className="wbdv-issue-info">
                         <span className="row">
-                            <div className="col-5">
+                            <div className="col-md-5">
                                 <img className="wbdv-issue-cover" src={this.state.issue.image.super_url}
                                      alt="Card image cap"/>
                             </div>
-                            <span className="col-7 wbdv-basic-top-outer">
+                            <span className="col-md-7 wbdv-basic-top-outer">
                                 <div className="wbdv-top-add-area">
-                                    <div className="wbdv-add-btn float-right">
+                                    <button className="btn wbdv-add-btn float-right"
+                                        onClick={function () {
+                                            alert("This will eventually add this issue to the users collection.\n"
+                                                  + "The user will also be able to add information about the comic \n"
+                                                  + "book's grade and other details.")
+                                        }}>
                                         + Add
-                                    </div>
+                                    </button>
                                 </div>
                                 <div className="wbdv-top-spacer"/>
                                 <div className="wbdv-top-info">
@@ -132,7 +137,7 @@ class Issue extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-4">
+                <div className="col-md-4">
                     <div className="wbdv-issue-reviews">
                         <span className="row">
                             <div className="col-10">
@@ -140,10 +145,14 @@ class Issue extends React.Component {
                                     Reviews
                                 </div>
                             </div>
-                            <span className="col-2 wbdv-basic-top-outer">
-                                <div className="wbdv-review-add">
+                            <span className="col-2 wbdv-review-add-col">
+                                <button className="wbdv-review-add"
+                                     onClick={function () {
+                                         alert("This will eventually allow users to write a review about the \n"
+                                               + "particular comic book issue")
+                                     }}>
                                     +
-                                </div>
+                                </button>
                             </span>
                         </span>
                         <ul className="list-group wbdv-review-list">

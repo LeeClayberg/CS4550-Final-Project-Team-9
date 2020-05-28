@@ -13,11 +13,11 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="navbar fixed-top wbdv-navbar-settings">
+            <span className="fixed-top">
                 <div className="wbdv-long-blank"/>
                 <div className="wbdv-long-bar">
-                    <div className="row">
-                        <div className="col-3">
+                    <div className="row wbdv-top-bar-height">
+                        <div className="col-3 wbdv-top-bar-height">
                             <img className="d-lg-none wbdv-small_logo align-middle"
                                  src={require('../ComicStack.png')}
                                  alt="Card image cap"/>
@@ -27,7 +27,7 @@ class Header extends React.Component {
                                      alt="Card image cap"/>
                             </div>
                         </div>
-                        <div className="col-7 col-md-6">
+                        <div className="col-7 col-md-6 wbdv-top-bar-height">
                             <div className="input-group wbdv-search-group">
                                 <input type="text" className="form-control wbdv-search-bar"
                                        placeholder="Search"
@@ -45,7 +45,7 @@ class Header extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-2 col-md-3">
+                        <div className="col-2 col-md-3 wbdv-top-bar-height">
                             <div className="d-none d-md-block wbdv-profile-text font-weight-bold">
                                 Account
                             </div>
@@ -55,7 +55,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </span>
         )
     }
 }
