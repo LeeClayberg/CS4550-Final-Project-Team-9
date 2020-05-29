@@ -35,6 +35,24 @@ class Issue extends React.Component {
                             related: issues.results
             })})})
 
+    nextIssue = () =>
+        SearchService.findNextIssue(this.state.issue)
+            .then(issue => issue.results)
+            .then(results =>
+                results[0]?
+                this.props.history.push(`/issue/${results[0].id}`):
+                alert("This is the last issue in the volume")
+            )
+
+    prevIssue = () =>
+        SearchService.findPrevIssue(this.state.issue)
+            .then(issue => issue.results)
+            .then(results =>
+                      results[0]?
+                      this.props.history.push(`/issue/${results[0].id}`):
+                      alert("This is the first issue in the volume")
+            )
+
     displayList = (character, i) => {
         return character.name +
             ((i < this.state.issue.character_credits.length - 1) ?
@@ -65,10 +83,12 @@ class Issue extends React.Component {
                             <span className="col-lg-7 wbdv-basic-top-outer">
                                 <span className="row wbdv-top-area">
                                     <span className="col-6 wbdv-top-area-col">
-                                        <button className="btn wbdv-arrow-btn">
+                                        <button className="btn wbdv-arrow-btn"
+                                                onClick={() => this.prevIssue()}>
                                             <i className="fa fa-arrow-left"/>
                                         </button>
-                                        <button className="btn wbdv-arrow-btn">
+                                        <button className="btn wbdv-arrow-btn"
+                                                onClick={() => this.nextIssue()}>
                                             <i className="fa fa-arrow-right"/>
                                         </button>
                                     </span>
