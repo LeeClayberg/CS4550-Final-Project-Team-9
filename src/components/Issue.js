@@ -2,10 +2,12 @@ import React, {Fragment} from 'react'
 import SearchService from "../services/SearchService";
 import parse, { domToReact } from 'html-react-parser';
 import RelatedCover from "./RelatedCover";
+import IssueReview from "./IssueReview";
 
 class Issue extends React.Component {
     state = {
         issue: null,
+        add: false,
         related: []
     }
 
@@ -47,6 +49,10 @@ class Issue extends React.Component {
         if(!this.state.issue) {
             return (<div/>)
         }
+        let elements=[];
+        for (let i = 9.8; i >= 0; (i <= 9.2? i -= 0.5: i -= 0.2)) {
+            elements.push(<option value={i}>{(Math.round(i * 10) / 10).toFixed(1)}</option>);
+        }
         return (
             <div className="row">
                 <div className="col-lg-8">
@@ -57,16 +63,45 @@ class Issue extends React.Component {
                                      alt="Card image cap"/>
                             </div>
                             <span className="col-lg-7 wbdv-basic-top-outer">
-                                <div className="wbdv-top-add-area">
-                                    <button className="btn wbdv-add-btn float-right"
-                                        onClick={function () {
-                                            alert("This will eventually add this issue to the users collection.\n"
-                                                  + "The user will also be able to add information about the comic \n"
-                                                  + "book's grade and other details.")
-                                        }}>
-                                        + Add
-                                    </button>
-                                </div>
+                                <span className="row wbdv-top-area">
+                                    <span className="col-6 wbdv-top-area-col">
+                                        <button className="btn wbdv-arrow-btn">
+                                            <i className="fa fa-arrow-left"/>
+                                        </button>
+                                        <button className="btn wbdv-arrow-btn">
+                                            <i className="fa fa-arrow-right"/>
+                                        </button>
+                                    </span>
+                                    <span className="col-6 wbdv-top-area-col">
+                                        <button className="btn wbdv-add-btn float-right"
+                                            onClick={() => this.setState({
+                                                add: !this.state.add
+                                            })}>
+                                            + Add
+                                        </button>
+                                        {
+                                            this.state.add &&
+                                            <div className="wbdv-add-box font-weight-bold">
+                                                Grade
+                                                <select
+                                                    className="custom-select wbdv-grade-dropdown">
+                                                    <option selected>10.0</option>
+                                                    {elements}
+                                                </select>
+                                                Signature(s)
+                                                <input type="text"
+                                                       className="form-control wbdv-signature-field"
+                                                       placeholder="ex. Stan Lee"/>
+                                                <button className="btn wbdv-add-done-btn"
+                                                    onClick={() => this.setState({
+                                                        add: false
+                                                    })}>
+                                                    Done
+                                                </button>
+                                            </div>
+                                        }
+                                    </span>
+                                </span>
                                 <div className="wbdv-top-spacer"/>
                                 <div className="wbdv-top-info">
                                     <div className="row wbdv-info-row"
@@ -166,46 +201,21 @@ class Issue extends React.Component {
                             </span>
                         </span>
                         <ul className="list-group wbdv-review-list">
-                            <li className="list-group-item wbdv-review">
-                                <div className="wbdv-review-user">
-                                    John Wigner
-                                </div>
-                                <div className="wbdv-review-text">
-                                    Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him
-                                </div>
-                            </li>
-                            <li className="list-group-item wbdv-review">
-                                <div className="wbdv-review-user">
-                                    John Wigner
-                                </div>
-                                <div className="wbdv-review-text">
-                                    Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him
-                                </div>
-                            </li>
-                            <li className="list-group-item wbdv-review">
-                                <div className="wbdv-review-user">
-                                    John Wigner
-                                </div>
-                                <div className="wbdv-review-text">
-                                    Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him
-                                </div>
-                            </li>
-                            <li className="list-group-item wbdv-review">
-                                <div className="wbdv-review-user">
-                                    John Wigner
-                                </div>
-                                <div className="wbdv-review-text">
-                                    Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him
-                                </div>
-                            </li>
-                            <li className="list-group-item wbdv-review">
-                                <div className="wbdv-review-user">
-                                    John Wigner
-                                </div>
-                                <div className="wbdv-review-text">
-                                    Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him
-                                </div>
-                            </li>
+                            <IssueReview
+                                name={"John Wigner"}
+                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                            <IssueReview
+                                name={"John Wigner"}
+                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                            <IssueReview
+                                name={"John Wigner"}
+                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                            <IssueReview
+                                name={"John Wigner"}
+                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                            <IssueReview
+                                name={"John Wigner"}
+                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                         </ul>
                     </div>
                 </div>

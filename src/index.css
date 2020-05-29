@@ -16,7 +16,6 @@ a:hover {
   padding: 0px;
   display: block;
   pointer-events: none;
-  touch-action:none;
 }
 
 .wbdv-top-bar-height {
@@ -199,10 +198,28 @@ a:hover {
   margin-bottom: 20px;
 }
 
-.wbdv-top-add-area {
+.wbdv-top-area {
   height: 10%;
   width: 100%;
   padding: 0px;
+  margin: 0px;
+}
+
+.wbdv-top-area-col {
+  padding: 0px;
+}
+
+.wbdv-arrow-btn {
+  background-color: #CCCCCC;
+  border-radius: 0px;
+  border: 2px solid black;
+  height: 70%;
+  width: 30%;
+  text-align: center;
+  font-size: .9em;
+  font-weight: bolder;
+  padding: 2px;
+  margin-right: 20px;
 }
 
 .wbdv-add-btn {
@@ -210,7 +227,7 @@ a:hover {
   border-radius: 0px;
   border: 2px solid black;
   height: 100%;
-  width: 30%;
+  width: 60%;
   text-align: center;
   font-size: 1.2em;
   font-weight: bolder;
@@ -267,6 +284,7 @@ a:hover {
 
 .wbdv-review-title {
   background-color: #DDDDDD;
+  color: black;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -342,11 +360,58 @@ a:hover {
   margin: 0px;
 }
 
+.wbdv-cover-col {
+  margin-top: 5px;
+  padding: 2.5%;
+}
+
 .wbdv-related-cover {
-  margin-top: 20px;
   border-radius: 0px;
   border: 2px solid black;
   width: 100%;
+}
+
+.wbdv-add-box {
+  position: absolute;
+  width: 90%;
+  right: 0px;
+  top: 96%;
+  z-index: 50;
+  background-color: #CCCCCC;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.wbdv-grade-dropdown {
+  background-color: #e9ecef;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.wbdv-signature-field {
+  background-color: #e9ecef;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.wbdv-add-done-btn {
+  background-color: #888888;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+  margin: 5px 0px;
+  padding: 2px;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
