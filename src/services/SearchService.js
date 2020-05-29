@@ -23,6 +23,18 @@ const findRelatedIssues = (issue) => {
                  end.toISOString().substring(0, 10))
         .then(response => response.json())}
 
+const findNextIssue = (issue) => {
+    return fetch("https://cv-proxy.herokuapp.com/https://comicvine.gamespot.com/api/issues/" +
+                 "?api_key=609b66edd3d828492cadbe8b2cc825f2d712aaef&format=json&limit=1&filter=volume:" +
+                 issue.volume.id + ",issue_number:" + (issue.issue_number + 1))
+        .then(response => response.json())}
+
+const findPrevIssue = (issue) => {
+    return fetch("https://cv-proxy.herokuapp.com/https://comicvine.gamespot.com/api/issues/" +
+                 "?api_key=609b66edd3d828492cadbe8b2cc825f2d712aaef&format=json&limit=1&filter=volume:" +
+                 issue.volume.id + ",issue_number:" + (issue.issue_number - 1))
+        .then(response => response.json())}
+
 export default {
     search,
     findIssueById,
