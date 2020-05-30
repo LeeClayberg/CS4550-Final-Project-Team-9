@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchService from "../services/SearchService";
-import RelatedCover from "./RelatedCover";
+import HomeCover from "./HomeCover";
 
 class Home extends React.Component {
     state = {
@@ -30,7 +30,7 @@ class Home extends React.Component {
                             <div className="row row-cols-5 wbdv-cover-row">
                                 {
                                     this.state.issues.map(issue =>
-                                                               <RelatedCover
+                                                               <HomeCover
                                                                    id={issue.id}
                                                                    issue={issue}/>)
                                 }
