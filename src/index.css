@@ -414,5 +414,44 @@ a:hover {
   padding: 2px;
 }
 
+.wbdv-home-info {
+  background-color: #e9ecef;
+  border: 2px solid black;
+  margin-top: 30px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.wbdv-home-row {
+  margin-top: 20px;
+}
+
+.wbdv-home-issues {
+  background-color: #e9ecef;
+  border: 2px solid black;
+  padding: 20px;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.wbdv-home-issues-header {
+  background-color: #DDDDDD;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-home-login {
+  background-color: #e9ecef;
+  border: 2px solid black;
+  height: 30px;
+  padding: 20px;
+  width: 100%;
+  font-size: 18px;
+}
+
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";

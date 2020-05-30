@@ -20,7 +20,7 @@ class SearchResults extends React.Component {
     }
 
     search = (page) =>
-        SearchService.search(this.props.match.params.query, page)
+        SearchService.search(this.props.match.params.query, page, 12)
             .then(pageInfo =>
                       this.setState({
                                         page: page,
