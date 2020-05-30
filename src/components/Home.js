@@ -48,7 +48,7 @@ class Home extends React.Component {
                             </div>
                             <div className="wbdv-home-login-field font-weight-bold" align="left">
                                 Password
-                                <input type="text"
+                                <input type="password"
                                        className="form-control wbdv-login-field"
                                        placeholder="password"/>
                             </div>

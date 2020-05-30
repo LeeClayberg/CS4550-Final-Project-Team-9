@@ -282,6 +282,29 @@ a:hover {
   padding: 0px 0px 2px;
 }
 
+.wbdv-review-row {
+  margin: 0px;
+}
+
+.wbdv-review-top-col {
+  padding: 4px 0px 0px;
+  letter-spacing: 5px;
+}
+
+.wbdv-review-star {
+  font-size: 20px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+.wbdv-review-star-filled {
+  color: #888888;
+}
+
+.wbdv-review-star-blank {
+  color: white;
+}
+
 .wbdv-review-title {
   background-color: #DDDDDD;
   color: black;
