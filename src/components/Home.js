@@ -2,6 +2,7 @@ import React from 'react'
 import SearchService from "../services/SearchService";
 import HomeCover from "./HomeCover";
 import RecentReviews from "./RecentReviews";
+import {Link} from "react-router-dom";
 
 class Home extends React.Component {
     state = {
@@ -61,7 +62,11 @@ class Home extends React.Component {
                             </button>
                             <span className="row">
                                 <div className="col-6 wbdv-home-small-login-btn" align="left">
-                                    Register
+                                    <Link to={`/register`}>
+                                        <span className="wbdv-small-btn-color">
+                                            Register
+                                        </span>
+                                    </Link>
                                 </div>
                                 <div className="col-6 wbdv-home-small-login-btn" align="right">
                                     Forgot Password?

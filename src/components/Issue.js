@@ -223,18 +223,23 @@ class Issue extends React.Component {
                         <ul className="list-group wbdv-review-list">
                             <IssueReview
                                 name={"John Wigner"}
+                                stars={4}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                stars={5}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                stars={3}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                stars={2}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                stars={3}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                         </ul>
                     </div>

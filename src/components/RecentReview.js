@@ -2,6 +2,12 @@ import React from 'react'
 
 class RecentReview extends React.Component {
     render() {
+        let elements=[];
+        for (let i = 0; i < 5; i++) {
+            i < this.props.stars?
+            elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-filled"/>):
+            elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>);
+        }
         return (
             <li className="list-group-item wbdv-review">
                 <span className="row wbdv-review-row">
@@ -16,11 +22,7 @@ class RecentReview extends React.Component {
                         </div>
                         <div className="col-7 wbdv-review-top-col">
                             <span className="float-right">
-                                <i className="fa fa-star wbdv-review-star wbdv-review-star-filled"/>
-                                <i className="fa fa-star wbdv-review-star wbdv-review-star-filled"/>
-                                <i className="fa fa-star wbdv-review-star wbdv-review-star-filled"/>
-                                <i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>
-                                <i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>
+                                {elements}
                             </span>
                         </div>
                     </div>

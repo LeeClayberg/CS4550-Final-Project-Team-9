@@ -307,8 +307,8 @@ a:hover {
 }
 
 .wbdv-review-title {
-  background-color: #DDDDDD;
-  color: black;
+  background-color: #3AB1E3;
+  color: white;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -321,7 +321,8 @@ a:hover {
 }
 
 .wbdv-review-add {
-  background-color: #DDDDDD;
+  background-color: #3AB1E3;
+  color: white;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -371,7 +372,8 @@ a:hover {
 }
 
 .wbdv-issue-related-header {
-  background-color: #DDDDDD;
+  background-color: #3AB1E3;
+  color: white;
   margin-top: 20px;
   border-radius: 0px;
   border: 2px solid black;
@@ -460,7 +462,8 @@ a:hover {
 }
 
 .wbdv-home-issues-header {
-  background-color: #DDDDDD;
+  background-color: #3AB1E3;
+  color: white;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -492,7 +495,7 @@ a:hover {
 }
 
 .wbdv-home-login-btn {
-  background-color: #3AB1E3;
+  background-color: #FF303A;
   color: white;
   border-radius: 0px;
   border: 2px solid black;
@@ -525,7 +528,8 @@ a:hover {
 }
 
 .wbdv-recent-reviews-header {
-  background-color: #DDDDDD;
+  background-color: #3AB1E3;
+  color: white;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -590,7 +594,7 @@ a:hover {
 }
 
 .wbdv-login-btn {
-  background-color: #3AB1E3;
+  background-color: #FF303A;
   color: white;
   border-radius: 0px;
   border: 2px solid black;
@@ -639,7 +643,7 @@ a:hover {
 }
 
 .wbdv-register-btn {
-  background-color: #3AB1E3;
+  background-color: #FF303A;
   color: white;
   border-radius: 0px;
   border: 2px solid black;
