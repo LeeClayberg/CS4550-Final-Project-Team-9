@@ -1,5 +1,6 @@
 import React from 'react'
 import RecentReviews from "./RecentReviews";
+import {Link} from "react-router-dom";
 
 class Login extends React.Component {
 
@@ -33,10 +34,14 @@ class Login extends React.Component {
                             </button>
                             <span className="row">
                                 <div className="col-6 wbdv-small-login-btn" align="left">
-                                    Register
+                                    Forgot Password?
                                 </div>
                                 <div className="col-6 wbdv-small-login-btn" align="right">
-                                    Forgot Password?
+                                    <Link to={`/register`}>
+                                        <span className="wbdv-small-btn-color">
+                                            Register
+                                        </span>
+                                    </Link>
                                 </div>
                             </span>
                         </div>
