@@ -11,6 +11,11 @@ a:hover {
   text-decoration: none;
 }
 
+.form-control[readonly] {
+  background-color: #cccccc;
+  opacity: 1;
+}
+
 /* Navbar */
 
 .wbdv-navbar-settings {
@@ -696,6 +701,12 @@ a:hover {
   background-color: #CCCCCC;
   border-radius: 0px;
   border: 2px solid black;
+  padding: 0px;
+}
+
+.wbdv-profile-picture-format {
+  width: 100%;
+  height: 100%;
 }
 
 .wbdv-simple-info {
@@ -737,11 +748,24 @@ a:hover {
 }
 
 .wbdv-profile-left-col {
-  padding: 0px 20px 0px 0px;
+  padding: 0px 10px 0px 0px;
 }
 
 .wbdv-profile-right-col {
-  padding: 0px 0px 20px 0px;
+  padding: 0px 0px 0px 10px;
+}
+
+.wbdv-update-profile {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bolder;
+  margin: 33px 0px 0px;
+  padding: 0px;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";

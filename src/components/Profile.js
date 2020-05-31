@@ -11,11 +11,12 @@ class Profile extends React.Component {
         return (
             <span>
                 <div className="row">
-                    <div className="col-7">
+                    <div className="col-lg-7">
                         <div className="wbdv-profile-info">
                             <div className="row wbdv-profile-row">
                                 <span className="col-5 wbdv-profile-picture">
-                                    hello
+                                    <img className="wbdv-profile-picture-format" src={"https://upload.wikimedia.org/wikipedia/commons/3/34/PICA.jpg"}
+                                         alt="Card image cap"/>
                                 </span>
                                 <span className="col-7 wbdv-simple-info wbdv-profile-field-labels">
                                     <div className="">
@@ -70,24 +71,27 @@ class Profile extends React.Component {
                                 <span className="col-7 wbdv-profile-first-name-col">
                                     City
                                     <input type="text"
-                                           className="form-control wbdv-profile-field"/>
+                                           className="form-control wbdv-profile-field"
+                                           placeholder="City"/>
                                 </span>
                                 <span className="col-2 wbdv-profile-last-name-col">
                                     State
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
-                                           maxlength="2"/>
+                                           maxlength="2"
+                                           placeholder="State"/>
                                 </span>
                                 <span className="col-3 wbdv-profile-last-name-col">
                                     Zip
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
-                                           maxlength="5"/>
+                                           maxlength="5"
+                                           placeholder="Zip"/>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div className="col-5">
+                    <div className="col-lg-5">
                         <div className="wbdv-profile-info">
                             <span className="wbdv-profile-field-labels">
                                 <div>
@@ -110,11 +114,13 @@ class Profile extends React.Component {
                                                className="form-control wbdv-profile-field"
                                                placeholder="Beginner" readOnly/>
                                     </span>
+                                </div>
+                                <div className="row wbdv-profile-row wbdv-profile-field-group">
                                     <span className="col-6 wbdv-profile-left-col">
                                         Active Since
                                         <input type="date"
                                                className="form-control wbdv-profile-field"
-                                               placeholder="collector" readOnly/>
+                                               placeholder="1970-01-01" readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         ID Number
@@ -123,6 +129,10 @@ class Profile extends React.Component {
                                                placeholder="87437537" readOnly/>
                                     </span>
                                 </div>
+                                <button className="btn wbdv-update-profile"
+                                        onClick={() => alert("Will update the collectors information\nin the database")}>
+                                    Update
+                                </button>
                             </span>
                         </div>
                     </div>
