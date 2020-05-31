@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchService from "../services/SearchService";
 import HomeCover from "./HomeCover";
-import RecentReview from "./RecentReview";
+import RecentReviews from "./RecentReviews";
 
 class Home extends React.Component {
     state = {
@@ -13,7 +13,9 @@ class Home extends React.Component {
             .then(pageInfo =>
                 this.setState({
                     issues: pageInfo.results
-                }))}
+                }));
+        window.scrollTo({top: 0, behavior: "smooth"});
+    }
 
     render() {
         return (
@@ -68,36 +70,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </span>
-                <div className="wbdv-recent-reviews">
-                    <div className="wbdv-recent-reviews-header">
-                        Recent Reviews
-                    </div>
-                    {
-                        this.state.issues.length > 0 &&
-                        <span className="row">
-                        <div className="col-md-6">
-                            <RecentReview
-                                cover={this.state.issues[0].image.super_url}
-                                name={"John Wigner"}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            <RecentReview
-                                cover={this.state.issues[1].image.super_url}
-                                name={"John Wigner"}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                        </div>
-                        <div className="col-md-6">
-                            <RecentReview
-                                cover={this.state.issues[2].image.super_url}
-                                name={"John Wigner"}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            <RecentReview
-                                cover={this.state.issues[3].image.super_url}
-                                name={"John Wigner"}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                        </div>
-                        </span>
-                    }
-                </div>
+                <RecentReviews issues={this.state.issues}/>
             </span>
         )
     }

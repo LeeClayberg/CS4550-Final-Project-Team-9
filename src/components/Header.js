@@ -18,14 +18,16 @@ class Header extends React.Component {
                 <div className="wbdv-long-bar">
                     <div className="row wbdv-top-bar-height">
                         <div className="col-3 wbdv-top-bar-height">
-                            <img className="d-lg-none wbdv-small_logo align-middle"
-                                 src={require('../ComicStack.png')}
-                                 alt="Card image cap"/>
-                            <div className="d-none d-lg-block wbdv-logo-section">
-                                <img className="wbdv-logo align-middle"
+                            <Link to={`/`}>
+                                <img className="d-lg-none wbdv-small_logo align-middle"
                                      src={require('../ComicStack.png')}
                                      alt="Card image cap"/>
-                            </div>
+                                <div className="d-none d-lg-block wbdv-logo-section">
+                                    <img className="wbdv-logo align-middle"
+                                         src={require('../ComicStack.png')}
+                                         alt="Card image cap"/>
+                                </div>
+                            </Link>
                         </div>
                         <div className="col-7 col-md-6 wbdv-top-bar-height">
                             <div className="input-group wbdv-search-group">
