@@ -28,10 +28,9 @@ class Login extends React.Component {
                                        className="form-control wbdv-login-field"
                                        placeholder="password"/>
                             </div>
-                            <button className="btn wbdv-login-btn"
-                                    onClick={() => alert("This eventually will be a way for a collector to login")}>
+                            <Link className="btn wbdv-login-btn" to={`/profile`}>
                                 Login
-                            </button>
+                            </Link>
                             <span className="row">
                                 <div className="col-6 wbdv-small-login-btn" align="left">
                                     Forgot Password?

@@ -56,10 +56,9 @@ class Home extends React.Component {
                                        className="form-control wbdv-home-login-field"
                                        placeholder="password"/>
                             </div>
-                            <button className="btn wbdv-home-login-btn"
-                                onClick={() => alert("This eventually will be a way for a collector to login")}>
+                            <Link className="btn wbdv-home-login-btn" to={`/profile`}>
                                 Login
-                            </button>
+                            </Link>
                             <span className="row">
                                 <div className="col-6 wbdv-home-small-login-btn" align="left">
                                     <Link to={`/register`}>

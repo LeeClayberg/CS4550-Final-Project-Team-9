@@ -6,6 +6,7 @@ import Issue from "./Issue"
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
+import Profile from "./Profile";
 
 class ComicStack extends React.Component {
     render() {
@@ -13,11 +14,12 @@ class ComicStack extends React.Component {
             <BrowserRouter>
                 <Header/>
                 <div className="container">
-                    <Route path="/search/:query" exact={true} component={SearchResults}/>
                     <Route path="/" exact={true} component={Home}/>
+                    <Route path="/search/:query" exact={true} component={SearchResults}/>
+                    <Route path="/issue/:id" exact={true} component={Issue}/>
                     <Route path="/login" exact={true} component={Login}/>
                     <Route path="/register" exact={true} component={Register}/>
-                    <Route path="/issue/:id" exact={true} component={Issue}/>
+                    <Route path="/profile" exact={true} component={Profile}/>
                 </div>
             </BrowserRouter>
         )

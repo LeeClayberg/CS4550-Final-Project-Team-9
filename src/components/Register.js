@@ -34,10 +34,9 @@ class Register extends React.Component {
                                        className="form-control wbdv-register-field"
                                        placeholder="password"/>
                             </div>
-                            <button className="btn wbdv-register-btn"
-                                    onClick={() => alert("This eventually will be a way for a collector to register")}>
+                            <Link className="btn wbdv-register-btn" to={`/profile`}>
                                 Sign up
-                            </button>
+                            </Link>
                             <span className="row">
                                 <div className="col-6"/>
                                 <div className="col-6 wbdv-small-register-btn" align="right">
