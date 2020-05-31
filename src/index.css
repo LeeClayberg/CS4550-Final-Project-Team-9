@@ -92,6 +92,7 @@ a:hover {
 
 .wbdv-profile-img {
   background-color: white;
+  color: black;
   position: absolute;
   top: -5px;
   right: 20px;
@@ -477,11 +478,11 @@ a:hover {
   margin-bottom: 20px;
 }
 
-.wbdv-home-login-field {
+.wbdv-home-login-size {
   font-size: 14px;
 }
 
-.wbdv-login-field {
+.wbdv-home-login-field {
   background-color: white;
   color: black;
   border-radius: 0px;
@@ -490,7 +491,7 @@ a:hover {
   font-size: 14px;
 }
 
-.wbdv-login-btn {
+.wbdv-home-login-btn {
   background-color: #3AB1E3;
   color: white;
   border-radius: 0px;
@@ -503,7 +504,7 @@ a:hover {
   padding: 2px;
 }
 
-.wbdv-small-login-btn {
+.wbdv-home-small-login-btn {
   font-size: 12px;
   font-weight: bolder;
 }
@@ -559,6 +560,51 @@ a:hover {
   display: -webkit-box;
   -webkit-line-clamp: 4; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.wbdv-login-section {
+  background-color: #e9ecef;
+  border: 2px solid black;
+  margin-top: 30px;
+  padding: 40px 20px;
+  font-size: 40px;
+  min-height: 481px;
+}
+
+.wbdv-login-header {
+  font-size: 60px;
+}
+
+.wbdv-login-group {
+  padding-top: 5px;
+  font-size: 18px;
+}
+
+.wbdv-login-field {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.wbdv-login-btn {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bolder;
+  margin: 5px 0px;
+  padding: 0px;
+}
+
+.wbdv-small-login-btn {
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";

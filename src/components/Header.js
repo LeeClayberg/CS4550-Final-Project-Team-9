@@ -51,9 +51,11 @@ class Header extends React.Component {
                             <div className="d-none d-md-block wbdv-profile-text font-weight-bold">
                                 Account
                             </div>
-                            <div className="wbdv-profile-img">
-                                <i className="fa fa-user fa-2x wbdv-user-icon"></i>
-                            </div>
+                            <Link to={`/login`}>
+                                <div className="wbdv-profile-img">
+                                    <i className="fa fa-user fa-2x wbdv-user-icon"></i>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -43,34 +43,34 @@ class Home extends React.Component {
                     <div className="col-md-4 wbdv-home-col">
                         <div className="wbdv-home-login" align="center">
                             Login
-                            <div className="wbdv-home-login-field font-weight-bold" align="left">
+                            <div className="wbdv-home-login-size font-weight-bold" align="left">
                                 Username
                                 <input type="text"
-                                       className="form-control wbdv-login-field"
+                                       className="form-control wbdv-home-login-field"
                                        placeholder="username"/>
                             </div>
-                            <div className="wbdv-home-login-field font-weight-bold" align="left">
+                            <div className="wbdv-home-login-size font-weight-bold" align="left">
                                 Password
                                 <input type="password"
-                                       className="form-control wbdv-login-field"
+                                       className="form-control wbdv-home-login-field"
                                        placeholder="password"/>
                             </div>
-                            <button className="btn wbdv-login-btn"
+                            <button className="btn wbdv-home-login-btn"
                                 onClick={() => alert("This eventually will be a way for a collector to login")}>
                                 Login
                             </button>
                             <span className="row">
-                                <div className="col-6 wbdv-small-login-btn" align="left">
+                                <div className="col-6 wbdv-home-small-login-btn" align="left">
                                     Register
                                 </div>
-                                <div className="col-6 wbdv-small-login-btn" align="right">
+                                <div className="col-6 wbdv-home-small-login-btn" align="right">
                                     Forgot Password?
                                 </div>
                             </span>
                         </div>
                     </div>
                 </span>
-                <RecentReviews issues={this.state.issues}/>
+                <RecentReviews/>
             </span>
         )
     }
