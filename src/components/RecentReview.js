@@ -12,7 +12,8 @@ class RecentReview extends React.Component {
             <li className="list-group-item wbdv-review">
                 <span className="row wbdv-review-row">
                     <div className="col-3 wbdv-recent-review-cover-col">
-                        <img className="wbdv-recent-review-cover" src={this.props.cover}
+                        <img className="btn wbdv-recent-review-cover" src={this.props.cover}
+                             onClick={() => alert("Will go to reviewed issue")}
                              alt="Card image cap"/>
                     </div>
                     <div className="col-9 wbdv-recent-review-text-col">

@@ -11,6 +11,8 @@ a:hover {
   text-decoration: none;
 }
 
+/* Navbar */
+
 .wbdv-navbar-settings {
   height: 200px;
   padding: 0px;
@@ -115,6 +117,8 @@ a:hover {
   left: 14px;
 }
 
+/* Search Area */
+
 .wbdv-search-area {
   background-color: #e9ecef;
   border: 2px solid black;
@@ -123,8 +127,7 @@ a:hover {
 }
 
 .wbdv-search-area-top {
-  padding: 20px 10px;
-  padding-top: 0px;
+  padding: 0px 10px 20px;
   font-size: 24px;
 }
 
@@ -134,7 +137,7 @@ a:hover {
   border-radius: 0px;
   border: 2px solid black;
   margin: 0px;
-  padding: 10px
+  padding: 10px;
 }
 
 .wbdv-card-img {
@@ -171,6 +174,8 @@ a:hover {
 .wbdv-current-page {
   background-color: #BBBBBB;
 }
+
+/* Issue */
 
 .wbdv-issue-info {
   background-color: #e9ecef;
@@ -283,6 +288,34 @@ a:hover {
   padding: 0px 0px 2px;
 }
 
+.wbdv-issue-related-header {
+  background-color: #3AB1E3;
+  color: white;
+  margin-top: 20px;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-cover-row {
+  margin: 0px;
+}
+
+.wbdv-related-cover-col {
+  margin-top: 5px;
+  padding: 1.5%;
+}
+
+.wbdv-related-cover {
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
+}
+
+/* Issue Review */
+
 .wbdv-review-row {
   margin: 0px;
 }
@@ -371,31 +404,7 @@ a:hover {
   -webkit-box-orient: vertical;
 }
 
-.wbdv-issue-related-header {
-  background-color: #3AB1E3;
-  color: white;
-  margin-top: 20px;
-  border-radius: 0px;
-  border: 2px solid black;
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bolder;
-}
-
-.wbdv-cover-row {
-  margin: 0px;
-}
-
-.wbdv-related-cover-col {
-  margin-top: 5px;
-  padding: 1.5%;
-}
-
-.wbdv-related-cover {
-  border-radius: 0px;
-  border: 2px solid black;
-  width: 100%;
-}
+/* Add box */
 
 .wbdv-add-box {
   position: absolute;
@@ -439,6 +448,8 @@ a:hover {
   margin: 5px 0px;
   padding: 2px;
 }
+
+/* Home */
 
 .wbdv-home-info {
   background-color: #e9ecef;
@@ -517,6 +528,8 @@ a:hover {
   padding: 1.5%;
 }
 
+/* Recent Reviews */
+
 .wbdv-recent-reviews {
   background-color: #e9ecef;
   border: 2px solid black;
@@ -545,6 +558,7 @@ a:hover {
   border-radius: 0px;
   border: 2px solid black;
   width: 100%;
+  padding: 0px;
   max-height: 163px;
 }
 
@@ -565,6 +579,8 @@ a:hover {
   -webkit-line-clamp: 4; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+
+/* Login */
 
 .wbdv-login-section {
    background-color: #e9ecef;
@@ -615,6 +631,8 @@ a:hover {
   color: black;
 }
 
+/* Register */
+
 .wbdv-register-section {
   background-color: #e9ecef;
   border: 2px solid black;
@@ -658,6 +676,72 @@ a:hover {
 .wbdv-small-register-btn {
   font-size: 16px;
   font-weight: bolder;
+}
+
+/* Profile */
+
+.wbdv-profile-info {
+  background-color: #e9ecef;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.wbdv-profile-row {
+  margin: 0px;
+}
+
+.wbdv-profile-picture {
+  background-color: #CCCCCC;
+  border-radius: 0px;
+  border: 2px solid black;
+}
+
+.wbdv-simple-info {
+  padding: 0px 0px 0px 20px;
+}
+
+.wbdv-profile-field-labels {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.wbdv-profile-field-group {
+  margin-top: 5px;
+}
+
+.wbdv-profile-field {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  font-size: 16px;
+}
+
+.wbdv-bio-field {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  font-size: 16px;
+  max-lines: 4;
+}
+
+.wbdv-profile-first-name-col {
+  padding: 0px;
+}
+
+.wbdv-profile-last-name-col {
+  padding: 0px 0px 0px 20px;
+}
+
+.wbdv-profile-left-col {
+  padding: 0px 20px 0px 0px;
+}
+
+.wbdv-profile-right-col {
+  padding: 0px 0px 20px 0px;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
