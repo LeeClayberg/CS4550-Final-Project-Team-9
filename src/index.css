@@ -299,7 +299,7 @@ a:hover {
 }
 
 .wbdv-review-star-filled {
-  color: #3AB1E3;
+  color: #FF303A;
 }
 
 .wbdv-review-star-blank {
@@ -428,7 +428,7 @@ a:hover {
 }
 
 .wbdv-add-done-btn {
-  background-color: #888888;
+  background-color: #3AB1E3;
   color: white;
   border-radius: 0px;
   border: 2px solid black;
