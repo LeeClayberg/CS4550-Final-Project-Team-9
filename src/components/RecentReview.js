@@ -6,7 +6,7 @@ class RecentReview extends React.Component {
             <li className="list-group-item wbdv-review">
                 <span className="row wbdv-review-row">
                     <div className="col-3 wbdv-recent-review-cover-col">
-                        <img className="wbdv-recent-review-cover" src={"https://comicvine1.cbsistatic.com/uploads/scale_large/0/229/133387-18005-110333-1-action-comics.jpg"}
+                        <img className="wbdv-recent-review-cover" src={this.props.cover}
                              alt="Card image cap"/>
                     </div>
                     <div className="col-9 wbdv-recent-review-text-col">
