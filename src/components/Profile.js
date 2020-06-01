@@ -30,6 +30,7 @@ class Profile extends React.Component {
                                         Username
                                         <input type="text"
                                             className="form-control wbdv-profile-field wbdv-username"
+                                               value="John Wigner"
                                             placeholder="username" readOnly/>
                                     </div>
                                     <div className="wbdv-profile-field-group">
@@ -85,14 +86,14 @@ class Profile extends React.Component {
                                     State
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
-                                           maxlength="2"
+                                           maxLength="2"L
                                            placeholder="State"/>
                                 </span>
                                 <span className="col-3 wbdv-profile-last-name-col">
                                     Zip
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
-                                           maxlength="5"
+                                           maxLength="5"
                                            placeholder="Zip"/>
                                 </span>
                             </div>
@@ -113,13 +114,13 @@ class Profile extends React.Component {
                                         Role
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               placeholder="Collector" readOnly/>
+                                               value="Collector" readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         Level
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               placeholder="Beginner" readOnly/>
+                                               value="Beginner" readOnly/>
                                     </span>
                                 </div>
                                 <div className="row wbdv-profile-row wbdv-profile-field-group">
@@ -127,13 +128,13 @@ class Profile extends React.Component {
                                         Active Since
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               placeholder="1970-01-01" readOnly/>
+                                               value="1970-01-01" readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         ID Number
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               placeholder="87437537" readOnly/>
+                                               value="87437537" readOnly/>
                                     </span>
                                 </div>
                                 <button className="btn wbdv-update-profile"
@@ -146,10 +147,10 @@ class Profile extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-lg-8">
-                        <Link>
+                        <Link to={`/profile/collection`}>
                             <div className="wbdv-profile-collection overflow-hidden">
                                 <div className="wbdv-profile-collection-header">
-                                    Collection
+                                    My Collection
                                 </div>
                                 <div className="row row-cols-5 wbdv-cover-row">
                                     <ProfileCover/><ProfileCover/><ProfileCover/>
@@ -165,7 +166,7 @@ class Profile extends React.Component {
                         <Link>
                             <div className="wbdv-profile-reviews overflow-hidden">
                                 <div className="wbdv-profile-review-header">
-                                    Reviews
+                                    My Reviews
                                 </div>
                                 <ProfileReview
                                     cover={require("../TempCover.png")}
@@ -176,11 +177,6 @@ class Profile extends React.Component {
                                     cover={require("../TempCover.png")}
                                     name={"John Wigner"}
                                     stars={5}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={2}
                                     text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                                 <ProfileReview
                                     cover={require("../TempCover.png")}

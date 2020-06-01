@@ -14,7 +14,7 @@ a:hover {
 
 .form-control[readonly] {
   background-color: #bbbbbb;
-  color: white;
+  width: 100%;
 }
 
 /* Navbar */
@@ -112,9 +112,9 @@ a:hover {
 
 .wbdv-profile-text {
   position: absolute;
-  right: 100px;
-  font-size: 30px;
-  padding: 0px;
+  right: 85px;
+  font-size: 22px;
+  padding: 5px;
 }
 
 .wbdv-user-icon {
@@ -774,15 +774,6 @@ a:hover {
 
 .wbdv-added-info {
   text-align: center;
-  font-weight: bold;
-}
-
-.wbdv-username::placeholder {
-  color: #eeeeee;
-}
-
-.wbdv-added-info::placeholder {
-  color: #eeeeee;
 }
 
 .add-picture-btn {
@@ -896,6 +887,80 @@ a:hover {
     margin: 0px;
     padding: 2px 0px;
     width: 100%;
+}
+
+/* Collection */
+
+.wbdv-collection {
+  background-color: #e9ecef;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 30px 0px 20px;
+  padding: 20px;
+}
+
+.wbdv-collection-header {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.4em;
+  padding: 3px;
+  font-weight: bolder;
+}
+
+.wbdv-collection-dropdown {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  font-size: 16px;
+  height: 100%;
+}
+
+.wbdv-collection-search-col {
+  padding: 0px 10px 20px;
+  margin: 0px;
+}
+
+.wbdv-collection-search-labels {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.wbdv-collection-search-group {
+  margin: 0 auto;
+  border-radius: 0px;
+}
+
+.wbdv-collection-search-row {
+  padding: 10px 0px 0px;
+}
+
+.wbdv-collection-col {
+  padding: 0% 1.5% 1.5%;
+}
+
+.wbdv-collection-cover {
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
+}
+
+.wbdv-grade-box {
+  position: absolute;
+  background-color: #FFDF00;
+  color: black;
+  bottom: 11%;
+  right: 14%;
+  padding: 3px 5px;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";

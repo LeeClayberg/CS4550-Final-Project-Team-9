@@ -48,8 +48,8 @@ class Header extends React.Component {
                             </div>
                         </div>
                         <div className="col-2 col-md-3 wbdv-top-bar-height">
-                            <div className="d-none d-md-block wbdv-profile-text font-weight-bold">
-                                Account
+                            <div className="d-none d-md-block wbdv-profile-text">
+                                Login/Register
                             </div>
                             <Link to={`/login`}>
                                 <div className="wbdv-profile-img">

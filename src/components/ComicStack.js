@@ -7,6 +7,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile";
+import Collection from "./Collection";
 
 class ComicStack extends React.Component {
     render() {
@@ -20,6 +21,7 @@ class ComicStack extends React.Component {
                     <Route path="/login" exact={true} component={Login}/>
                     <Route path="/register" exact={true} component={Register}/>
                     <Route path="/profile" exact={true} component={Profile}/>
+                    <Route path="/profile/collection" exact={true} component={Collection}/>
                 </div>
             </BrowserRouter>
         )
