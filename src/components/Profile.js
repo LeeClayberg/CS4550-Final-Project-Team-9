@@ -1,5 +1,7 @@
 import React from 'react'
 import ProfileCover from "./ProfileCover";
+import ProfileReview from "./ProfileReview";
+import {Link} from "react-router-dom";
 
 class Profile extends React.Component {
 
@@ -144,25 +146,49 @@ class Profile extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-lg-8">
-                        <div className="wbdv-profile-collection">
-                            <div className="wbdv-profile-collection-header">
-                                Collection
+                        <Link>
+                            <div className="wbdv-profile-collection overflow-hidden">
+                                <div className="wbdv-profile-collection-header">
+                                    Collection
+                                </div>
+                                <div className="row row-cols-5 wbdv-cover-row">
+                                    <ProfileCover/><ProfileCover/><ProfileCover/>
+                                    <ProfileCover/><ProfileCover/><ProfileCover/>
+                                    <ProfileCover/><ProfileCover/><ProfileCover/>
+                                    <ProfileCover/><ProfileCover/><ProfileCover/>
+                                    <ProfileCover/><ProfileCover/><ProfileCover/>
+                                </div>
                             </div>
-                            <div className="row row-cols-5 wbdv-cover-row">
-                                <ProfileCover/><ProfileCover/>
-                                <ProfileCover/><ProfileCover/>
-                                <ProfileCover/><ProfileCover/>
-                                <ProfileCover/><ProfileCover/>
-                                <ProfileCover/><ProfileCover/>
-                            </div>
-                        </div>
+                        </Link>
                     </div>
                     <div className="col-lg-4">
-                        <div className="wbdv-profile-info">
-                            <div className="wbdv-profile-review-header">
-                                Reviews
+                        <Link>
+                            <div className="wbdv-profile-reviews overflow-hidden">
+                                <div className="wbdv-profile-review-header">
+                                    Reviews
+                                </div>
+                                <ProfileReview
+                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    name={"John Wigner"}
+                                    stars={3}
+                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                <ProfileReview
+                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    name={"John Wigner"}
+                                    stars={5}
+                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                <ProfileReview
+                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    name={"John Wigner"}
+                                    stars={2}
+                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                <ProfileReview
+                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    name={"John Wigner"}
+                                    stars={4}
+                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </span>
