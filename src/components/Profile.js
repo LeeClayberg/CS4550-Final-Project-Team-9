@@ -163,7 +163,7 @@ class Profile extends React.Component {
                         </Link>
                     </div>
                     <div className="col-lg-4">
-                        <Link>
+                        <Link to={`/profile/reviews`}>
                             <div className="wbdv-profile-reviews overflow-hidden">
                                 <div className="wbdv-profile-review-header">
                                     My Reviews

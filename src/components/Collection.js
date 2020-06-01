@@ -7,6 +7,10 @@ class Collection extends React.Component {
         searchString: ''
     }
 
+    componentDidMount() {
+        window.scrollTo({top: 0, behavior: "smooth"});
+    }
+
     updateSearchString = (newString) =>
         this.setState(prevState => ({
             searchString: newString

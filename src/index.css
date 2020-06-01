@@ -939,7 +939,7 @@ a:hover {
 }
 
 .wbdv-collection-col {
-  padding: 0% 1.5% 1.5%;
+  padding: 0% 1.5% 2%;
 }
 
 .wbdv-collection-cover {
@@ -952,7 +952,7 @@ a:hover {
   position: absolute;
   background-color: #FFDF00;
   color: black;
-  bottom: 11%;
+  bottom: 13%;
   right: 14%;
   padding: 3px 5px;
   border-radius: 0px;
@@ -962,6 +962,7 @@ a:hover {
   font-size: 18px;
   font-weight: bold;
 }
+
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
