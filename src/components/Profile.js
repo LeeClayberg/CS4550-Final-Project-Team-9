@@ -13,16 +13,21 @@ class Profile extends React.Component {
                 <div className="row">
                     <div className="col-lg-7">
                         <div className="wbdv-profile-info">
-                            <div className="row wbdv-profile-row">
-                                <span className="col-5 wbdv-profile-picture">
-                                    <img className="wbdv-profile-picture-format" src={"https://upload.wikimedia.org/wikipedia/commons/3/34/PICA.jpg"}
+                            <div className="row">
+                                <span className="col-md-5 wbdv-profile-picture-surround wbdv-profile-field-labels">
+                                    <div className="add-picture-btn">
+                                        <input type="file" className="add-picture-input"/>
+                                        <i className="fa fa-plus"/>
+                                    </div>
+                                    <img className="wbdv-profile-picture" src={"https://upload.wikimedia.org/wikipedia/commons/3/34/PICA.jpg"}
                                          alt="Card image cap"/>
+                                    Profile Picture
                                 </span>
-                                <span className="col-7 wbdv-simple-info wbdv-profile-field-labels">
+                                <span className="col-md-7 wbdv-simple-info wbdv-profile-field-labels">
                                     <div className="">
                                         Username
                                         <input type="text"
-                                            className="form-control wbdv-profile-field"
+                                            className="form-control wbdv-profile-field wbdv-username"
                                             placeholder="username" readOnly/>
                                     </div>
                                     <div className="wbdv-profile-field-group">
@@ -105,27 +110,27 @@ class Profile extends React.Component {
                                     <span className="col-6 wbdv-profile-left-col">
                                         Role
                                         <input type="text"
-                                               className="form-control wbdv-profile-field"
+                                               className="form-control wbdv-profile-field wbdv-added-info"
                                                placeholder="collector" readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         Level
                                         <input type="text"
-                                               className="form-control wbdv-profile-field"
+                                               className="form-control wbdv-profile-field wbdv-added-info"
                                                placeholder="Beginner" readOnly/>
                                     </span>
                                 </div>
                                 <div className="row wbdv-profile-row wbdv-profile-field-group">
                                     <span className="col-6 wbdv-profile-left-col">
                                         Active Since
-                                        <input type="date"
-                                               className="form-control wbdv-profile-field"
+                                        <input type="text"
+                                               className="form-control wbdv-profile-field wbdv-added-info"
                                                placeholder="1970-01-01" readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         ID Number
                                         <input type="text"
-                                               className="form-control wbdv-profile-field"
+                                               className="form-control wbdv-profile-field wbdv-added-info"
                                                placeholder="87437537" readOnly/>
                                     </span>
                                 </div>

@@ -216,7 +216,7 @@ class Issue extends React.Component {
                                          alert("This will eventually allow users to write a review about the \n"
                                                + "particular comic book issue")
                                      }}>
-                                    +
+                                    <i className="fa fa-plus"/>
                                 </button>
                             </span>
                         </span>
