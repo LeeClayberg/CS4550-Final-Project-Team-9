@@ -168,22 +168,22 @@ class Profile extends React.Component {
                                     Reviews
                                 </div>
                                 <ProfileReview
-                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    cover={require("../TempCover.png")}
                                     name={"John Wigner"}
                                     stars={3}
                                     text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                                 <ProfileReview
-                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    cover={require("../TempCover.png")}
                                     name={"John Wigner"}
                                     stars={5}
                                     text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                                 <ProfileReview
-                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    cover={require("../TempCover.png")}
                                     name={"John Wigner"}
                                     stars={2}
                                     text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                                 <ProfileReview
-                                    cover={"https://comicvine1.cbsistatic.com/uploads/scale_large/6/67663/7100380-16.jpg"}
+                                    cover={require("../TempCover.png")}
                                     name={"John Wigner"}
                                     stars={4}
                                     text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
