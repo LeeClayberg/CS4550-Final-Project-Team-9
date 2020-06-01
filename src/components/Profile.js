@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import ProfileCover from "./ProfileCover";
 
 class Profile extends React.Component {
 
@@ -111,7 +111,7 @@ class Profile extends React.Component {
                                         Role
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               placeholder="collector" readOnly/>
+                                               placeholder="Collector" readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         Level
@@ -139,6 +139,29 @@ class Profile extends React.Component {
                                     Update
                                 </button>
                             </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-8">
+                        <div className="wbdv-profile-collection">
+                            <div className="wbdv-profile-collection-header">
+                                Collection
+                            </div>
+                            <div className="row row-cols-5 wbdv-cover-row">
+                                <ProfileCover/><ProfileCover/>
+                                <ProfileCover/><ProfileCover/>
+                                <ProfileCover/><ProfileCover/>
+                                <ProfileCover/><ProfileCover/>
+                                <ProfileCover/><ProfileCover/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4">
+                        <div className="wbdv-profile-info">
+                            <div className="wbdv-profile-review-header">
+                                Reviews
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class RecentReview extends React.Component {
+class CoverReview extends React.Component {
     render() {
         let elements=[];
         for (let i = 0; i < 5; i++) {
@@ -11,12 +11,12 @@ class RecentReview extends React.Component {
         return (
             <li className="list-group-item wbdv-review">
                 <span className="row wbdv-review-row">
-                    <div className="col-3 wbdv-recent-review-cover-col">
-                        <img className="btn wbdv-recent-review-cover" src={this.props.cover}
+                    <div className="col-3 wbdv-covered-review-cover-col">
+                        <img className="btn wbdv-covered-review-cover" src={this.props.cover}
                              onClick={() => alert("Will go to reviewed issue")}
                              alt="Card image cap"/>
                     </div>
-                    <div className="col-9 wbdv-recent-review-text-col">
+                    <div className="col-9 wbdv-covered-review-text-col">
                     <div className="row wbdv-review-row">
                         <div className="col-5 wbdv-review-user text-truncate">
                             {this.props.name}
@@ -27,7 +27,7 @@ class RecentReview extends React.Component {
                             </span>
                         </div>
                     </div>
-                    <div className="wbdv-recent-review-message">
+                    <div className="wbdv-covered-review-message">
                         {this.props.text}
                     </div>
                     </div>
@@ -37,4 +37,4 @@ class RecentReview extends React.Component {
     }
 }
 
-export default RecentReview;
+export default CoverReview;
