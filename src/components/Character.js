@@ -105,12 +105,21 @@ class Character extends React.Component {
                                         <div className="col-6 wbdv-info-row-column font-weight-bold">
                                             First Issue:
                                         </div>
-                                        <div className="col-6 wbdv-info-row-column text-right text-truncate"
-                                            title={this.state.character.first_appeared_in_issue.name}>
-                                            <Link to={`/issue/${this.state.character.first_appeared_in_issue.id}`}
-                                                className={"wbdv-character-link"}>
-                                            {this.state.character.first_appeared_in_issue.name}
-                                            </Link>
+                                        <div className="col-6 wbdv-info-row-column text-right text-truncate wbdv-character-link"
+                                            title={this.state.character.first_appeared_in_issue.name?
+                                                   this.state.character.first_appeared_in_issue.name:
+                                                    "N/A"}>
+                                            {
+                                                this.state.character.first_appeared_in_issue.name?
+                                                <Link
+                                                    to={`/issue/${this.state.character.first_appeared_in_issue.id}`}
+                                                    className={"wbdv-character-link"}>
+                                                    {this.state.character.first_appeared_in_issue.name}
+                                                </Link>:
+                                                <span className="wbdv-no-link">
+                                                    N/A
+                                                </span>
+                                            }
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">

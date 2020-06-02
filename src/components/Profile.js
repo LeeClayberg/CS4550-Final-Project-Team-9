@@ -17,7 +17,7 @@ class Profile extends React.Component {
                         <div className="wbdv-profile-info">
                             <div className="row">
                                 <span className="col-md-5 wbdv-profile-picture-surround wbdv-profile-field-labels">
-                                    <div className="add-picture-btn">
+                                    <div className="btn add-picture-btn">
                                         <input type="file" className="add-picture-input"/>
                                         <i className="fa fa-plus"/>
                                     </div>
@@ -54,7 +54,7 @@ class Profile extends React.Component {
                                         </span>
                                     </div>
                                     <div className="wbdv-profile-field-group">
-                                        Email
+                                        Email (recovery)
                                         <input type="email"
                                                className="form-control wbdv-profile-field"
                                                placeholder="email@address.com"/>
@@ -103,10 +103,11 @@ class Profile extends React.Component {
                         <div className="wbdv-profile-info">
                             <span className="wbdv-profile-field-labels">
                                 <div>
-                                    Bio
+                                    Bio (220 characters max)
                                     <textarea
                                            rows="8"
-                                           className="form-control wbdv-profile-field"
+                                           maxlength="220"
+                                           className="form-control wbdv-profile-field wbdv-profile-textarea"
                                            placeholder="I am a ..."/>
                                 </div>
                                 <div className="row wbdv-profile-row wbdv-profile-field-group">

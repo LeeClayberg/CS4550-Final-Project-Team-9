@@ -785,6 +785,7 @@ a:hover {
   left: 25px;
   width: 30px;
   height: 30px;
+  padding: 0px;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -799,6 +800,12 @@ a:hover {
   top: 0;
   right: 0;
   opacity: 0;
+}
+
+.wbdv-profile-textarea {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  resize: none;
 }
 
 /* Profile Collection */
@@ -1053,7 +1060,37 @@ a:hover {
 }
 
 .wbdv-character-link {
+   color: red;
+ }
+
+.wbdv-no-link {
   color: black;
+}
+
+/* Public Profile */
+
+.wbdv-public-profile {
+  background-color: #e9ecef;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 30px 0px 0px;
+  padding: 10px 0px;
+}
+
+.wbdv-public-profile-picture {
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 0px 5px;
+  width: 100%;
+}
+
+.wbdv-public-profile-col {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.wbdv-public-profile-row {
+  margin: 5px 0px;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
