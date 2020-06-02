@@ -1008,7 +1008,6 @@ a:hover {
   border: 2px solid black;
 }
 
-
 .wbdv-character-info-row {
   height: 16.667%;
   margin: 0px;
@@ -1033,11 +1032,23 @@ a:hover {
 .wbdv-character-related {
   background-color: #3AB1E3;
   color: white;
+  margin-bottom: 10px;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
   font-size: 1.2em;
   font-weight: bolder;
+}
+
+.wbdv-character-related-cover-col {
+  margin-top: 5px;
+  padding: 1.25% 2.5%;
+}
+
+.wbdv-character-related-cover {
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
 }
 
 @import "~bootstrap/dist/css/bootstrap.min.css";

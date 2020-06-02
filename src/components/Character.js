@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import SearchService from "../services/SearchService";
 import parse, { domToReact } from 'html-react-parser';
+import CharacterRelatedCover from "./CharacterRelatedCover";
 
 class Character extends React.Component {
     state = {
@@ -25,7 +26,12 @@ class Character extends React.Component {
             .then(character => {
                 this.setState({
                                   character: character
-                              })});
+                              });
+                SearchService.characterRelated(character.name)
+                    .then(issues => {
+                        this.setState({
+                                          related: issues.results
+                                      })})})
 
     displayList = (character, i) => {
         return character.name +
@@ -126,8 +132,13 @@ class Character extends React.Component {
                         <div className="wbdv-character-related">
                             Related Comics
                         </div>
-                        <div className="row row-cols-2 wbdv-cover-row">
-
+                        <div className="row row-cols-3 row-cols-lg-2 wbdv-cover-row">
+                            {
+                                this.state.related.map(issue =>
+                                                           <CharacterRelatedCover
+                                                               id={issue.id}
+                                                               issue={issue}/>)
+                            }
                         </div>
                     </div>
                 </div>

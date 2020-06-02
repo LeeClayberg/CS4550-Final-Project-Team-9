@@ -64,6 +64,13 @@ const randomComics = () => {
                  current_date.getMilliseconds() + "&filter=cover_date:1938-06-30|1941-06-06", {headers: { 'Content-Type': 'application/json' }})
             .then(response => response.json())}
 
+const characterRelated = (content) => {
+    searchApi = (searchApi + 1) % keys.length;
+    return fetch(proxy + "https://comicvine.gamespot.com/api/" +
+                 "search/?api_key=" + keys[searchApi] + "&sortBy=name:asc" +
+                 "&resources=issue&format=json&limit=12&query=" + content)
+        .then(response => response.json())}
+
 export default {
     search,
     findIssueById,
@@ -71,5 +78,6 @@ export default {
     findRelatedIssues,
     findNextIssue,
     findPrevIssue,
-    randomComics
+    randomComics,
+    characterRelated
 }
