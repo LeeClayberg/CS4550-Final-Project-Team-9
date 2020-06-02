@@ -78,6 +78,12 @@ class Collection extends React.Component {
                     <CollectionCover/><CollectionCover/><CollectionCover/>
                     <CollectionCover/><CollectionCover/><CollectionCover/>
                     <CollectionCover/><CollectionCover/><CollectionCover/>
+                    <CollectionCover/><CollectionCover/><CollectionCover/>
+                    <CollectionCover/><CollectionCover/><CollectionCover/>
+                    <CollectionCover/><CollectionCover/><CollectionCover/>
+                    <CollectionCover/><CollectionCover/><CollectionCover/>
+                    <CollectionCover/><CollectionCover/><CollectionCover/>
+                    <CollectionCover/><CollectionCover/><CollectionCover/>
                 </div>
             </div>
         )

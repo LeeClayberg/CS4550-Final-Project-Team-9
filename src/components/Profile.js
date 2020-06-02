@@ -158,6 +158,8 @@ class Profile extends React.Component {
                                     <ProfileCover/><ProfileCover/><ProfileCover/>
                                     <ProfileCover/><ProfileCover/><ProfileCover/>
                                     <ProfileCover/><ProfileCover/><ProfileCover/>
+                                    <ProfileCover/><ProfileCover/><ProfileCover/>
+                                    <ProfileCover/><ProfileCover/>
                                 </div>
                             </div>
                         </Link>
