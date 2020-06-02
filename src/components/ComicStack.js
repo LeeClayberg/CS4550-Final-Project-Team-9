@@ -9,6 +9,7 @@ import Register from "./Register";
 import Profile from "./Profile";
 import Collection from "./Collection";
 import Reviews from "./Reviews";
+import Character from "./Character";
 
 class ComicStack extends React.Component {
     render() {
@@ -19,6 +20,7 @@ class ComicStack extends React.Component {
                     <Route path="/" exact={true} component={Home}/>
                     <Route path="/search/:query" exact={true} component={SearchResults}/>
                     <Route path="/issue/:id" exact={true} component={Issue}/>
+                    <Route path="/character/:id" exact={true} component={Character}/>
                     <Route path="/login" exact={true} component={Login}/>
                     <Route path="/register" exact={true} component={Register}/>
                     <Route path="/profile" exact={true} component={Profile}/>

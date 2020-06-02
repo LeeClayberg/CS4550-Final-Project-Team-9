@@ -7,6 +7,7 @@ const proxy = "https://cv-proxy.herokuapp.com/"
 var searchApi = 0;
 var issueApi = 0;
 var issuesApi = 0;
+var characterApi = 0;
 
 const search = (content, page, amountPerPage) => {
     searchApi = (searchApi + 1) % keys.length;
@@ -19,6 +20,12 @@ const findIssueById = (id) => {
     issueApi = (issueApi + 1) % keys.length;
     return fetch(proxy + "https://comicvine.gamespot.com/api/issue/4000-" +
             id + "/?api_key=" + keys[issueApi] + "&format=json")
+        .then(response => response.json())}
+
+const findCharacterById = (id) => {
+    characterApi = (characterApi + 1) % keys.length;
+    return fetch(proxy + "https://comicvine.gamespot.com/api/character/4005-" +
+                 id + "/?api_key=" + keys[characterApi] + "&format=json")
         .then(response => response.json())}
 
 const findRelatedIssues = (issue) => {
@@ -60,6 +67,7 @@ const randomComics = () => {
 export default {
     search,
     findIssueById,
+    findCharacterById,
     findRelatedIssues,
     findNextIssue,
     findPrevIssue,

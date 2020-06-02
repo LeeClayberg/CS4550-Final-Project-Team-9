@@ -999,6 +999,46 @@ a:hover {
   font-size: 19px;
 }
 
+/* Character */
+
+.wbdv-character-top-info {
+  background-color: #DDDDDD;
+  height: 54%;
+  border-radius: 0px;
+  border: 2px solid black;
+}
+
+
+.wbdv-character-info-row {
+  height: 16.667%;
+  margin: 0px;
+  font-size: 16px;
+  padding: 5px 0px;
+}
+
+.wbdv-character-top-chars {
+  background-color: #DDDDDD;
+  height: 41%;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.wbdv-character-related {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
