@@ -963,6 +963,42 @@ a:hover {
   font-weight: bold;
 }
 
+/* Reviews  */
+
+.wbdv-reviews {
+  background-color: #e9ecef;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 30px 0px 20px;
+  padding: 20px;
+}
+
+.wbdv-reviews-header {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.4em;
+  padding: 3px;
+  font-weight: bolder;
+}
+
+.wbdv-regular-review-message {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-top: 10px;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  font-size: 19px;
+}
+
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";

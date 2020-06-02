@@ -1,6 +1,5 @@
 import React from 'react'
-import CollectionCover from "./CollectionCover";
-import {Link} from "react-router-dom";
+import Review from "./Review";
 
 class Reviews extends React.Component {
 
@@ -10,16 +9,50 @@ class Reviews extends React.Component {
 
     render() {
         return (
-            <div className="wbdv-collection">
-                <div className="wbdv-collection-header">
-                    My Collection
+            <div className="wbdv-reviews">
+                <div className="wbdv-reviews-header">
+                    My Reviews
                 </div>
-                <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 wbdv-cover-row">
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                </div>
+                <span className="row">
+                    <div className="col-md-6">
+                        <Review
+                            cover={require("../TempCover.png")}
+                            name={"John Wigner"}
+                            stars={3}
+                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                    </div>
+                    <div className="col-md-6">
+                        <Review
+                            cover={require("../TempCover.png")}
+                            name={"John Wigner"}
+                            stars={1}
+                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                    </div>
+                    <div className="col-md-6">
+                        <Review
+                            cover={require("../TempCover.png")}
+                            stars={4}
+                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                    </div>
+                    <div className="col-md-6">
+                        <Review
+                            cover={require("../TempCover.png")}
+                            stars={3}
+                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                    </div>
+                    <div className="col-md-6">
+                        <Review
+                            cover={require("../TempCover.png")}
+                            stars={2}
+                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                    </div>
+                    <div className="col-md-6">
+                        <Review
+                            cover={require("../TempCover.png")}
+                            stars={5}
+                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                    </div>
+                </span>
             </div>
         )
     }

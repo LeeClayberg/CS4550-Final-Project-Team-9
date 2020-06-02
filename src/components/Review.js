@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ProfileReview extends React.Component {
+class Review extends React.Component {
     render() {
         let elements=[];
         for (let i = 0; i < 5; i++) {
@@ -9,19 +9,23 @@ class ProfileReview extends React.Component {
             elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>);
         }
         return (
-            <li className="list-group-item wbdv-profile-review">
+            <li className="list-group-item wbdv-review">
                 <span className="row wbdv-review-row">
                     <div className="col-3 wbdv-covered-review-cover-col">
                         <img className="btn wbdv-covered-review-cover" src={this.props.cover}
+                             onClick={() => alert("Will go to reviewed issue")}
                              alt="Card image cap"/>
                     </div>
                     <div className="col-9 wbdv-covered-review-text-col">
-                    <div className="wbdv-profile-review-row">
-                        <span className="float-right">
-                            {elements}
-                        </span>
+                    <div className="row wbdv-review-row">
+                        <div className="col-5"/>
+                        <div className="col-7 wbdv-review-top-col">
+                            <span className="float-right">
+                                {elements}
+                            </span>
+                        </div>
                     </div>
-                    <div className="wbdv-profile-review-message">
+                    <div className="wbdv-regular-review-message">
                         {this.props.text}
                     </div>
                     </div>
@@ -31,4 +35,4 @@ class ProfileReview extends React.Component {
     }
 }
 
-export default ProfileReview;
+export default Review;
