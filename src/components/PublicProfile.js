@@ -70,7 +70,6 @@ class PublicProfile extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-lg-8">
-                        <Link to={`/profile/collection`}>
                             <div className="wbdv-profile-collection overflow-hidden">
                                 <div className="wbdv-profile-collection-header">
                                     John Wigner's Collection
@@ -85,10 +84,8 @@ class PublicProfile extends React.Component {
                                     <ProfileCover/><ProfileCover/>
                                 </div>
                             </div>
-                        </Link>
                     </div>
                     <div className="col-lg-4">
-                        <Link to={`/profile/reviews`}>
                             <div className="wbdv-profile-reviews overflow-hidden">
                                 <div className="wbdv-profile-review-header">
                                     John Wigner's Reviews
@@ -109,7 +106,6 @@ class PublicProfile extends React.Component {
                                     stars={4}
                                     text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             </div>
-                        </Link>
                     </div>
                 </div>
             </span>

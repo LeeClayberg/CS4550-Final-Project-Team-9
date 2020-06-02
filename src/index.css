@@ -391,6 +391,7 @@ a:hover {
 
 .wbdv-review-user {
   background-color: white;
+  color: black;
   border-radius: 0px;
   border: 2px solid black;
   width: 50%;
@@ -409,6 +410,10 @@ a:hover {
   display: -webkit-box;
   -webkit-line-clamp: 4; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.wbdv-review-name-color {
+  color: black;
 }
 
 /* Add box */
@@ -1060,7 +1065,7 @@ a:hover {
 }
 
 .wbdv-character-link {
-   color: red;
+   color: #0099FF;
  }
 
 .wbdv-no-link {

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 class IssueReview extends React.Component {
     render() {
@@ -12,7 +13,11 @@ class IssueReview extends React.Component {
             <li className="list-group-item wbdv-review">
                 <div className="row wbdv-review-row">
                     <div className="col-5 wbdv-review-user">
-                        {this.props.name}
+                        <Link to={`/user/${87437537}`}>
+                            <span className="wbdv-review-name-color">
+                                {this.props.name}
+                            </span>
+                        </Link>
                     </div>
                     <div className="col-7 wbdv-review-top-col">
                         <span className="float-right">
@@ -20,7 +25,8 @@ class IssueReview extends React.Component {
                         </span>
                     </div>
                 </div>
-                <div className="wbdv-review-text">
+                <div className="wbdv-review-text"
+                     title={this.props.text}>
                     {this.props.text}
                 </div>
             </li>
