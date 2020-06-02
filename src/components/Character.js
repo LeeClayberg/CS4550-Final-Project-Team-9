@@ -78,7 +78,9 @@ class Character extends React.Component {
                                             Real Name:
                                         </div>
                                         <div className="col-6 wbdv-info-row-column text-right text-truncate">
-                                            {this.state.character.real_name}
+                                            {this.state.character.real_name?
+                                             this.state.character.real_name :
+                                             "N/A"}
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
@@ -86,7 +88,9 @@ class Character extends React.Component {
                                             Birth Date:
                                         </div>
                                         <div className="col-8 wbdv-info-row-column text-right text-truncate">
-                                            {this.state.character.birth}
+                                            {this.state.character.birth?
+                                             this.state.character.birth :
+                                             "N/A"}
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">

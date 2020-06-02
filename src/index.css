@@ -287,6 +287,7 @@ a:hover {
   border-radius: 0px;
   border: 2px solid black;
   padding: 8px;
+  overflow: hidden;
 }
 
 .wbdv-section-title {

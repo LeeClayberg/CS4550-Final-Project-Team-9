@@ -3,6 +3,7 @@ import SearchService from "../services/SearchService";
 import parse, { domToReact } from 'html-react-parser';
 import RelatedCover from "./RelatedCover";
 import IssueReview from "./IssueReview";
+import {Link} from "react-router-dom";
 
 class Issue extends React.Component {
     state = {
@@ -54,9 +55,15 @@ class Issue extends React.Component {
             )
 
     displayList = (character, i) => {
-        return character.name +
-            ((i < this.state.issue.character_credits.length - 1) ?
-            ", " : "")
+        return (
+            <span>
+                <Link to={`/character/${character.id}`} className={"wbdv-character-link"}>
+                    {character.name}
+                </Link>
+                {(i < this.state.issue.character_credits.length - 1) ?
+                 ", " : ""}
+            </span>
+        )
     }
 
     displayListTooltip = (character, i) => {
