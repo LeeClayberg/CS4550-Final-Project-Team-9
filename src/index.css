@@ -1051,5 +1051,9 @@ a:hover {
   width: 100%;
 }
 
+.wbdv-character-link {
+  color: black;
+}
+
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";

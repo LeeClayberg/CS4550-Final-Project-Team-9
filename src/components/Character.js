@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import SearchService from "../services/SearchService";
 import parse, { domToReact } from 'html-react-parser';
 import CharacterRelatedCover from "./CharacterRelatedCover";
+import {Link} from "react-router-dom";
 
 class Character extends React.Component {
     state = {
@@ -34,9 +35,15 @@ class Character extends React.Component {
                                       })})})
 
     displayList = (character, i) => {
-        return character.name +
-               ((i < this.state.character.character_enemies.length - 1) ?
-                ", " : "")
+        return (
+            <span>
+                <Link to={`/character/${character.id}`} className={"wbdv-character-link"}>
+                    {character.name}
+                </Link>
+                {(i < this.state.character.character_enemies.length - 1) ?
+                ", " : ""}
+            </span>
+        )
     }
 
     displayListTooltip = (character, i) => {
@@ -96,7 +103,10 @@ class Character extends React.Component {
                                         </div>
                                         <div className="col-6 wbdv-info-row-column text-right text-truncate"
                                             title={this.state.character.first_appeared_in_issue.name}>
+                                            <Link to={`/issue/${this.state.character.first_appeared_in_issue.id}`}
+                                                className={"wbdv-character-link"}>
                                             {this.state.character.first_appeared_in_issue.name}
+                                            </Link>
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
@@ -130,7 +140,7 @@ class Character extends React.Component {
                 <div className="col-lg-4">
                     <div className="wbdv-issue-reviews">
                         <div className="wbdv-character-related">
-                            Related Comics
+                            Related Issues
                         </div>
                         <div className="row row-cols-3 row-cols-lg-2 wbdv-cover-row">
                             {
