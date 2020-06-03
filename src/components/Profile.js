@@ -116,7 +116,7 @@ class Profile extends React.Component {
                                         Role
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               value="Collector" readOnly/>
+                                               value={this.props.match.params.type} readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         Level
@@ -212,7 +212,7 @@ class Profile extends React.Component {
                                     <div className="col-2 wbdv-admin-field-group">
                                         Role
                                     </div>
-                                    <div className="col-2 wbdv-admin-field-group">
+                                    <div className="col-2 d-none d-md-block wbdv-admin-field-group">
                                         ID
                                     </div>
                                     <div className="col-2 wbdv-admin-field-group"/>

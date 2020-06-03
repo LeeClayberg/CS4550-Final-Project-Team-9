@@ -780,6 +780,7 @@ a:hover {
 
 .wbdv-added-info {
   text-align: center;
+  text-transform: capitalize;
 }
 
 .add-picture-btn {
@@ -1104,7 +1105,7 @@ a:hover {
   background-color: #e9ecef;
   border-radius: 0px;
   border: 2px solid black;
-  margin: 30px 0px 20px;
+  margin: 30px 0px 0px;
   padding: 20px;
 }
 
@@ -1135,7 +1136,7 @@ a:hover {
 .wbdv-admin-entry {
   margin: 5px 0px 0px;
   font-size: 18px;
-  background-color: #CCCCCC;
+  background-color: #DDDDDD;
   border-radius: 0px;
   border: 2px solid black;
 }
@@ -1165,7 +1166,7 @@ a:hover {
 .wbdv-profile-admin-history-text {
   margin-top: 20px;
   padding: 2px 8px;
-  background-color: #CCCCCC;
+  background-color: #DDDDDD;
   border-radius: 0px;
   border: 2px solid black;
   font-size: 1.0em;
