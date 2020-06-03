@@ -1098,5 +1098,82 @@ a:hover {
   margin: 5px 0px;
 }
 
+/* Admin */
+
+.wbdv-profile-admin-list {
+  background-color: #e9ecef;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 30px 0px 20px;
+  padding: 20px;
+}
+
+.wbdv-profile-admin-list-header {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-admin-row {
+  margin: 0px 0px -5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.wbdv-admin-field-group {
+   padding: 5px 10px 0px ;
+ }
+
+.wbdv-admin-field-row {
+  padding: 1px 10px;
+}
+
+.wbdv-admin-entry {
+  margin: 5px 0px 0px;
+  font-size: 18px;
+  background-color: #CCCCCC;
+  border-radius: 0px;
+  border: 2px solid black;
+}
+
+.wbdv-admin-icon {
+  padding: 0px 0px 0px 10px;
+}
+
+.wbdv-profile-admin-history {
+  background-color: #e9ecef;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin: 30px 0px 20px;
+  padding: 20px;
+}
+
+.wbdv-profile-admin-history-header {
+  background-color: #3AB1E3;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.wbdv-profile-admin-history-text {
+  margin-top: 20px;
+  padding: 2px 8px;
+  background-color: #CCCCCC;
+  border-radius: 0px;
+  border: 2px solid black;
+  font-size: 1.0em;
+}
+
+.wbdv-admin-history-p {
+  margin-bottom: 0px;
+}
+
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";

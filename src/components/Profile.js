@@ -2,6 +2,7 @@ import React from 'react'
 import ProfileCover from "./ProfileCover";
 import ProfileReview from "./ProfileReview";
 import {Link} from "react-router-dom";
+import AdminRow from "./AdminRow";
 
 class Profile extends React.Component {
 
@@ -146,50 +147,116 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-lg-8">
-                        <Link to={`/profile/collection`}>
-                            <div className="wbdv-profile-collection overflow-hidden">
-                                <div className="wbdv-profile-collection-header">
-                                    My Collection
+                {
+                    this.props.match.params.type == 'collector' &&
+                    <div className="row">
+                        <div className="col-lg-8">
+                            <Link to={`/profile/collection`}>
+                                <div className="wbdv-profile-collection overflow-hidden">
+                                    <div className="wbdv-profile-collection-header">
+                                        My Collection
+                                    </div>
+                                    <div className="row row-cols-5 wbdv-cover-row">
+                                        <ProfileCover/><ProfileCover/><ProfileCover/>
+                                        <ProfileCover/><ProfileCover/><ProfileCover/>
+                                        <ProfileCover/><ProfileCover/><ProfileCover/>
+                                        <ProfileCover/><ProfileCover/><ProfileCover/>
+                                        <ProfileCover/><ProfileCover/><ProfileCover/>
+                                        <ProfileCover/><ProfileCover/><ProfileCover/>
+                                        <ProfileCover/><ProfileCover/>
+                                    </div>
                                 </div>
-                                <div className="row row-cols-5 wbdv-cover-row">
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/>
+                            </Link>
+                        </div>
+                        <div className="col-lg-4">
+                            <Link to={`/profile/reviews`}>
+                                <div className="wbdv-profile-reviews overflow-hidden">
+                                    <div className="wbdv-profile-review-header">
+                                        My Reviews
+                                    </div>
+                                    <ProfileReview
+                                        cover={require("../TempCover.png")}
+                                        name={"John Wigner"}
+                                        stars={3}
+                                        text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                    <ProfileReview
+                                        cover={require("../TempCover.png")}
+                                        name={"John Wigner"}
+                                        stars={5}
+                                        text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                    <ProfileReview
+                                        cover={require("../TempCover.png")}
+                                        name={"John Wigner"}
+                                        stars={4}
+                                        text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                }
+                {
+                    this.props.match.params.type == 'admin' &&
+                    <div className="row">
+                        <div className="col-lg-8">
+                            <div className="wbdv-profile-admin-list">
+                                <div className="wbdv-profile-admin-list-header">
+                                    User Information
+                                </div>
+                                <div className="row wbdv-admin-row">
+                                    <div className="col-3 wbdv-admin-field-group">
+                                        Username
+                                    </div>
+                                    <div className="col-3 wbdv-admin-field-group">
+                                        Password
+                                    </div>
+                                    <div className="col-2 wbdv-admin-field-group">
+                                        Role
+                                    </div>
+                                    <div className="col-2 wbdv-admin-field-group">
+                                        ID
+                                    </div>
+                                    <div className="col-2 wbdv-admin-field-group"/>
+                                </div>
+                                <span>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Admin" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Admin" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div className="col-lg-4">
+                            <div className="wbdv-profile-admin-history">
+                                <div className="wbdv-profile-admin-history-header">
+                                    User History
+                                </div>
+                                <div className="wbdv-profile-admin-history-text" align="left">
+                                    <p className="wbdv-admin-history-p">
+                                        013439 -- logout<br/>
+                                        013439 -- updated profile<br/>
+                                        013439 -- removed -- 548579<br/>
+                                        013439 -- added -- 968060<br/>
+                                        013439 -- added -- 548579<br/>
+                                        013439 -- login<br/>
+                                        017483 -- logout<br/>
+                                        017483 -- added -- 545235<br/>
+                                        017483 -- added -- 843994<br/>
+                                        017483 -- updated profile<br/>
+                                        017483 -- added -- 237287<br/>
+                                        017483 -- added -- 948293<br/>
+                                        017483 -- added -- 159905<br/>
+                                        017483 -- login
+                                    </p>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     </div>
-                    <div className="col-lg-4">
-                        <Link to={`/profile/reviews`}>
-                            <div className="wbdv-profile-reviews overflow-hidden">
-                                <div className="wbdv-profile-review-header">
-                                    My Reviews
-                                </div>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={3}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={5}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={4}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
+                }
             </span>
         )
     }

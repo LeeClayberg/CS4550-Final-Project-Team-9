@@ -1,7 +1,6 @@
 import React from 'react'
 import ProfileCover from "./ProfileCover";
 import ProfileReview from "./ProfileReview";
-import {Link} from "react-router-dom";
 
 class PublicProfile extends React.Component {
 
