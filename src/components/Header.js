@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 
 class Header extends React.Component {
     state = {
-        searchString: ''
+        searchString: '',
+        menuDown: false
     }
 
     updateSearchString = (newString) =>
@@ -48,14 +49,45 @@ class Header extends React.Component {
                             </div>
                         </div>
                         <div className="col-2 col-md-3 wbdv-top-bar-height">
-                            <div className="d-none d-md-block wbdv-profile-text">
-                                Login/Register
-                            </div>
                             <Link to={`/login`}>
-                                <div className="wbdv-profile-img">
-                                    <i className="fa fa-user fa-2x wbdv-user-icon"></i>
+                                <div className="d-none d-md-block wbdv-profile-text wbdv-no-link">
+                                    Login/Register
                                 </div>
                             </Link>
+                                <img className="btn wbdv-profile-img" src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
+                                     alt="Card image cap"
+                                     onClick={() => this.setState({
+                                          menuDown: !this.state.menuDown
+                                     })}/>
+                            {
+                                this.state.menuDown &&
+                                <div className="wbdv-header-dropdown" onClick={() => this.setState({
+                                        menuDown: false
+                                    })}>
+                                    <ul className="wbdv-header-dropdown-list">
+                                        <li className="list-group-item wbdv-header-dropdown-item">
+                                            <Link className="wbdv-no-link" to={`/profile/collector`}>
+                                                Profile
+                                            </Link>
+                                        </li>
+                                        <li className="list-group-item wbdv-header-dropdown-item">
+                                            <Link className="wbdv-no-link" to={`/collection`}>
+                                                Collection
+                                            </Link>
+                                        </li>
+                                        <li className="list-group-item wbdv-header-dropdown-item">
+                                            <Link className="wbdv-no-link" to={`/reviews`}>
+                                                Reviews
+                                            </Link>
+                                        </li>
+                                        <li className="list-group-item wbdv-header-dropdown-item">
+                                            <Link className="wbdv-no-link" to={`/`}>
+                                                Logout
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

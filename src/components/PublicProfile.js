@@ -14,7 +14,7 @@ class PublicProfile extends React.Component {
                 <div className="row wbdv-public-profile wbdv-profile-field-labels">
                     <span className="col-lg-2 wbdv-public-profile-col">
                         <img className="wbdv-public-profile-picture"
-                             src={"https://upload.wikimedia.org/wikipedia/commons/3/34/PICA.jpg"}
+                             src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
                              alt="Card image cap"/>
                     </span>
                     <span

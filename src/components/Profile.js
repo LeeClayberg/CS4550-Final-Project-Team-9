@@ -5,9 +5,18 @@ import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
 
 class Profile extends React.Component {
+    state = {
+        picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
+    }
 
     componentDidMount() {
         window.scrollTo({top: 0, behavior: "smooth"});
+    }
+
+    updateProfilePicture(event) {
+        this.setState({
+             picture: URL.createObjectURL(event.target.files[0])
+        })
     }
 
     render() {
@@ -19,10 +28,10 @@ class Profile extends React.Component {
                             <div className="row">
                                 <span className="col-md-5 wbdv-profile-picture-surround wbdv-profile-field-labels">
                                     <div className="btn add-picture-btn">
-                                        <input type="file" className="add-picture-input"/>
+                                        <input type="file" className="add-picture-input" onChange={(event) => this.updateProfilePicture(event)}/>
                                         <i className="fa fa-plus"/>
                                     </div>
-                                    <img className="wbdv-profile-picture" src={"https://upload.wikimedia.org/wikipedia/commons/3/34/PICA.jpg"}
+                                    <img className="wbdv-profile-picture" src={this.state.picture}
                                          alt="Card image cap"/>
                                     Profile Picture
                                 </span>
@@ -151,7 +160,7 @@ class Profile extends React.Component {
                     this.props.match.params.type == 'collector' &&
                     <div className="row">
                         <div className="col-lg-8">
-                            <Link to={`/profile/collection`}>
+                            <Link to={`/collection`}>
                                 <div className="wbdv-profile-collection overflow-hidden">
                                     <div className="wbdv-profile-collection-header">
                                         My Collection
@@ -169,7 +178,7 @@ class Profile extends React.Component {
                             </Link>
                         </div>
                         <div className="col-lg-4">
-                            <Link to={`/profile/reviews`}>
+                            <Link to={`/reviews`}>
                                 <div className="wbdv-profile-reviews overflow-hidden">
                                     <div className="wbdv-profile-review-header">
                                         My Reviews
