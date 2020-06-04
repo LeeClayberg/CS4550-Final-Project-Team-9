@@ -3,6 +3,8 @@ import SearchService from "../services/SearchService";
 import HomeCover from "./HomeCover";
 import RecentReviews from "./RecentReviews";
 import {Link} from "react-router-dom";
+import { trackPromise } from 'react-promise-tracker';
+import LoadingIndicator from "./Loading";
 
 class Home extends React.Component {
     state = {
@@ -10,11 +12,12 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        trackPromise(
         SearchService.randomComics()
             .then(pageInfo =>
                 this.setState({
                     issues: pageInfo.results
-                }));
+                })));
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
@@ -32,6 +35,11 @@ class Home extends React.Component {
                                 Check out these issues!
                             </div>
                             <div className="row row-cols-5 wbdv-cover-row">
+                                <LoadingIndicator/>
+                                <LoadingIndicator/>
+                                <LoadingIndicator/>
+                                <LoadingIndicator/>
+                                <LoadingIndicator/>
                                 {
                                     this.state.issues.map(issue =>
                                                                <HomeCover

@@ -1201,5 +1201,19 @@ a:hover {
   margin-bottom: 0px;
 }
 
+/* Loading */
+
+
+.wbdv-loading {
+  width: 100%;
+  padding: 40px 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.wbdv-loading-logo {
+  width: 100%;
+}
+
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
