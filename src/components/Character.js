@@ -3,6 +3,8 @@ import SearchService from "../services/SearchService";
 import parse, { domToReact } from 'html-react-parser';
 import CharacterRelatedCover from "./CharacterRelatedCover";
 import {Link} from "react-router-dom";
+import DetailsLoadingIndicator from "./DetailsLoading";
+import {trackPromise} from "react-promise-tracker";
 
 class Character extends React.Component {
     state = {
@@ -11,7 +13,9 @@ class Character extends React.Component {
     }
 
     componentDidMount() {
+        trackPromise(
         this.reload()
+        , "loadingCharacter")
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -56,6 +60,7 @@ class Character extends React.Component {
         }
         return (
             <div className="row">
+                <DetailsLoadingIndicator area="loadingCharacter"/>
                 <div className="col-lg-8">
                     <div className="wbdv-issue-info">
                         <span className="row">

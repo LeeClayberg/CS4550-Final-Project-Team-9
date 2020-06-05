@@ -4,6 +4,8 @@ import parse, { domToReact } from 'html-react-parser';
 import RelatedCover from "./RelatedCover";
 import IssueReview from "./IssueReview";
 import {Link} from "react-router-dom";
+import DetailsLoadingIndicator from "./DetailsLoading";
+import {trackPromise} from "react-promise-tracker";
 
 class Issue extends React.Component {
     state = {
@@ -24,6 +26,7 @@ class Issue extends React.Component {
     }
 
     reload = () =>
+        trackPromise(
         SearchService.findIssueById(this.props.match.params.id)
             .then(issue => issue.results)
             .then(issue => {
@@ -34,7 +37,7 @@ class Issue extends React.Component {
                     .then(issues => {
                         this.setState({
                             related: issues.results
-            })})})
+            })})}),"loadingIssue");
 
     nextIssue = () =>
         SearchService.findNextIssue(this.state.issue)
@@ -80,6 +83,7 @@ class Issue extends React.Component {
         }
         return (
             <div className="row">
+                <DetailsLoadingIndicator area="loadingIssue"/>
                 <div className="col-lg-8">
                     <div className="wbdv-issue-info">
                         <span className="row">

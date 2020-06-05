@@ -4,7 +4,7 @@ import HomeCover from "./HomeCover";
 import RecentReviews from "./RecentReviews";
 import {Link} from "react-router-dom";
 import { trackPromise } from 'react-promise-tracker';
-import LoadingIndicator from "./Loading";
+import LoadingIndicator from "./HomeLoading";
 
 class Home extends React.Component {
     state = {
@@ -17,7 +17,7 @@ class Home extends React.Component {
             .then(pageInfo =>
                 this.setState({
                     issues: pageInfo.results
-                })));
+                })), "loadingHome");
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
@@ -35,11 +35,11 @@ class Home extends React.Component {
                                 Check out these issues!
                             </div>
                             <div className="row row-cols-5 wbdv-cover-row">
-                                <LoadingIndicator/>
-                                <LoadingIndicator/>
-                                <LoadingIndicator/>
-                                <LoadingIndicator/>
-                                <LoadingIndicator/>
+                                <LoadingIndicator area="loadingHome"/>
+                                <LoadingIndicator area="loadingHome"/>
+                                <LoadingIndicator area="loadingHome"/>
+                                <LoadingIndicator area="loadingHome"/>
+                                <LoadingIndicator area="loadingHome"/>
                                 {
                                     this.state.issues.map(issue =>
                                                                <HomeCover
