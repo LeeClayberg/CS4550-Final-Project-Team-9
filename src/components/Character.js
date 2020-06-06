@@ -19,6 +19,9 @@ class Character extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(prevProps.match.params.id !== this.props.match.params.id) {
             window.scrollTo({top: 0, behavior: "smooth"});
+            this.setState({
+                loaded: false
+            });
             this.reload();
         }
     }
@@ -89,7 +92,10 @@ class Character extends React.Component {
                                             Real Name:
                                         </div>
                                         <div
-                                            className="col-6 wbdv-info-row-column text-right text-truncate">
+                                            className="col-6 wbdv-info-row-column text-right text-truncate"
+                                            title={this.state.character.real_name ?
+                                                  this.state.character.real_name :
+                                                  "N/A"}>
                                             {this.state.character.real_name ?
                                              this.state.character.real_name :
                                              "N/A"}
