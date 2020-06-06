@@ -1,15 +1,11 @@
 import React from "react";
-import {usePromiseTracker} from "react-promise-tracker";
 
 
 const DetailsLoadingIndicator = (props) => {
-    const { promiseInProgress } = usePromiseTracker({area: props.area});
-
     return (
-        promiseInProgress &&
         <div className="wbdv-loading">
             <img className="wbdv-loading-logo align-middle"
-                 src={require('../ComicStackBW.png')}
+                 src={"https://cdn.dribbble.com/users/2374064/screenshots/4728503/superman.gif"}
                  alt="Card image cap"/>
         </div>
     );

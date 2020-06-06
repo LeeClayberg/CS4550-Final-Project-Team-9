@@ -3,21 +3,21 @@ import SearchService from "../services/SearchService";
 import HomeCover from "./HomeCover";
 import RecentReviews from "./RecentReviews";
 import {Link} from "react-router-dom";
-import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from "./HomeLoading";
 
 class Home extends React.Component {
     state = {
-        issues: []
+        issues: [],
+        loaded: false
     }
 
     componentDidMount() {
-        trackPromise(
         SearchService.randomComics()
             .then(pageInfo =>
                 this.setState({
-                    issues: pageInfo.results
-                })), "loadingHome");
+                    issues: pageInfo.results,
+                    loaded: true
+                }));
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
@@ -34,19 +34,27 @@ class Home extends React.Component {
                             <div className="wbdv-home-issues-header">
                                 Check out these issues!
                             </div>
-                            <div className="row row-cols-5 wbdv-cover-row">
-                                <LoadingIndicator area="loadingHome"/>
-                                <LoadingIndicator area="loadingHome"/>
-                                <LoadingIndicator area="loadingHome"/>
-                                <LoadingIndicator area="loadingHome"/>
-                                <LoadingIndicator area="loadingHome"/>
-                                {
-                                    this.state.issues.map(issue =>
-                                                               <HomeCover
-                                                                   id={issue.id}
-                                                                   issue={issue}/>)
-                                }
-                            </div>
+                            {
+                                !this.state.loaded &&
+                                <div className="row row-cols-5 wbdv-cover-row">
+                                    <LoadingIndicator/>
+                                    <LoadingIndicator/>
+                                    <LoadingIndicator/>
+                                    <LoadingIndicator/>
+                                    <LoadingIndicator/>
+                                </div>
+                            }
+                            {
+                                this.state.loaded &&
+                                <div className="row row-cols-5 wbdv-cover-row">
+                                    {
+                                        this.state.issues.map(issue =>
+                                                                  <HomeCover
+                                                                      id={issue.id}
+                                                                      issue={issue}/>)
+                                    }
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className="col-md-4 wbdv-home-col">

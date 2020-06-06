@@ -1204,7 +1204,6 @@ a:hover {
 /* Home Loading */
 
 .wbdv-home-loading {
-  background-color: red;
   width: 100%;
   padding: 40px 10px;
   text-align: center;
@@ -1218,7 +1217,6 @@ a:hover {
 /* Loading */
 
 .wbdv-loading {
-  background-color: red;
   width: 100%;
   text-align: center;
   font-size: 30px;

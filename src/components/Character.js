@@ -4,18 +4,16 @@ import parse, { domToReact } from 'html-react-parser';
 import CharacterRelatedCover from "./CharacterRelatedCover";
 import {Link} from "react-router-dom";
 import DetailsLoadingIndicator from "./DetailsLoading";
-import {trackPromise} from "react-promise-tracker";
 
 class Character extends React.Component {
     state = {
         character: null,
-        related: []
+        related: [],
+        loaded: false
     }
 
     componentDidMount() {
-        trackPromise(
         this.reload()
-        , "loadingCharacter")
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -35,7 +33,8 @@ class Character extends React.Component {
                 SearchService.characterRelated(character.name)
                     .then(issues => {
                         this.setState({
-                                          related: issues.results
+                                          related: issues.results,
+                                          loaded: true
                                       })})})
 
     displayList = (character, i) => {
@@ -55,72 +54,88 @@ class Character extends React.Component {
     }
 
     render() {
-        if(!this.state.character) {
-            return (<div/>)
+        if(!this.state.character || !this.state.loaded) {
+            return (
+                <div className="row">
+                    <DetailsLoadingIndicator/>
+                </div>
+            )
         }
         return (
             <div className="row">
-                <DetailsLoadingIndicator area="loadingCharacter"/>
                 <div className="col-lg-8">
                     <div className="wbdv-issue-info">
                         <span className="row">
                             <div className="col-lg-5">
-                                <img className="wbdv-issue-cover" src={this.state.character.image.super_url}
+                                <img className="wbdv-issue-cover"
+                                     src={this.state.character.image.super_url}
                                      alt="Card image cap"/>
                             </div>
                             <span className="col-lg-7 wbdv-basic-top-outer">
                                 <div className="wbdv-character-top-info">
                                     <div className="row wbdv-character-info-row">
-                                        <div className="col-3 wbdv-info-row-column font-weight-bold">
+                                        <div
+                                            className="col-3 wbdv-info-row-column font-weight-bold">
                                             Name:
                                         </div>
-                                        <div className="col-9 wbdv-info-row-column text-right text-truncate">
+                                        <div
+                                            className="col-9 wbdv-info-row-column text-right text-truncate">
                                             {this.state.character.name}
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
-                                        <div className="col-6 wbdv-info-row-column font-weight-bold">
+                                        <div
+                                            className="col-6 wbdv-info-row-column font-weight-bold">
                                             Real Name:
                                         </div>
-                                        <div className="col-6 wbdv-info-row-column text-right text-truncate">
-                                            {this.state.character.real_name?
+                                        <div
+                                            className="col-6 wbdv-info-row-column text-right text-truncate">
+                                            {this.state.character.real_name ?
                                              this.state.character.real_name :
                                              "N/A"}
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
-                                        <div className="col-4 wbdv-info-row-column font-weight-bold">
+                                        <div
+                                            className="col-8 wbdv-info-row-column font-weight-bold">
                                             Birth Date:
                                         </div>
-                                        <div className="col-8 wbdv-info-row-column text-right text-truncate">
-                                            {this.state.character.birth?
+                                        <div
+                                            className="col-4 wbdv-info-row-column text-right text-truncate">
+                                            {this.state.character.birth ?
                                              this.state.character.birth :
                                              "N/A"}
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
-                                        <div className="col-4 wbdv-info-row-column font-weight-bold">
+                                        <div
+                                            className="col-4 wbdv-info-row-column font-weight-bold">
                                             Publisher:
                                         </div>
-                                        <div className="col-8 wbdv-info-row-column text-right text-truncate">
+                                        <div
+                                            className="col-8 wbdv-info-row-column text-right text-truncate">
                                             {this.state.character.publisher.name}
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
-                                        <div className="col-6 wbdv-info-row-column font-weight-bold">
+                                        <div
+                                            className="col-6 wbdv-info-row-column font-weight-bold">
                                             First Issue:
                                         </div>
-                                        <div className="col-6 wbdv-info-row-column text-right text-truncate wbdv-character-link"
-                                            title={this.state.character.first_appeared_in_issue.name?
-                                                   this.state.character.first_appeared_in_issue.name:
-                                                    "N/A"}>
+                                        <div
+                                            className="col-6 wbdv-info-row-column text-right text-truncate wbdv-character-link"
+                                            title={this.state.character.first_appeared_in_issue.name
+                                                   ?
+                                                   this.state.character.first_appeared_in_issue.name
+                                                   :
+                                                   "N/A"}>
                                             {
-                                                this.state.character.first_appeared_in_issue.name?
+                                                this.state.character.first_appeared_in_issue.name ?
                                                 <Link
                                                     to={`/issue/${this.state.character.first_appeared_in_issue.id}`}
                                                     className={"wbdv-character-link"}>
                                                     {this.state.character.first_appeared_in_issue.name}
-                                                </Link>:
+                                                </Link> :
                                                 <span className="wbdv-no-link">
                                                     N/A
                                                 </span>
@@ -128,29 +143,42 @@ class Character extends React.Component {
                                         </div>
                                     </div>
                                     <div className="row wbdv-character-info-row">
-                                        <div className="col-6 wbdv-info-row-column font-weight-bold">
+                                        <div
+                                            className="col-6 wbdv-info-row-column font-weight-bold">
                                             Appearances:
                                         </div>
-                                        <div className="col-6 wbdv-info-row-column text-right text-truncate">
+                                        <div
+                                            className="col-6 wbdv-info-row-column text-right text-truncate">
                                             {this.state.character.count_of_issue_appearances}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="wbdv-top-spacer"/>
                                 <div className="wbdv-character-top-chars"
-                                     title={this.state.character.character_enemies.map(this.displayListTooltip)}>
-                                    <div className="font-weight-bold wbdv-section-title">Enemies</div>
+                                     title={this.state.character.character_enemies.map(
+                                         this.displayListTooltip)}>
+                                    <div
+                                        className="font-weight-bold wbdv-section-title">Enemies</div>
                                     {this.state.character.character_enemies.map(this.displayList)}
                                 </div>
                             </span>
                         </span>
                         <div className="wbdv-issue-description">
-                            <div className="font-weight-bold wbdv-section-title">Description</div>
-                            {this.state.character.description?
-                             parse(this.state.character.description, {replace: ({ attribs, children }) => {
-                                     if (!attribs) return;
+                            <div
+                                className="font-weight-bold wbdv-section-title">Description
+                            </div>
+                            {this.state.character.description ?
+                             parse(this.state.character.description, {
+                                 replace: ({attribs, children}) => {
+                                     if (!attribs) {
+                                         return;
+                                     }
                                      if (attribs.href) {
-                                         return React.createElement('a', {}, domToReact(children,))}}}):
+                                         return React.createElement('a', {},
+                                                                    domToReact(children,))
+                                     }
+                                 }
+                             }) :
                              "N/A"}
                         </div>
                     </div>
