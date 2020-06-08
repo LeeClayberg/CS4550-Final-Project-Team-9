@@ -1,5 +1,5 @@
 
-const server = "https://wbdv-generic-server.herokuapp.com/api/001458299/comicstack"
+const server = ""
 
 const createUser = (user) =>
     fetch(server + "/users", {

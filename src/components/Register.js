@@ -1,6 +1,7 @@
 import React from 'react'
 import RecentReviews from "./RecentReviews";
 import {Link} from "react-router-dom";
+import userService from "../services/UserService";
 
 class Register extends React.Component {
     state = {
@@ -27,6 +28,14 @@ class Register extends React.Component {
         this.setState(prevState => ({
             passwordVerify: newString
         }))
+
+    addUser = () =>
+        userService.createUser({
+             username: this.state.username,
+             password: this.state.password,
+             role: 'admin',
+             startDate: (new Date()).toDateString()
+        }).then(user => this.props.loginUser(user._id))
 
     render() {
         return (

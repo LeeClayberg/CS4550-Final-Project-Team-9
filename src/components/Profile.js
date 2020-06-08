@@ -3,10 +3,12 @@ import ProfileCover from "./ProfileCover";
 import ProfileReview from "./ProfileReview";
 import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
+import userService from "../services/UserService";
 
 class Profile extends React.Component {
     state = {
-        picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
+        picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg",
+        user: {}
     }
 
     componentDidMount() {
@@ -40,7 +42,7 @@ class Profile extends React.Component {
                                         Username
                                         <input type="text"
                                             className="form-control wbdv-profile-field wbdv-username"
-                                               value="John Wigner"
+                                               value={this.state.user.username}
                                             placeholder="username" readOnly/>
                                     </div>
                                     <div className="wbdv-profile-field-group">
