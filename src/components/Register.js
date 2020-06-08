@@ -3,10 +3,30 @@ import RecentReviews from "./RecentReviews";
 import {Link} from "react-router-dom";
 
 class Register extends React.Component {
+    state = {
+        username: '',
+        password: '',
+        passwordVerify: ''
+    }
 
     componentDidMount() {
         window.scrollTo({top: 0, behavior: "smooth"});
     }
+
+    updateUsername = (newString) =>
+        this.setState(prevState => ({
+            username: newString
+        }))
+
+    updatePassword = (newString) =>
+        this.setState(prevState => ({
+            password: newString
+        }))
+
+    updatePasswordVerify = (newString) =>
+        this.setState(prevState => ({
+            passwordVerify: newString
+        }))
 
     render() {
         return (
@@ -20,19 +40,28 @@ class Register extends React.Component {
                                 Username
                                 <input type="text"
                                        className="form-control wbdv-register-field"
-                                       placeholder="username"/>
+                                       placeholder="username"
+                                       onChange={(event) => this.updateUsername(
+                                           event.target.value)}
+                                       value={this.state.username}/>
                             </div>
                             <div className="wbdv-register-group font-weight-bold" align="left">
                                 Password
                                 <input type="password"
                                        className="form-control wbdv-register-field"
-                                       placeholder="password"/>
+                                       placeholder="password"
+                                       onChange={(event) => this.updatePassword(
+                                           event.target.value)}
+                                       value={this.state.password}/>
                             </div>
                             <div className="wbdv-register-group font-weight-bold" align="left">
                                 Verify Password
                                 <input type="password"
                                        className="form-control wbdv-register-field"
-                                       placeholder="password"/>
+                                       placeholder="password"
+                                       onChange={(event) => this.updatePasswordVerify(
+                                           event.target.value)}
+                                       value={this.state.passwordVerify}/>
                             </div>
                             <Link className="btn wbdv-register-btn" to={`/profile/admin`}>
                                 Sign up
