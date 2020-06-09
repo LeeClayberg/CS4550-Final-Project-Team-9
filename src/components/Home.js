@@ -37,7 +37,7 @@ class Home extends React.Component {
     login = () =>
         userService.findIdFromLogin(this.state.username, this.state.password)
             .then(user => this.props.loginUser(user.id))
-            .then(() => this.props.history.push(`/profile`))
+            .then((userId) => userId? this.props.history.push(`/profile`): alert("Unknown username or password"))
 
     render() {
         return (

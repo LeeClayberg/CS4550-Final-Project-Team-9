@@ -74,7 +74,10 @@ class Register extends React.Component {
                                            event.target.value)}
                                        value={this.state.passwordVerify}/>
                             </div>
-                            <Link className="btn wbdv-register-btn" onClick={() => this.addUser()}>
+                            <Link className="btn wbdv-register-btn" onClick={() =>
+                                    this.state.password == this.state.passwordVerify?
+                                    this.addUser():
+                                    alert("Could not verify password")}>
                                 Sign up
                             </Link>
                             <span className="row">

@@ -21,7 +21,8 @@ class ComicStack extends React.Component {
         console.log(userId);
         this.setState(prevState => ({
             userId: userId
-        }))}
+        }));
+        return userId}
 
     logoutUser = () =>
         this.setState(prevState => ({
@@ -38,7 +39,8 @@ class ComicStack extends React.Component {
                     <Route path="/search/:query" exact={true} component={SearchResults}/>
                     <Route path="/issue/:id" exact={true} component={Issue}/>
                     <Route path="/character/:id" exact={true} component={Character}/>
-                    <Route path="/login" exact={true} component={Login}/>
+                    <Route path="/login" exact={true} render={(props) =>
+                        <Login {...props} loginUser={this.loginUser} />}/>
                     <Route path="/register" exact={true} render={(props) =>
                         <Register {...props} loginUser={this.loginUser} />}/>
                     <Route path="/profile" exact={true} render={(props) =>

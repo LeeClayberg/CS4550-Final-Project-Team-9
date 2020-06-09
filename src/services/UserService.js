@@ -37,7 +37,8 @@ const findAllUsers = () =>
 
 const findIdFromLogin = (username, password) =>
     fetch(server + "/users/login/" + username + "/" + password)
-        .then(response => response.json())
+        .then((res) => res.text())
+        .then((text) => text.length ? JSON.parse(text) : {})
 
 export default {
     createUser,

@@ -118,6 +118,21 @@ a:hover {
 
 .wbdv-profile-text {
   position: absolute;
+  right: 85px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+.wbdv-loginregister-text-sm {
+  position: absolute;
+  font-size: 12px;
+  right: 20px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.wbdv-loginregister-text {
+  position: absolute;
   right: 20px;
   font-size: 22px;
   padding: 5px;

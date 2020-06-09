@@ -75,18 +75,28 @@ class Header extends React.Component {
                                 !this.props.userId &&
                                 <Link to={`/login`} className="float-right">
                                     <div
-                                        className="d-none d-md-block wbdv-profile-text wbdv-no-link">
+                                        className="d-none d-md-block wbdv-loginregister-text wbdv-no-link">
                                         Login/Register
+                                    </div>
+                                    <div
+                                        className="d-md-none wbdv-loginregister-text-sm wbdv-no-link">
+                                        Login/<br/>Register
                                     </div>
                                 </Link>
                             }
                             {
                                 this.props.userId &&
-                                <img className="btn wbdv-profile-img"
-                                     src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
-                                     alt="Card image cap"
-                                     onClick={() => this.setState(
-                                         {menuDown: !this.state.menuDown})}/>
+                                <span>
+                                    <div
+                                        className="d-none d-md-block wbdv-profile-text wbdv-no-link">
+                                        {this.state.user.username}
+                                    </div>
+                                    <img className="btn wbdv-profile-img"
+                                         src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
+                                         alt="Card image cap"
+                                         onClick={() => this.setState(
+                                             {menuDown: !this.state.menuDown})}/>
+                                </span>
                             }
                             {
                                 this.state.menuDown &&
