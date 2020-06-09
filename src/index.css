@@ -454,6 +454,31 @@ a:hover {
   padding: 2px 7px;
 }
 
+.wbdv-review-textarea {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-top: 10px;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  resize: none;
+}
+
+.wbdv-review-post {
+  background-color: #FF303A;
+  color: white;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 0px 10px;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
 /* Add box */
 
 .wbdv-add-box {

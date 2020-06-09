@@ -5,13 +5,15 @@ import RelatedCover from "./RelatedCover";
 import IssueReview from "./IssueReview";
 import {Link} from "react-router-dom";
 import DetailsLoadingIndicator from "./DetailsLoading";
+import IssueNewReview from "./IssueNewReview";
 
 class Issue extends React.Component {
     state = {
         issue: null,
         add: false,
         related: [],
-        loaded: false
+        loaded: false,
+        addReview: false
     }
 
     componentDidMount() {
@@ -252,16 +254,18 @@ class Issue extends React.Component {
                                 </div>
                                 <span className="col-2 wbdv-review-add-col">
                                     <div className="btn wbdv-review-add"
-                                            onClick={function () {
-                                                alert(
-                                                    "This will eventually allow users to write a review about the \n"
-                                                    + "particular comic book issue")
-                                            }}>
+                                         onClick={() => this.setState({
+                                             addReview: true
+                                         })}>
                                         <i className="fa fa-plus"/>
                                     </div>
                                 </span>
                             </span>
                         <ul className="list-group wbdv-review-list">
+                            {
+                                this.state.addReview &&
+                                <IssueNewReview name={"John Wigner"}/>
+                            }
                             <IssueReview
                                 name={"John Wigner"}
                                 mode={"admin"}

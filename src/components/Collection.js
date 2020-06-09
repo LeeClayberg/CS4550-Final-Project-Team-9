@@ -30,7 +30,7 @@ class Collection extends React.Component {
                                 Sort By
                             </span>
                             <span className="col-6 col-lg-2">
-                                Category
+                                Search By
                             </span>
                         </div>
                         <div className="row">
@@ -46,7 +46,7 @@ class Collection extends React.Component {
                             <span className="col-6 col-lg-2 wbdv-collection-search-col">
                                 <select
                                     className="custom-select wbdv-collection-dropdown">
-                                    <option selected>Issue</option>
+                                    <option selected>Title</option>
                                     <option>Volume</option>
                                     <option>Character</option>
                                 </select>
