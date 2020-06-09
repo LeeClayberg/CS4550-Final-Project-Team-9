@@ -11,7 +11,8 @@ class Home extends React.Component {
         issues: [],
         loaded: false,
         username: '',
-        password: ''
+        password: '',
+        user: {}
     }
 
     componentDidMount() {
@@ -21,6 +22,12 @@ class Home extends React.Component {
                     issues: pageInfo.results,
                     loaded: true
                 }));
+        userService.findUserById(this.props.userId)
+            .then(user => {
+                this.setState({
+                    user: user
+                })
+            })
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
@@ -76,40 +83,79 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-4 wbdv-home-col">
-                        <div className="wbdv-home-login" align="center">
-                            Login
-                            <div className="wbdv-home-login-size font-weight-bold" align="left">
-                                Username
-                                <input type="text"
-                                       className="form-control wbdv-home-login-field"
-                                       onChange={(event) => this.updateUsername(
-                                           event.target.value)}
-                                       placeholder="username"/>
-                            </div>
-                            <div className="wbdv-home-login-size font-weight-bold" align="left">
-                                Password
-                                <input type="password"
-                                       className="form-control wbdv-home-login-field"
-                                       onChange={(event) => this.updatePassword(
-                                           event.target.value)}
-                                       placeholder="password"/>
-                            </div>
-                            <Link className="btn wbdv-home-login-btn" onClick={() => this.login()}>
-                                Login
-                            </Link>
-                            <span className="row">
-                                <div className="col-6 wbdv-home-small-login-btn" align="left">
-                                    <Link to={`/register`}>
-                                        <span className="wbdv-small-btn-color">
-                                            Register
-                                        </span>
-                                    </Link>
+                        {
+                            !this.props.userId &&
+                             <div className="wbdv-home-login" align="center">
+                                 Login
+                                 <div className="wbdv-home-login-size font-weight-bold" align="left">
+                                     Username
+                                     <input type="text"
+                                            className="form-control wbdv-home-login-field"
+                                            onChange={(event) => this.updateUsername(
+                                                event.target.value)}
+                                            placeholder="username"/>
+                                 </div>
+                                 <div className="wbdv-home-login-size font-weight-bold" align="left">
+                                     Password
+                                     <input type="password"
+                                            className="form-control wbdv-home-login-field"
+                                            onChange={(event) => this.updatePassword(
+                                                event.target.value)}
+                                            placeholder="password"/>
+                                 </div>
+                                 <Link className="btn wbdv-home-login-btn" onClick={() => this.login()}>
+                                     Login
+                                 </Link>
+                                 <span className="row">
+                                    <div className="col-6 wbdv-home-small-login-btn" align="left">
+                                        <Link to={`/register`}>
+                                            <span className="wbdv-small-btn-color">
+                                                Register
+                                            </span>
+                                        </Link>
+                                    </div>
+                                    <div className="col-6 wbdv-home-small-login-btn" align="right">
+                                        Forgot Password?
+                                    </div>
+                                </span>
+                             </div>
+                        }
+                        {
+                            this.props.userId &&
+                            <div className="wbdv-home-profile" align="center">
+                                <img className="wbdv-home-profile-img"
+                                     src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
+                                     alt="Card image cap"/>
+                                <div className="wbdv-home-profile-username">
+                                    {this.state.user.username}
                                 </div>
-                                <div className="col-6 wbdv-home-small-login-btn" align="right">
-                                    Forgot Password?
-                                </div>
-                            </span>
-                        </div>
+                                <span className="row">
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-left">
+                                        <Link className="btn wbdv-home-profile-btn" to={`/profile`}>
+                                            Profile
+                                        </Link>
+                                    </div>
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-right">
+                                        <Link className="btn wbdv-home-profile-btn" to={`/collection`}>
+                                            Collection
+                                        </Link>
+                                    </div>
+                                </span>
+                                <span className="row">
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-left">
+                                        <Link className="btn wbdv-home-profile-btn" to={`/reviews`}>
+                                            Reviews
+                                        </Link>
+                                    </div>
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-right">
+                                        <Link className="btn wbdv-home-profile-btn"
+                                              onClick={() => this.props.logoutUser()}>
+                                            Logout
+                                        </Link>
+                                    </div>
+                                </span>
+                            </div>
+                        }
                     </div>
                 </span>
                 <RecentReviews/>
