@@ -118,7 +118,7 @@ a:hover {
 
 .wbdv-profile-text {
   position: absolute;
-  right: 85px;
+  right: 20px;
   font-size: 22px;
   padding: 5px;
 }
@@ -147,6 +147,10 @@ a:hover {
   padding: 0px 40px;
   text-align: center;
   font-size: 0.8em;
+}
+
+.wbdv-top-text {
+  text-align: right;
 }
 
 /* Search Area */

@@ -18,6 +18,17 @@ class Header extends React.Component {
             })
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.userId !== this.props.userId) {
+            userService.findUserById(this.props.userId)
+                .then(user => {
+                    this.setState({
+                        user: user
+                    })
+                })
+        }
+    }
+
     updateSearchString = (newString) =>
         this.setState(prevState => ({
             searchString: newString
@@ -59,15 +70,24 @@ class Header extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-2 col-md-3 wbdv-top-bar-height">
-                            <Link to={`/login`}>
-                                <div className="d-none d-md-block wbdv-profile-text wbdv-no-link">
-                                    Login/Register
-                                </div>
-                            </Link>
-                                <img className="btn wbdv-profile-img" src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
+                        <div className="col-2 col-md-3 wbdv-top-bar-height wbdv-top-text">
+                            {
+                                !this.props.userId &&
+                                <Link to={`/login`} className="float-right">
+                                    <div
+                                        className="d-none d-md-block wbdv-profile-text wbdv-no-link">
+                                        Login/Register
+                                    </div>
+                                </Link>
+                            }
+                            {
+                                this.props.userId &&
+                                <img className="btn wbdv-profile-img"
+                                     src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
                                      alt="Card image cap"
-                                     onClick={() => this.setState({menuDown: !this.state.menuDown})}/>
+                                     onClick={() => this.setState(
+                                         {menuDown: !this.state.menuDown})}/>
+                            }
                             {
                                 this.state.menuDown &&
                                 <div className="wbdv-header-dropdown" onClick={() => this.setState({

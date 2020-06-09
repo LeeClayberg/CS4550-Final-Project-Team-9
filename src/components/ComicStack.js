@@ -31,7 +31,7 @@ class ComicStack extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <Header logoutUser={this.logoutUser}/>
+                <Header logoutUser={this.logoutUser} userId={this.state.userId}/>
                 <div className="container">
                     <Route path="/" exact={true} render={(props) =>
                         <Home {...props} loginUser={this.loginUser} />}/>
