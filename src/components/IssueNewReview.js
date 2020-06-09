@@ -1,10 +1,9 @@
 import React from 'react'
-import {Link} from "react-router-dom";
 
 class IssueNewReview extends React.Component {
     state = {
         text: '',
-        starCount: 0
+        starCount: 1
     }
 
     render() {
@@ -12,12 +11,12 @@ class IssueNewReview extends React.Component {
         for (let i = 0; i < 5; i++) {
             i < this.state.starCount?
             elements.push(
-                <i className="fa fa-star wbdv-review-star wbdv-review-star-filled"
+                <i className="fa fa-star wbdv-review-star wbdv-review-star-filled wbdv-review-star-hover"
                     onClick={() => this.setState({
                         starCount: i + 1
                     })}/>):
             elements.push(
-                <i className="fa fa-star wbdv-review-star wbdv-review-star-blank"
+                <i className="fa fa-star wbdv-review-star wbdv-review-star-blank wbdv-review-star-hover"
                     onClick={() => this.setState({
                         starCount: i + 1
                     })}/>);
@@ -33,11 +32,9 @@ class IssueNewReview extends React.Component {
                 }
                 <div className="row wbdv-review-row">
                     <div className="col-5 wbdv-review-user">
-                        <Link to={`/user/${87437537}`}>
-                            <span className="wbdv-review-name-color">
-                                {this.props.name}
-                            </span>
-                        </Link>
+                        <span className="wbdv-review-name-color">
+                            {this.props.name}
+                        </span>
                     </div>
                     <div className="col-7 wbdv-review-top-col">
                         <span className="float-right">

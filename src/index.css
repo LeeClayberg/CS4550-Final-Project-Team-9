@@ -466,6 +466,10 @@ a:hover {
   resize: none;
 }
 
+.wbdv-review-star-hover {
+  cursor: pointer;
+}
+
 .wbdv-review-post {
   background-color: #FF303A;
   color: white;
