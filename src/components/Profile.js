@@ -4,10 +4,12 @@ import ProfileReview from "./ProfileReview";
 import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
 import userService from "../services/UserService";
+import RelatedCover from "./RelatedCover";
 
 class Profile extends React.Component {
     state = {
         picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg",
+        userHistory: [],
         user: {},
         password: '', first: '', last: '', email: '', dob: '',
         address: '', city: '', state: '', zip: '', bio: ''
@@ -31,7 +33,12 @@ class Profile extends React.Component {
                      bio: user.bio,
                      picture: user.pictureURL
                 })
-            })
+            });
+        userService.findUserHistory()
+            .then(list => {
+                this.setState({
+                    userHistory: list
+                })})
     }
 
     updateProfilePicture(event) {
@@ -121,13 +128,13 @@ class Profile extends React.Component {
                                         this.state.picture != "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg" &&
                                         <div className="btn remove-picture-btn"
                                              onClick={() => this.setState({
-                                                                              picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
-                                                                          })}>
+                                                  picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
+                                             })}>
                                             <i className="fa fa-trash"/>
                                         </div>
                                     }
                                     <img className="wbdv-profile-picture" src={this.state.picture}
-                                         alt="Card image cap"/>
+                                         alt={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}/>
                                     Profile Picture
                                 </span>
                                 <span className="col-md-7 wbdv-simple-info wbdv-profile-field-labels">
@@ -371,20 +378,7 @@ class Profile extends React.Component {
                                 </div>
                                 <div className="wbdv-profile-admin-history-text" align="left">
                                     <p className="wbdv-admin-history-p">
-                                        013439 -- logout<br/>
-                                        013439 -- updated profile<br/>
-                                        013439 -- removed -- 548579<br/>
-                                        013439 -- added -- 968060<br/>
-                                        013439 -- added -- 548579<br/>
-                                        013439 -- login<br/>
-                                        017483 -- logout<br/>
-                                        017483 -- added -- 545235<br/>
-                                        017483 -- added -- 843994<br/>
-                                        017483 -- updated profile<br/>
-                                        017483 -- added -- 237287<br/>
-                                        017483 -- added -- 948293<br/>
-                                        017483 -- added -- 159905<br/>
-                                        017483 -- login
+                                        {this.state.userHistory.map(row => `${row}\n`)}
                                     </p>
                                 </div>
                             </div>

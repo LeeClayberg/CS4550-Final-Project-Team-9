@@ -93,7 +93,6 @@ class Header extends React.Component {
                                     </div>
                                     <img className="btn wbdv-profile-img"
                                          src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
-                                         alt="Card image cap"
                                          onClick={() => this.setState(
                                              {menuDown: !this.state.menuDown})}/>
                                 </span>

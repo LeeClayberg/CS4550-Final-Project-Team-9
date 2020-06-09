@@ -124,8 +124,8 @@ class Home extends React.Component {
                             this.props.userId &&
                             <div className="wbdv-home-profile" align="center">
                                 <img className="wbdv-home-profile-img"
-                                     src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
-                                     alt="Card image cap"/>
+                                     src={this.state.user.pictureURL}
+                                     alt={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}/>
                                 <div className="wbdv-home-profile-username">
                                     {this.state.user.username}
                                 </div>
