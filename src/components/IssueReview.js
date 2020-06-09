@@ -11,6 +11,13 @@ class IssueReview extends React.Component {
         }
         return (
             <li className="list-group-item wbdv-review">
+                {
+                    this.props.mode == 'admin' &&
+                    <div className="btn wbdv-delete-review"
+                        onClick={() => alert("Will remove review")}>
+                        <i className="fa fa-trash"/>
+                    </div>
+                }
                 <div className="row wbdv-review-row">
                     <div className="col-5 wbdv-review-user">
                         <Link to={`/user/${87437537}`}>

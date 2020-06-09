@@ -251,27 +251,30 @@ class Issue extends React.Component {
                                     </div>
                                 </div>
                                 <span className="col-2 wbdv-review-add-col">
-                                    <button className="wbdv-review-add"
+                                    <div className="btn wbdv-review-add"
                                             onClick={function () {
                                                 alert(
                                                     "This will eventually allow users to write a review about the \n"
                                                     + "particular comic book issue")
                                             }}>
                                         <i className="fa fa-plus"/>
-                                    </button>
+                                    </div>
                                 </span>
                             </span>
                         <ul className="list-group wbdv-review-list">
                             <IssueReview
                                 name={"John Wigner"}
+                                mode={"admin"}
                                 stars={4}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                mode={"admin"}
                                 stars={5}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                mode={"admin"}
                                 stars={3}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
