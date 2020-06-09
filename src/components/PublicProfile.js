@@ -1,11 +1,21 @@
 import React from 'react'
 import ProfileCover from "./ProfileCover";
 import ProfileReview from "./ProfileReview";
+import userService from "../services/UserService";
 
 class PublicProfile extends React.Component {
+    state = {
+        user: {}
+    }
 
     componentDidMount() {
         window.scrollTo({top: 0, behavior: "smooth"});
+        userService.findUserById(this.props.match.params.id)
+            .then(user => {
+                this.setState({
+                     user: user
+                })
+            });
     }
 
     render() {
@@ -14,7 +24,7 @@ class PublicProfile extends React.Component {
                 <div className="row wbdv-public-profile wbdv-profile-field-labels">
                     <span className="col-lg-2 wbdv-public-profile-col">
                         <img className="wbdv-public-profile-picture"
-                             src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
+                             src={this.state.user.pictureURL}
                              alt="Card image cap"/>
                     </span>
                     <span
@@ -23,7 +33,7 @@ class PublicProfile extends React.Component {
                             Username
                             <input type="text"
                                    className="form-control wbdv-profile-field wbdv-username"
-                                   value="John Wigner"
+                                   value={this.state.user.username}
                                    placeholder="username" readOnly/>
                         </div>
                         <div className="row wbdv-public-profile-row wbdv-profile-field-group">
@@ -31,7 +41,7 @@ class PublicProfile extends React.Component {
                                 Role
                                 <input type="text"
                                        className="form-control wbdv-profile-field wbdv-added-info"
-                                       value="Collector" readOnly/>
+                                       value={this.state.user.role} readOnly/>
                             </span>
                             <span className="col-6 wbdv-profile-right-col">
                                 Level
@@ -45,13 +55,13 @@ class PublicProfile extends React.Component {
                                 Active Since
                                 <input type="text"
                                        className="form-control wbdv-profile-field wbdv-added-info"
-                                       value="1970-01-01" readOnly/>
+                                       value={this.state.user.startDate} readOnly/>
                             </span>
                             <span className="col-6 wbdv-profile-right-col">
                                 ID Number
                                 <input type="text"
                                        className="form-control wbdv-profile-field wbdv-added-info"
-                                       value="87437537" readOnly/>
+                                       value={this.state.user.id} readOnly/>
                             </span>
                         </div>
                     </span>
@@ -63,6 +73,7 @@ class PublicProfile extends React.Component {
                                 maxlength="220"
                                 className="form-control wbdv-profile-field wbdv-profile-textarea"
                                 placeholder="I am a ..."
+                                value={this.state.user.bio}
                                 readOnly/>
                         </div>
                     </span>
@@ -71,7 +82,7 @@ class PublicProfile extends React.Component {
                     <div className="col-lg-8">
                             <div className="wbdv-profile-collection overflow-hidden">
                                 <div className="wbdv-profile-collection-header">
-                                    John Wigner's Collection
+                                    {this.state.user.username}'s Collection
                                 </div>
                                 <div className="row row-cols-5 wbdv-cover-row">
                                     <ProfileCover/><ProfileCover/><ProfileCover/>
@@ -87,7 +98,7 @@ class PublicProfile extends React.Component {
                     <div className="col-lg-4">
                             <div className="wbdv-profile-reviews overflow-hidden">
                                 <div className="wbdv-profile-review-header">
-                                    John Wigner's Reviews
+                                    {this.state.user.username}'s Reviews
                                 </div>
                                 <ProfileReview
                                     cover={require("../TempCover.png")}

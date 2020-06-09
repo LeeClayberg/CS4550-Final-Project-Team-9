@@ -14,7 +14,7 @@ import PublicProfile from "./PublicProfile";
 
 class ComicStack extends React.Component {
     state = {
-        userId: null
+        userId: 722184
     }
 
     loginUser = (userId) => {
