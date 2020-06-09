@@ -4,7 +4,6 @@ import ProfileReview from "./ProfileReview";
 import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
 import userService from "../services/UserService";
-import RelatedCover from "./RelatedCover";
 
 class Profile extends React.Component {
     state = {
@@ -118,6 +117,14 @@ class Profile extends React.Component {
             bio: this.state.bio,
             pictureURL: this.state.picture
         })
+
+    deleteUser = (userId) => {
+        userService.deleteUser(userId)
+            .then(users => {
+                this.setState({
+                    allUsers: users
+                })})
+    }
 
     render() {
         return (
@@ -366,7 +373,8 @@ class Profile extends React.Component {
                                 </div>
                                 <span>
                                     {this.state.allUsers.map(user =>
-                                         <AdminRow username={user.username} password={user.password} role={user.role} id={user.id}/>)}
+                                         <AdminRow username={user.username} password={user.password} role={user.role} id={user.id}
+                                                   deleteUser={this.deleteUser}/>)}
                                 </span>
                             </div>
                         </div>
