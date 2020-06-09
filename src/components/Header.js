@@ -66,7 +66,7 @@ class Header extends React.Component {
                                     })}>
                                     <ul className="wbdv-header-dropdown-list">
                                         <li className="list-group-item wbdv-header-dropdown-item">
-                                            <Link className="wbdv-no-link" to={`/profile/collector`}>
+                                            <Link className="wbdv-no-link" to={`/profile`}>
                                                 Profile
                                             </Link>
                                         </li>

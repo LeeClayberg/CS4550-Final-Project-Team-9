@@ -14,7 +14,7 @@ import PublicProfile from "./PublicProfile";
 
 class ComicStack extends React.Component {
     state = {
-        userId: 774686
+        userId: 781456
     }
 
     loginUser = (userId) => {
@@ -33,14 +33,15 @@ class ComicStack extends React.Component {
             <BrowserRouter>
                 <Header/>
                 <div className="container">
-                    <Route path="/" exact={true} component={Home}/>
+                    <Route path="/" exact={true} render={(props) =>
+                        <Home {...props} loginUser={this.loginUser} />}/>
                     <Route path="/search/:query" exact={true} component={SearchResults}/>
                     <Route path="/issue/:id" exact={true} component={Issue}/>
                     <Route path="/character/:id" exact={true} component={Character}/>
                     <Route path="/login" exact={true} component={Login}/>
                     <Route path="/register" exact={true} render={(props) =>
                         <Register {...props} loginUser={this.loginUser} />}/>
-                    <Route path="/profile/:type" exact={true} render={(props) =>
+                    <Route path="/profile" exact={true} render={(props) =>
                         <Profile {...props} userId={this.state.userId} />}/>
                     <Route path="/user/:id" exact={true} component={PublicProfile}/>
                     <Route path="/collection" exact={true} component={Collection}/>

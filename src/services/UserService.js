@@ -35,10 +35,15 @@ const findAllUsers = () =>
     fetch(server + "/users")
         .then(response => response.json())
 
+const findIdFromLogin = (username, password) =>
+    fetch(server + "/users/login/" + username + "/" + password)
+        .then(response => response.json())
+
 export default {
     createUser,
     updateUser,
     deleteUser,
     findUserById,
-    findAllUsers
+    findAllUsers,
+    findIdFromLogin
 }

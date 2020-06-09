@@ -165,7 +165,7 @@ class Profile extends React.Component {
                     </div>
                 </div>
                 {
-                    this.props.match.params.type == 'collector' &&
+                    this.state.user.role == 'collector' &&
                     <div className="row">
                         <div className="col-lg-8">
                             <Link to={`/collection`}>
@@ -212,7 +212,7 @@ class Profile extends React.Component {
                     </div>
                 }
                 {
-                    this.props.match.params.type == 'admin' &&
+                    this.state.user.role == 'admin' &&
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="wbdv-profile-admin-list">

@@ -4,11 +4,14 @@ import HomeCover from "./HomeCover";
 import RecentReviews from "./RecentReviews";
 import {Link} from "react-router-dom";
 import LoadingIndicator from "./HomeLoading";
+import userService from "../services/UserService";
 
 class Home extends React.Component {
     state = {
         issues: [],
-        loaded: false
+        loaded: false,
+        username: '',
+        password: ''
     }
 
     componentDidMount() {
@@ -20,6 +23,21 @@ class Home extends React.Component {
                 }));
         window.scrollTo({top: 0, behavior: "smooth"});
     }
+
+    updateUsername = (newString) =>
+        this.setState(prevState => ({
+            username: newString
+        }))
+
+    updatePassword = (newString) =>
+        this.setState(prevState => ({
+            password: newString
+        }))
+
+    login = () =>
+        userService.findIdFromLogin(this.state.username, this.state.password)
+            .then(user => this.props.loginUser(user.id))
+            .then(() => this.props.history.push(`/profile`))
 
     render() {
         return (
@@ -64,15 +82,19 @@ class Home extends React.Component {
                                 Username
                                 <input type="text"
                                        className="form-control wbdv-home-login-field"
+                                       onChange={(event) => this.updateUsername(
+                                           event.target.value)}
                                        placeholder="username"/>
                             </div>
                             <div className="wbdv-home-login-size font-weight-bold" align="left">
                                 Password
                                 <input type="password"
                                        className="form-control wbdv-home-login-field"
+                                       onChange={(event) => this.updatePassword(
+                                           event.target.value)}
                                        placeholder="password"/>
                             </div>
-                            <Link className="btn wbdv-home-login-btn" to={`/profile/collector`}>
+                            <Link className="btn wbdv-home-login-btn" onClick={() => this.login()}>
                                 Login
                             </Link>
                             <span className="row">
