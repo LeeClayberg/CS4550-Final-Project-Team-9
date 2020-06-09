@@ -1,5 +1,5 @@
 
-const server = ""
+const server = "https://comicstack.herokuapp.com/api"
 
 const createUser = (user) =>
     fetch(server + "/users", {

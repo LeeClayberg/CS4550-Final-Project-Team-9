@@ -35,7 +35,7 @@ class Register extends React.Component {
              password: this.state.password,
              role: 'admin',
              startDate: (new Date()).toDateString()
-        }).then(user => this.props.loginUser(user._id))
+        }).then(user => this.props.loginUser(user.id))
 
     render() {
         return (
@@ -72,7 +72,8 @@ class Register extends React.Component {
                                            event.target.value)}
                                        value={this.state.passwordVerify}/>
                             </div>
-                            <Link className="btn wbdv-register-btn" to={`/profile/admin`}>
+                            <Link className="btn wbdv-register-btn" to={`/`}
+                                onClick={() => this.addUser()}>
                                 Sign up
                             </Link>
                             <span className="row">

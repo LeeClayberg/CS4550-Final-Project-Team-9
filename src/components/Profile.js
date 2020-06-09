@@ -13,6 +13,12 @@ class Profile extends React.Component {
 
     componentDidMount() {
         window.scrollTo({top: 0, behavior: "smooth"});
+        userService.findUserById(this.props.userId)
+            .then(user => {
+                this.setState({
+                     user: user
+                })
+            })
     }
 
     updateProfilePicture(event) {
@@ -127,7 +133,7 @@ class Profile extends React.Component {
                                         Role
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               value={this.props.match.params.type} readOnly/>
+                                               value={this.state.user.role} readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         Level
@@ -141,13 +147,13 @@ class Profile extends React.Component {
                                         Active Since
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               value="1970-01-01" readOnly/>
+                                               value={this.state.user.startDate} readOnly/>
                                     </span>
                                     <span className="col-6 wbdv-profile-right-col">
                                         ID Number
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               value="87437537" readOnly/>
+                                               value={this.state.user.id} readOnly/>
                                     </span>
                                 </div>
                                 <button className="btn wbdv-update-profile"
