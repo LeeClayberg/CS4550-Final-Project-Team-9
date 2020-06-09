@@ -1,10 +1,21 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import userService from "../services/UserService";
 
 class Header extends React.Component {
     state = {
         searchString: '',
-        menuDown: false
+        menuDown: false,
+        user: {}
+    }
+
+    componentDidMount() {
+        userService.findUserById(this.props.userId)
+            .then(user => {
+                this.setState({
+                    user: user
+                })
+            })
     }
 
     updateSearchString = (newString) =>
@@ -56,9 +67,7 @@ class Header extends React.Component {
                             </Link>
                                 <img className="btn wbdv-profile-img" src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
                                      alt="Card image cap"
-                                     onClick={() => this.setState({
-                                          menuDown: !this.state.menuDown
-                                     })}/>
+                                     onClick={() => this.setState({menuDown: !this.state.menuDown})}/>
                             {
                                 this.state.menuDown &&
                                 <div className="wbdv-header-dropdown" onClick={() => this.setState({
@@ -81,7 +90,8 @@ class Header extends React.Component {
                                             </Link>
                                         </li>
                                         <li className="list-group-item wbdv-header-dropdown-item">
-                                            <Link className="wbdv-no-link" to={`/`}>
+                                            <Link className="wbdv-no-link" to={`/`}
+                                                onClick={() => this.props.logoutUser()}>
                                                 Logout
                                             </Link>
                                         </li>
