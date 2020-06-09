@@ -8,8 +8,9 @@ import RelatedCover from "./RelatedCover";
 
 class Profile extends React.Component {
     state = {
-        picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg",
+        picture: "",
         userHistory: [],
+        allUsers: [],
         user: {},
         password: '', first: '', last: '', email: '', dob: '',
         address: '', city: '', state: '', zip: '', bio: ''
@@ -33,12 +34,18 @@ class Profile extends React.Component {
                      bio: user.bio,
                      picture: user.pictureURL
                 })
-            });
-        userService.findUserHistory()
-            .then(list => {
-                this.setState({
-                    userHistory: list
-                })})
+            }).then(() => {
+                if (this.state.user.role == 'admin') {
+                userService.findUserHistory()
+                    .then(list => {
+                        this.setState({
+                            userHistory: list
+                        })});
+                userService.findAllUsers()
+                    .then(users => {
+                        this.setState({
+                            allUsers: users
+                        })})}})
     }
 
     updateProfilePicture(event) {
@@ -133,8 +140,7 @@ class Profile extends React.Component {
                                             <i className="fa fa-trash"/>
                                         </div>
                                     }
-                                    <img className="wbdv-profile-picture" src={this.state.picture}
-                                         alt={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}/>
+                                    <img className="wbdv-profile-picture" src={this.state.picture}/>
                                     Profile Picture
                                 </span>
                                 <span className="col-md-7 wbdv-simple-info wbdv-profile-field-labels">
@@ -359,15 +365,8 @@ class Profile extends React.Component {
                                     <div className="col-2 wbdv-admin-field-group"/>
                                 </div>
                                 <span>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Admin" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Admin" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
-                                     <AdminRow username="Johnny" password="kajshdk345" role="Collector" id="87437537"/>
+                                    {this.state.allUsers.map(user =>
+                                         <AdminRow username={user.username} password={user.password} role={user.role} id={user.id}/>)}
                                 </span>
                             </div>
                         </div>
@@ -378,7 +377,8 @@ class Profile extends React.Component {
                                 </div>
                                 <div className="wbdv-profile-admin-history-text" align="left">
                                     <p className="wbdv-admin-history-p">
-                                        {this.state.userHistory.map(row => `${row}\n`)}
+                                        {this.state.userHistory.map(row =>
+                                                                        <span>{row}<br/></span>)}
                                     </p>
                                 </div>
                             </div>
