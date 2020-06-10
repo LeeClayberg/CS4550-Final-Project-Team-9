@@ -342,13 +342,8 @@ class Profile extends React.Component {
                                         My Collection
                                     </div>
                                     <div className="row row-cols-5 wbdv-cover-row">
-                                        <ProfileCover/><ProfileCover/><ProfileCover/>
-                                        <ProfileCover/><ProfileCover/><ProfileCover/>
-                                        <ProfileCover/><ProfileCover/><ProfileCover/>
-                                        <ProfileCover/><ProfileCover/><ProfileCover/>
-                                        <ProfileCover/><ProfileCover/><ProfileCover/>
-                                        <ProfileCover/><ProfileCover/><ProfileCover/>
-                                        <ProfileCover/><ProfileCover/>
+                                        {this.state.collection.map(comicBook =>
+                                             <ProfileCover comicBook={comicBook}/>)}
                                     </div>
                                 </div>
                             </Link>

@@ -1,20 +1,32 @@
 import React from 'react'
 import CollectionCover from "./CollectionCover";
 import {Link} from "react-router-dom";
+import comicBookService from "../services/ComicBookService";
+import ProfileCover from "./ProfileCover";
 
 class Collection extends React.Component {
     state = {
-        searchString: ''
+        searchString: '',
+        sortBy: 'grade',
+        searchBy: 'title',
+        collection: []
     }
 
     componentDidMount() {
         window.scrollTo({top: 0, behavior: "smooth"});
+        comicBookService.findComicBooksForUserSorted(this.props.userId, this.state.sortBy)
+            .then(list => {
+                this.setState({
+                    collection: list
+                })})
     }
 
     updateSearchString = (newString) =>
         this.setState(prevState => ({
             searchString: newString
         }))
+
+
 
     render() {
         return (
@@ -74,16 +86,8 @@ class Collection extends React.Component {
                     <span className="col-md-1"/>
                 </div>
                 <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 wbdv-cover-row">
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
-                    <CollectionCover/><CollectionCover/><CollectionCover/>
+                    {this.state.collection.map(comicBook =>
+                         <CollectionCover comicBook={comicBook}/>)}
                 </div>
             </div>
         )

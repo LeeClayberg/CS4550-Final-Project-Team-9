@@ -6,15 +6,15 @@ class CollectionCover extends React.Component {
         return (
             <div className="col wbdv-collection-col">
                 <div className="wbdv-grade-box">
-                    10.0
+                    {this.props.comicBook.grade.toFixed(1)}
                 </div>
                 <div className="btn wbdv-delete-box"
                      onClick={() => alert("Will remove comic book")}>
                     <i className="fa fa-trash"/>
                 </div>
-                <Link>
-                <img className="wbdv-collection-cover" src={require("../TempCover.png")}
-                     alt="Temporary"/>
+                <Link to={`/issue/${this.props.comicBook.issueId}`}>
+                    <img className="wbdv-collection-cover" src={this.props.comicBook.coverImageURL}
+                         alt="Temporary"/>
                 </Link>
             </div>
         )
