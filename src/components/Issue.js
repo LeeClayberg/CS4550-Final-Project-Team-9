@@ -156,9 +156,11 @@ class Issue extends React.Component {
                                         </span>
                                         <span className="col-6 wbdv-top-area-col">
                                             <button className="btn wbdv-add-btn float-right"
-                                                    onClick={() => this.setState({
-                                                                                     add: !this.state.add
-                                                                                 })}>
+                                                    onClick={() => this.props.userId?
+                                                                   this.setState({
+                                                                       add: !this.state.add
+                                                                   }):
+                                                                   alert("Must be logged in to add this issue")}>
                                                 + Add
                                             </button>
                                             {
@@ -298,9 +300,11 @@ class Issue extends React.Component {
                                 </div>
                                 <span className="col-2 wbdv-review-add-col">
                                     <div className="btn wbdv-review-add"
-                                         onClick={() => this.setState({
-                                             addReview: true
-                                         })}>
+                                         onClick={() => this.props.userId?
+                                                        this.setState({
+                                                            addReview: true
+                                                         }):
+                                                        alert("Must be logged in to write a review")}>
                                         <i className="fa fa-plus"/>
                                     </div>
                                 </span>
