@@ -112,6 +112,17 @@ class Profile extends React.Component {
             bio: newString
         }))
 
+    calcLevel = () => {
+        if(!this.state.user.collection) {return ""}
+        if(this.state.user.collection.length < 10) {return "Beginner"}
+        if(this.state.user.collection.length < 25) {return "Intermediate"}
+        if(this.state.user.collection.length < 50) {return "Seasoned"}
+        if(this.state.user.collection.length < 100) {return "Proficient"}
+        if(this.state.user.collection.length < 200) {return "Experienced"}
+        if(this.state.user.collection.length < 500) {return "Advanced"}
+        return "Expert";
+    }
+
     updateUser = (role) =>
         userService.updateUser(this.props.userId, {
             password: this.state.password,
@@ -307,7 +318,7 @@ class Profile extends React.Component {
                                         Level
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               value="Beginner" readOnly/>
+                                               value={"Beginner"} readOnly/>
                                     </span>
                                 </div>
                                 <div className="row wbdv-profile-row wbdv-profile-field-group">
