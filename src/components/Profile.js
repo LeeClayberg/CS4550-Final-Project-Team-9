@@ -103,7 +103,7 @@ class Profile extends React.Component {
             bio: newString
         }))
 
-    updateUser = () =>
+    updateUser = (role) =>
         userService.updateUser(this.props.userId, {
             password: this.state.password,
             first: this.state.first,
@@ -115,8 +115,30 @@ class Profile extends React.Component {
             state: this.state.state,
             zip: this.state.zip,
             bio: this.state.bio,
-            pictureURL: this.state.picture
+            pictureURL: this.state.picture,
+            role: 'admin'
         })
+
+    adminUpdateUser = (user, role) =>
+        userService.updateUser(user.id, {
+            password: user.password,
+            first: user.first,
+            last: user.last,
+            email: user.email,
+            dob: user.dob,
+            address: user.address,
+            city: user.city,
+            state: user.state,
+            zip: user.zip,
+            bio: user.bio,
+            pictureURL: user.picture,
+            role: role
+        }).then(() =>
+            userService.findAllUsers()
+                .then(users => {
+                    this.setState({
+                        allUsers: users
+                    })}))
 
     deleteUser = (userId) => {
         userService.deleteUser(userId)
@@ -162,7 +184,7 @@ class Profile extends React.Component {
                                         Password
                                         <input type="text"
                                                className="form-control wbdv-profile-field"
-                                               value={this.state.user.password}
+                                               value={this.state.password}
                                                onChange={(event) => this.updatePassword(
                                                    event.target.value)}
                                                placeholder="password"/>
@@ -172,7 +194,7 @@ class Profile extends React.Component {
                                             First
                                             <input type="text"
                                                 className="form-control wbdv-profile-field"
-                                                value={this.state.user.first}
+                                                value={this.state.first}
                                                 onChange={(event) => this.updateFirst(
                                                     event.target.value)}
                                                 placeholder="first name"/>
@@ -181,7 +203,7 @@ class Profile extends React.Component {
                                             Last
                                             <input type="text"
                                                    className="form-control wbdv-profile-field"
-                                                   value={this.state.user.last}
+                                                   value={this.state.last}
                                                    onChange={(event) => this.updateLast(
                                                        event.target.value)}
                                                    placeholder="last name"/>
@@ -191,7 +213,7 @@ class Profile extends React.Component {
                                         Email (recovery)
                                         <input type="email"
                                                className="form-control wbdv-profile-field"
-                                               value={this.state.user.email}
+                                               value={this.state.email}
                                                onChange={(event) => this.updateEmail(
                                                    event.target.value)}
                                                placeholder="email@address.com"/>
@@ -200,7 +222,7 @@ class Profile extends React.Component {
                                         Date of Birth
                                         <input type="date"
                                                className="form-control wbdv-profile-field"
-                                               value={this.state.user.dob}
+                                               value={this.state.dob}
                                                onChange={(event) => this.updateDOB(
                                                    event.target.value)}
                                                placeholder=""/>
@@ -212,7 +234,7 @@ class Profile extends React.Component {
                                     Address
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
-                                           value={this.state.user.address}
+                                           value={this.state.address}
                                            onChange={(event) => this.updateAddress(
                                                event.target.value)}
                                            placeholder="1234 Main St"/>
@@ -223,7 +245,7 @@ class Profile extends React.Component {
                                     City
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
-                                           value={this.state.user.city}
+                                           value={this.state.city}
                                            onChange={(event) => this.updateCity(
                                                event.target.value)}
                                            placeholder="City"/>
@@ -233,7 +255,7 @@ class Profile extends React.Component {
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
                                            maxLength="2"
-                                           value={this.state.user.state}
+                                           value={this.state.state}
                                            onChange={(event) => this.updateState(
                                                event.target.value)}
                                            placeholder="State"/>
@@ -243,7 +265,7 @@ class Profile extends React.Component {
                                     <input type="text"
                                            className="form-control wbdv-profile-field"
                                            maxLength="5"
-                                           value={this.state.user.zip}
+                                           value={this.state.zip}
                                            onChange={(event) => this.updateZip(
                                                event.target.value)}
                                            placeholder="Zip"/>
@@ -260,7 +282,7 @@ class Profile extends React.Component {
                                            rows="8"
                                            maxlength="220"
                                            className="form-control wbdv-profile-field wbdv-profile-textarea"
-                                           value={this.state.user.bio}
+                                           value={this.state.bio}
                                            onChange={(event) => this.updateBio(
                                                event.target.value)}
                                            placeholder="I am a ..."/>
@@ -294,7 +316,7 @@ class Profile extends React.Component {
                                     </span>
                                 </div>
                                 <button className="btn wbdv-update-profile"
-                                        onClick={() => this.updateUser()}>
+                                        onClick={() => this.updateUser(this.props.userId, this.state.user.role)}>
                                     Update
                                 </button>
                             </span>
@@ -373,8 +395,9 @@ class Profile extends React.Component {
                                 </div>
                                 <span>
                                     {this.state.allUsers.map(user =>
-                                         <AdminRow username={user.username} password={user.password} role={user.role} id={user.id}
-                                                   deleteUser={this.deleteUser}/>)}
+                                         <AdminRow user={user}
+                                                   deleteUser={this.deleteUser}
+                                                   updateUser={this.adminUpdateUser}/>)}
                                 </span>
                             </div>
                         </div>

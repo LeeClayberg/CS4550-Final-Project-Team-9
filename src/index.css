@@ -958,6 +958,18 @@ a:hover {
   resize: none;
 }
 
+.wbdv-admin-dropdown {
+  background-color: #DDDDDD;
+  color: black;
+  border-radius: 0px;
+  margin-top: -1px;
+  margin-left: -6px;
+  padding: 0px 5px;
+  font-size: 18px;
+  height: 100%;
+  width: 110%;
+}
+
 /* Profile Collection */
 
 .wbdv-profile-collection {
