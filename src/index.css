@@ -1133,6 +1133,21 @@ a:hover {
   font-weight: bold;
 }
 
+.wbdv-delete-box {
+  position: absolute;
+  background-color: #3AB1E3;
+  color: white;
+  top: 4%;
+  left: 14.5%;
+  padding: 3px 5px;
+  border-radius: 0px;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* Reviews  */
 
 .wbdv-reviews {

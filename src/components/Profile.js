@@ -396,6 +396,7 @@ class Profile extends React.Component {
                                 <span>
                                     {this.state.allUsers.map(user =>
                                          <AdminRow user={user}
+                                                   currentUser={this.state.user}
                                                    deleteUser={this.deleteUser}
                                                    updateUser={this.adminUpdateUser}/>)}
                                 </span>

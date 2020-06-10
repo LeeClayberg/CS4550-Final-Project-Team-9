@@ -56,7 +56,7 @@ class AdminRow extends React.Component {
                                     this.props.updateUser(this.props.user, this.state.role)}}/>
                     }
                     {
-                        !this.state.selected &&
+                        !this.state.selected && this.props.currentUser.id != this.props.user.id &&
                         <span>
                             <i className="btn fa fa-pencil wbdv-admin-icon"
                                 onClick={() => {
