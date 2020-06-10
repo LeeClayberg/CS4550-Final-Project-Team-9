@@ -118,7 +118,7 @@ class Profile extends React.Component {
         user.comicBooks.length < 200? "Experienced":
         user.comicBooks.length < 500? "Advanced":"Expert"
 
-    updateUser = (role) =>
+    updateUser = () => {
         userService.updateUser(this.props.userId, {
             password: this.state.password,
             first: this.state.first,
@@ -132,7 +132,7 @@ class Profile extends React.Component {
             bio: this.state.bio,
             pictureURL: this.state.picture,
             role: 'admin'
-        })
+        }).then(() => this.props.imageChange())}
 
     adminUpdateUser = (user, role) =>
         userService.updateUser(user.id, {
@@ -179,9 +179,10 @@ class Profile extends React.Component {
                                     {
                                         this.state.picture != "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg" &&
                                         <div className="btn remove-picture-btn"
-                                             onClick={() => this.setState({
-                                                  picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
-                                             })}>
+                                             onClick={() => {
+                                                 this.setState({
+                                                     picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
+                                                 })}}>
                                             <i className="fa fa-trash"/>
                                         </div>
                                     }
@@ -332,7 +333,7 @@ class Profile extends React.Component {
                                     </span>
                                 </div>
                                 <button className="btn wbdv-update-profile"
-                                        onClick={() => this.updateUser(this.props.userId, this.state.user.role)}>
+                                        onClick={() => this.updateUser()}>
                                     Update
                                 </button>
                             </span>

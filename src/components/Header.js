@@ -19,7 +19,7 @@ class Header extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevProps.userId !== this.props.userId) {
+        if(prevProps.userId !== this.props.userId || prevProps.imageChange !== this.props.imageChange) {
             userService.findUserById(this.props.userId)
                 .then(user => {
                     this.setState({
@@ -92,7 +92,7 @@ class Header extends React.Component {
                                         {this.state.user.username}
                                     </div>
                                     <img className="btn wbdv-profile-img"
-                                         src={"https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"}
+                                         src={this.state.user.pictureURL}
                                          onClick={() => this.setState(
                                              {menuDown: !this.state.menuDown})}/>
                                 </span>

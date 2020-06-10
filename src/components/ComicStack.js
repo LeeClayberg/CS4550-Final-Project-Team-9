@@ -14,7 +14,8 @@ import PublicProfile from "./PublicProfile";
 
 class ComicStack extends React.Component {
     state = {
-        userId: null
+        userId: null,
+        imageChange: false
     }
 
     loginUser = (userId) => {
@@ -29,10 +30,15 @@ class ComicStack extends React.Component {
             userId: null
         }))
 
+    imageChange = () =>
+        this.setState(prevState => ({
+            imageChange: !this.state.imageChange
+        }))
+
     render() {
         return (
             <BrowserRouter>
-                <Header logoutUser={this.logoutUser} userId={this.state.userId}/>
+                <Header logoutUser={this.logoutUser} userId={this.state.userId} imageChange={this.state.imageChange}/>
                 <div className="container">
                     <Route path="/" exact={true} render={(props) =>
                         <Home {...props} loginUser={this.loginUser} logoutUser={this.logoutUser} userId={this.state.userId}/>}/>
@@ -45,7 +51,7 @@ class ComicStack extends React.Component {
                     <Route path="/register" exact={true} render={(props) =>
                         <Register {...props} loginUser={this.loginUser} />}/>
                     <Route path="/profile" exact={true} render={(props) =>
-                        <Profile {...props} userId={this.state.userId} />}/>
+                        <Profile {...props} userId={this.state.userId} imageChange={this.imageChange}/>}/>
                     <Route path="/user/:id" exact={true} component={PublicProfile}/>
                     <Route path={["/collection&sortby=:sortBy"]} exact={true} render={(props) =>
                         <Collection {...props} userId={this.state.userId} />}/>
