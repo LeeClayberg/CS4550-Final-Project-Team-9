@@ -6,6 +6,7 @@ import IssueReview from "./IssueReview";
 import {Link} from "react-router-dom";
 import DetailsLoadingIndicator from "./DetailsLoading";
 import IssueNewReview from "./IssueNewReview";
+import ComicBooKService from "../services/ComicBookService";
 
 class Issue extends React.Component {
     state = {
@@ -13,7 +14,9 @@ class Issue extends React.Component {
         add: false,
         related: [],
         loaded: false,
-        addReview: false
+        addReview: false,
+        grade: 10.0,
+        signatures: ''
     }
 
     componentDidMount() {
@@ -80,9 +83,33 @@ class Issue extends React.Component {
         return " " + character.name;
     }
 
-    addIssueToCollection = () => {
+    updateGrade = (value) =>
+        this.setState(prevState => ({
+            grade: value
+        }))
 
-    }
+    updateSignatures = (value) =>
+        this.setState(prevState => ({
+            signatures: value
+        }))
+
+    addIssueToCollection = () =>
+        ComicBooKService.createComicBook(this.props.userId, {
+            issueId: this.state.issue.id,
+            userId: this.props.userId,
+            grade: this.state.grade,
+            signatures: this.state.signatures,
+            coverImageURL: this.state.issue.image.super_url,
+            coverDate: this.state.issue.cover_date,
+            timestamp: (new Date()).toISOString(),
+            title: this.state.issue.name,
+            volume: this.state.issue.volume.name,
+            characters: this.state.issue.character_credits.map(this.displayListTooltip).join("")
+        })
+            .then(() => {
+                this.setState({
+                    add: false
+                })})
 
     render() {
         if (!this.state.issue || !this.state.loaded) {
@@ -130,18 +157,22 @@ class Issue extends React.Component {
                                                 <div className="wbdv-add-box font-weight-bold">
                                                     Grade
                                                     <select
-                                                        className="custom-select wbdv-grade-dropdown">
+                                                        className="custom-select wbdv-grade-dropdown"
+                                                        value={this.state.grade}
+                                                        onChange={(event) => this.updateGrade(
+                                                            event.target.value)}>
                                                         <option selected>10.0</option>
                                                         {elements}
                                                     </select>
                                                     Signature(s)
                                                     <input type="text"
                                                            className="form-control wbdv-signature-field"
-                                                           placeholder="ex. Stan Lee"/>
+                                                           placeholder="ex. Stan Lee"
+                                                           value={this.state.signatures}
+                                                           onChange={(event) => this.updateSignatures(
+                                                               event.target.value)}/>
                                                     <button className="btn wbdv-add-done-btn"
-                                                            onClick={() => this.setState({
-                                                                                             add: false
-                                                                                         })}>
+                                                            onClick={() => this.addIssueToCollection()}>
                                                         Done
                                                     </button>
                                                 </div>

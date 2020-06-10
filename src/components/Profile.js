@@ -4,12 +4,14 @@ import ProfileReview from "./ProfileReview";
 import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
 import userService from "../services/UserService";
+import comicBookService from "../services/ComicBookService";
 
 class Profile extends React.Component {
     state = {
         picture: "",
         userHistory: [],
         allUsers: [],
+        collection: [],
         user: {},
         password: '', first: '', last: '', email: '', dob: '',
         address: '', city: '', state: '', zip: '', bio: ''
@@ -44,7 +46,14 @@ class Profile extends React.Component {
                     .then(users => {
                         this.setState({
                             allUsers: users
-                        })})}})
+                        })})}
+                else {
+                    comicBookService.findComicBooksForUser(this.props.userId)
+                        .then(list => {
+                            this.setState({
+                                 collection: list
+                            })})
+                }})
     }
 
     updateProfilePicture(event) {
