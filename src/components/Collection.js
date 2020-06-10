@@ -2,7 +2,6 @@ import React from 'react'
 import CollectionCover from "./CollectionCover";
 import {Link} from "react-router-dom";
 import comicBookService from "../services/ComicBookService";
-import ProfileCover from "./ProfileCover";
 
 class Collection extends React.Component {
     state = {
@@ -26,7 +25,21 @@ class Collection extends React.Component {
             searchString: newString
         }))
 
+    updateSortBy = (value) => {
+        this.setState(prevState => ({
+            sortBy: value
+        }));
+        comicBookService.findComicBooksForUserSorted(this.props.userId, value)
+            .then(list => {
+                this.setState({
+                    collection: list
+                })})
+    }
 
+    updateSearchBy = (value) =>
+        this.setState(prevState => ({
+            searchBy: value
+        }))
 
     render() {
         return (
@@ -48,19 +61,25 @@ class Collection extends React.Component {
                         <div className="row">
                             <span className="col-6 col-lg-2 wbdv-collection-search-col">
                                 <select
-                                    className="custom-select wbdv-collection-dropdown">
-                                    <option selected>Grade</option>
-                                    <option>Cover Date</option>
-                                    <option>Date Added</option>
-                                    <option>Title</option>
+                                    className="custom-select wbdv-collection-dropdown"
+                                    value={this.state.sortBy}
+                                    onChange={(event) => this.updateSortBy(
+                                        event.target.value)}>
+                                    <option value="grade">Grade</option>
+                                    <option value="coverdate">Cover Date</option>
+                                    <option value="timestamp">Date Added</option>
+                                    <option value="title">Title</option>
                                 </select>
                             </span>
                             <span className="col-6 col-lg-2 wbdv-collection-search-col">
                                 <select
-                                    className="custom-select wbdv-collection-dropdown">
-                                    <option selected>Title</option>
-                                    <option>Volume</option>
-                                    <option>Character</option>
+                                    className="custom-select wbdv-collection-dropdown"
+                                    value={this.state.searchBy}
+                                    onChange={(event) => this.updateSearchBy(
+                                        event.target.value)}>
+                                    <option value="title">Title</option>
+                                    <option value="volume">Volume</option>
+                                    <option value="character">Character</option>
                                 </select>
                             </span>
                             <span className="col-md-8 wbdv-collection-search-col">

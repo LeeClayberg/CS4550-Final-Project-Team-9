@@ -102,7 +102,9 @@ class Issue extends React.Component {
             coverImageURL: this.state.issue.image.super_url,
             coverDate: this.state.issue.cover_date,
             timestamp: (new Date()).toISOString(),
-            title: this.state.issue.name,
+            title: this.state.issue.name ?
+                   this.state.issue.name :
+                   this.state.issue.volume.name + " #" + this.state.issue.issue_number,
             volume: this.state.issue.volume.name,
             characters: this.state.issue.character_credits.map(this.displayListTooltip).join("")
         })
