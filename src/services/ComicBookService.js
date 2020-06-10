@@ -26,11 +26,11 @@ const findComicBooksForUser = (userId) =>
         .then(response => response.json())
 
 const findComicBooksForUserSorted = (userId, sortBy) =>
-    fetch(server + "/users/" + userId + "/collection&sort=" + sortBy)
+    fetch(server + "/users/" + userId + "/collection?sort=" + sortBy)
         .then(response => response.json())
 
 const findComicBooksForUserSortedSearch = (userId, sortBy, resource, query) =>
-    fetch(server + "/users/" + userId + "/collection&sort=" + sortBy + "&resource=" + resource + "&search=" + query)
+    fetch(server + "/users/" + userId + "/collection?sort=" + sortBy + "&resource=" + resource + "&query=" + query)
         .then(response => response.json())
 
 export default {

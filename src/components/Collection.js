@@ -49,6 +49,13 @@ class Collection extends React.Component {
                 })})
     }
 
+    search = () =>
+        comicBookService.findComicBooksForUserSortedSearch(this.props.userId, this.state.sortBy, this.state.searchBy, this.state.searchString)
+            .then(list => {
+                this.setState({
+                    collection: list
+                })})
+
     render() {
         return (
             <div className="wbdv-collection">
@@ -77,6 +84,7 @@ class Collection extends React.Component {
                                     <option value="coverdate">Cover Date</option>
                                     <option value="timestamp">Date Added</option>
                                     <option value="title">Title</option>
+                                    <option value="volume">Volume</option>
                                 </select>
                             </span>
                             <span className="col-6 col-lg-2 wbdv-collection-search-col">
@@ -98,7 +106,7 @@ class Collection extends React.Component {
                                                event.target.value)}
                                            value={this.state.searchString}/>
                                     <div className="input-group-append">
-                                        <Link>
+                                        <Link onClick={() => this.search()}>
                                             <span
                                                 className="btn input-group-text wbdv-search-button"
                                                 id="basic-addon1">

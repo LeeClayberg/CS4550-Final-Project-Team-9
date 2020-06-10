@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import DetailsLoadingIndicator from "./DetailsLoading";
 import IssueNewReview from "./IssueNewReview";
 import ComicBooKService from "../services/ComicBookService";
+import UserService from "../services/UserService";
 
 class Issue extends React.Component {
     state = {
@@ -16,7 +17,8 @@ class Issue extends React.Component {
         loaded: false,
         addReview: false,
         grade: 10.0,
-        signatures: ''
+        signatures: '',
+        user: null
     }
 
     componentDidMount() {
@@ -46,7 +48,12 @@ class Issue extends React.Component {
                                           related: issues.results,
                                           loaded: true
                                       })
-                    })
+                    });
+                UserService.findUserById(this.props.userId)
+                    .then(user =>
+                        this.setState({
+                             user: user
+                        }))
             })
 
     nextIssue = () =>
@@ -301,29 +308,31 @@ class Issue extends React.Component {
                         <ul className="list-group wbdv-review-list">
                             {
                                 this.state.addReview &&
-                                <IssueNewReview name={"John Wigner"}/>
+                                <IssueNewReview name={this.state.user.username}/>
                             }
                             <IssueReview
                                 name={"John Wigner"}
-                                mode={"admin"}
+                                mode={this.state.user.role}
                                 stars={4}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
-                                mode={"admin"}
+                                mode={this.state.user.role}
                                 stars={5}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
-                                mode={"admin"}
+                                mode={this.state.user.role}
                                 stars={3}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                mode={this.state.user.role}
                                 stars={2}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                             <IssueReview
                                 name={"John Wigner"}
+                                mode={this.state.user.role}
                                 stars={3}
                                 text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
                         </ul>
