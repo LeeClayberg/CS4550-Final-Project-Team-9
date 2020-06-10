@@ -109,7 +109,7 @@ class Header extends React.Component {
                                             </Link>
                                         </li>
                                         <li className="list-group-item wbdv-header-dropdown-item">
-                                            <Link className="wbdv-no-link" to={`/collection`}>
+                                            <Link className="wbdv-no-link" to={`/collection&sortby=grade`}>
                                                 Collection
                                             </Link>
                                         </li>

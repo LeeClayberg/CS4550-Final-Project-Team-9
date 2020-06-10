@@ -135,7 +135,7 @@ class Home extends React.Component {
                                         </Link>
                                     </div>
                                     <div className="col-12 col-lg-6 wbdv-home-profile-col-right">
-                                        <Link className="btn wbdv-home-profile-btn" to={`/collection`}>
+                                        <Link className="btn wbdv-home-profile-btn" to={`/collection&sortby=grade`}>
                                             Collection
                                         </Link>
                                     </div>

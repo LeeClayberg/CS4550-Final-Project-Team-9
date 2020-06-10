@@ -6,7 +6,7 @@ import comicBookService from "../services/ComicBookService";
 class Collection extends React.Component {
     state = {
         searchString: '',
-        sortBy: 'grade',
+        sortBy: this.props.match.params.sortBy,
         searchBy: 'title',
         collection: []
     }
@@ -33,13 +33,21 @@ class Collection extends React.Component {
             .then(list => {
                 this.setState({
                     collection: list
-                })})
+                })}).then(() => this.props.history.push(`/collection&sortby=${this.state.sortBy}`));
     }
 
     updateSearchBy = (value) =>
         this.setState(prevState => ({
             searchBy: value
         }))
+
+    deleteComicBook = (comicBookId) => {
+        comicBookService.deleteComicBook(this.props.userId, comicBookId)
+            .then(list => {
+                this.setState({
+                    collection: list
+                })})
+    }
 
     render() {
         return (
@@ -106,7 +114,7 @@ class Collection extends React.Component {
                 </div>
                 <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 wbdv-cover-row">
                     {this.state.collection.map(comicBook =>
-                         <CollectionCover comicBook={comicBook}/>)}
+                         <CollectionCover comicBook={comicBook} deleteComicBook={this.deleteComicBook}/>)}
                 </div>
             </div>
         )

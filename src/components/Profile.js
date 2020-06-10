@@ -347,7 +347,7 @@ class Profile extends React.Component {
                     this.state.user.role == 'collector' &&
                     <div className="row">
                         <div className="col-lg-8">
-                            <Link to={`/collection`}>
+                            <Link to={`/collection&sortby=grade`}>
                                 <div className="wbdv-profile-collection overflow-hidden">
                                     <div className="wbdv-profile-collection-header">
                                         My Collection

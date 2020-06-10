@@ -21,7 +21,7 @@ class CollectionCover extends React.Component {
                 {
                     this.state.hover &&
                     <div className="btn wbdv-delete-box"
-                         onClick={() => alert("Will remove comic book")}>
+                         onClick={() => this.props.deleteComicBook(this.props.comicBook.id)}>
                         <i className="fa fa-trash"/>
                     </div>
                 }
