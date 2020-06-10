@@ -5,7 +5,8 @@ import userService from "../services/UserService";
 
 class PublicProfile extends React.Component {
     state = {
-        user: {}
+        user: {},
+        collection: []
     }
 
     componentDidMount() {
@@ -13,10 +14,20 @@ class PublicProfile extends React.Component {
         userService.findUserById(this.props.match.params.id)
             .then(user => {
                 this.setState({
-                     user: user
+                     user: user,
+                     collection: user.comicBooks
                 })
             });
     }
+
+    calcLevel = () =>
+        !this.state.user.comicBooks? "":
+        this.state.user.comicBooks.length < 10? "Beginner":
+        this.state.user.comicBooks.length < 25? "Intermediate":
+        this.state.user.comicBooks.length < 50? "Seasoned":
+        this.state.user.comicBooks.length < 100? "Proficient":
+        this.state.user.comicBooks.length < 200? "Experienced":
+        this.state.user.comicBooks.length < 500? "Advanced":"Expert"
 
     render() {
         return (
@@ -47,7 +58,7 @@ class PublicProfile extends React.Component {
                                 Level
                                 <input type="text"
                                        className="form-control wbdv-profile-field wbdv-added-info"
-                                       value="Beginner" readOnly/>
+                                       value={this.calcLevel()} readOnly/>
                             </span>
                         </div>
                         <div className="row wbdv-public-profile-row wbdv-profile-field-group">
@@ -85,13 +96,9 @@ class PublicProfile extends React.Component {
                                     {this.state.user.username}'s Collection
                                 </div>
                                 <div className="row row-cols-5 wbdv-cover-row">
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/><ProfileCover/>
-                                    <ProfileCover/><ProfileCover/>
+                                    {this.state.collection.map(comicBook =>
+                                                                   <ProfileCover
+                                                                       comicBook={comicBook}/>)}
                                 </div>
                             </div>
                     </div>

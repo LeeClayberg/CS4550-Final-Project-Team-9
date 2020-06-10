@@ -12,6 +12,7 @@ class Profile extends React.Component {
         userHistory: [],
         allUsers: [],
         collection: [],
+        level: "",
         user: {},
         password: '', first: '', last: '', email: '', dob: '',
         address: '', city: '', state: '', zip: '', bio: ''
@@ -33,7 +34,9 @@ class Profile extends React.Component {
                      state: user.state,
                      zip: user.zip,
                      bio: user.bio,
-                     picture: user.pictureURL
+                     picture: user.pictureURL,
+                     collection: user.comicBooks,
+                     level: this.calcLevel(user)
                 })
             }).then(() => {
                 if (this.state.user.role == 'admin') {
@@ -47,13 +50,7 @@ class Profile extends React.Component {
                         this.setState({
                             allUsers: users
                         })})}
-                else {
-                    comicBookService.findComicBooksForUser(this.props.userId)
-                        .then(list => {
-                            this.setState({
-                                 collection: list
-                            })})
-                }})
+            })
     }
 
     updateProfilePicture(event) {
@@ -112,16 +109,14 @@ class Profile extends React.Component {
             bio: newString
         }))
 
-    calcLevel = () => {
-        if(!this.state.user.collection) {return ""}
-        if(this.state.user.collection.length < 10) {return "Beginner"}
-        if(this.state.user.collection.length < 25) {return "Intermediate"}
-        if(this.state.user.collection.length < 50) {return "Seasoned"}
-        if(this.state.user.collection.length < 100) {return "Proficient"}
-        if(this.state.user.collection.length < 200) {return "Experienced"}
-        if(this.state.user.collection.length < 500) {return "Advanced"}
-        return "Expert";
-    }
+    calcLevel = (user) =>
+        !user.comicBooks? "":
+        user.comicBooks.length < 10? "Beginner":
+        user.comicBooks.length < 25? "Intermediate":
+        user.comicBooks.length < 50? "Seasoned":
+        user.comicBooks.length < 100? "Proficient":
+        user.comicBooks.length < 200? "Experienced":
+        user.comicBooks.length < 500? "Advanced":"Expert"
 
     updateUser = (role) =>
         userService.updateUser(this.props.userId, {
@@ -169,6 +164,7 @@ class Profile extends React.Component {
     }
 
     render() {
+        console.log(this.state.collection.length);
         return (
             <span>
                 <div className="row">
@@ -318,7 +314,7 @@ class Profile extends React.Component {
                                         Level
                                         <input type="text"
                                                className="form-control wbdv-profile-field wbdv-added-info"
-                                               value={"Beginner"} readOnly/>
+                                               value={this.state.level} readOnly/>
                                     </span>
                                 </div>
                                 <div className="row wbdv-profile-row wbdv-profile-field-group">
