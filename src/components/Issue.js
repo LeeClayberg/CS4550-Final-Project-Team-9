@@ -80,6 +80,10 @@ class Issue extends React.Component {
         return " " + character.name;
     }
 
+    addIssueToCollection = () => {
+
+    }
+
     render() {
         if (!this.state.issue || !this.state.loaded) {
             return (
