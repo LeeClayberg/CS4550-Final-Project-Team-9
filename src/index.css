@@ -12,6 +12,10 @@ a:hover {
   color: unset;
 }
 
+b {
+  font-weight: bold;
+}
+
 .form-control[readonly] {
   background-color: #bbbbbb;
   width: 100%;
@@ -1003,6 +1007,19 @@ a:hover {
   height: 100%;
 }
 
+.wbdv-profile-empty {
+   color: black;
+   text-align: center;
+   padding-top: 140px;
+   font-size: 40px;
+ }
+
+.wbdv-profile-empty-sm {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
 /* Profile Reviews */
 
 .wbdv-profile-reviews {
@@ -1148,6 +1165,26 @@ a:hover {
   line-height: 20px;
   font-size: 18px;
   font-weight: bold;
+}
+
+.wbdv-collection-empty {
+  color: black;
+  text-align: center;
+  padding: 50px 0px 50px;
+  font-size: 40px;
+}
+
+.wbdv-collection-empty-sm {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.wbdv-no-search-results {
+  color: black;
+  text-align: center;
+  padding: 50px 0px 50px;
+  font-size: 30px;
 }
 
 /* Reviews  */

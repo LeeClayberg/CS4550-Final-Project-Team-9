@@ -8,7 +8,8 @@ class Collection extends React.Component {
         searchString: '',
         sortBy: this.props.match.params.sortBy,
         searchBy: 'title',
-        collection: []
+        collection: [],
+        searching: false
     }
 
     componentDidMount() {
@@ -27,7 +28,8 @@ class Collection extends React.Component {
 
     updateSortBy = (value) => {
         this.setState(prevState => ({
-            sortBy: value
+            sortBy: value,
+            searching: false
         }));
         comicBookService.findComicBooksForUserSorted(this.props.userId, value)
             .then(list => {
@@ -53,7 +55,8 @@ class Collection extends React.Component {
         comicBookService.findComicBooksForUserSortedSearch(this.props.userId, this.state.sortBy, this.state.searchBy, this.state.searchString)
             .then(list => {
                 this.setState({
-                    collection: list
+                    collection: list,
+                    searching: true
                 })})
 
     render() {
@@ -120,10 +123,32 @@ class Collection extends React.Component {
                     </span>
                     <span className="col-md-1"/>
                 </div>
-                <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 wbdv-cover-row">
-                    {this.state.collection.map(comicBook =>
-                         <CollectionCover comicBook={comicBook} deleteComicBook={this.deleteComicBook}/>)}
-                </div>
+                {
+                    this.state.collection.length > 0 &&
+                    <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 wbdv-cover-row">
+                        {this.state.collection.map(comicBook =>
+                             <CollectionCover comicBook={comicBook}
+                                  deleteComicBook={this.deleteComicBook}/>)}
+                    </div>
+                }
+                {
+                    this.state.collection.length == 0 && !this.state.searching &&
+                    <div className="wbdv-collection-empty">
+                        Collection is empty<br/>
+                        <div className="wbdv-collection-empty-sm">
+                            Add comic books to your collection<br/>
+                            using the <b> + Add </b>
+                            button on any issue
+                        </div>
+                    </div>
+                }
+                {
+                    this.state.collection.length == 0 && this.state.searching &&
+                    <div className="wbdv-no-search-results">
+                        No results match your search criteria
+                    </div>
+                }
+
             </div>
         )
     }

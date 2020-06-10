@@ -352,10 +352,25 @@ class Profile extends React.Component {
                                     <div className="wbdv-profile-collection-header">
                                         My Collection
                                     </div>
-                                    <div className="row row-cols-5 wbdv-cover-row">
-                                        {this.state.collection.map(comicBook =>
-                                             <ProfileCover comicBook={comicBook}/>)}
-                                    </div>
+                                    {
+                                        this.state.collection.length > 0 &&
+                                        <div className="row row-cols-5 wbdv-cover-row">
+                                            {this.state.collection.map(comicBook =>
+                                                                           <ProfileCover
+                                                                               comicBook={comicBook}/>)}
+                                        </div>
+                                    }
+                                    {
+                                        this.state.collection.length == 0 &&
+                                        <div className="wbdv-profile-empty">
+                                            Collection is empty<br/>
+                                            <div className="wbdv-profile-empty-sm">
+                                                Add comic books to your collection<br/>
+                                                using the <b> + Add </b>
+                                                 button on any issue
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                             </Link>
                         </div>

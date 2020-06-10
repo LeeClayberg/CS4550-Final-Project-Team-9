@@ -31,6 +31,18 @@ class Home extends React.Component {
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.userId !== this.props.userId) {
+            window.scrollTo({top: 0, behavior: "smooth"});
+            userService.findUserById(this.props.userId)
+                .then(user => {
+                    this.setState({
+                        user: user
+                    })
+                })
+        }
+    }
+
     updateUsername = (newString) =>
         this.setState(prevState => ({
             username: newString
@@ -44,7 +56,7 @@ class Home extends React.Component {
     login = () =>
         userService.findIdFromLogin(this.state.username, this.state.password)
             .then(user => this.props.loginUser(user.id))
-            .then((userId) => userId? this.props.history.push(`/profile`): alert("Unknown username or password"))
+            .then((userId) => userId? 0: alert("Unknown username or password"))
 
     render() {
         return (
