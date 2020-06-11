@@ -1,11 +1,12 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import reviewService from "../services/ReviewService";
 
 class IssueReview extends React.Component {
     render() {
         let elements=[];
         for (let i = 0; i < 5; i++) {
-            i < this.props.stars?
+            i < this.props.review.stars?
             elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-filled"/>):
             elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>);
         }
@@ -14,15 +15,18 @@ class IssueReview extends React.Component {
                 {
                     this.props.mode == 'admin' &&
                     <div className="btn wbdv-delete-review"
-                        onClick={() => alert("Will remove review")}>
+                        onClick={() => {
+                            reviewService.deleteReview(this.props.review.id)
+                                .then(() => this.props.updateReviews());
+                        }}>
                         <i className="fa fa-trash"/>
                     </div>
                 }
                 <div className="row wbdv-review-row">
                     <div className="col-5 wbdv-review-user">
-                        <Link to={`/user/${87437537}`}>
+                        <Link to={`/user/${this.props.review.userId}`}>
                             <span className="wbdv-review-name-color">
-                                {this.props.name}
+                                {this.props.review.username}
                             </span>
                         </Link>
                     </div>
@@ -33,8 +37,8 @@ class IssueReview extends React.Component {
                     </div>
                 </div>
                 <div className="wbdv-review-text"
-                     title={this.props.text}>
-                    {this.props.text}
+                     title={this.props.review.text}>
+                    {this.props.review.text}
                 </div>
             </li>
         )

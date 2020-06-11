@@ -8,12 +8,14 @@ import DetailsLoadingIndicator from "./DetailsLoading";
 import IssueNewReview from "./IssueNewReview";
 import ComicBooKService from "../services/ComicBookService";
 import UserService from "../services/UserService";
+import ReviewService from "../services/ReviewService";
 
 class Issue extends React.Component {
     state = {
         issue: null,
         add: false,
         related: [],
+        reviews: [],
         loaded: false,
         addReview: false,
         grade: 10.0,
@@ -48,6 +50,12 @@ class Issue extends React.Component {
                                           related: issues.results,
                                           loaded: true
                                       })
+                    });
+                ReviewService.findReviewsForIssue(this.props.match.params.id)
+                    .then(reviews => {
+                        this.setState({
+                            reviews: reviews
+                        })
                     });
                 UserService.findUserById(this.props.userId)
                     .then(user =>
@@ -99,6 +107,15 @@ class Issue extends React.Component {
         this.setState(prevState => ({
             signatures: value
         }))
+
+    reloadReviews = () =>
+        ReviewService.findReviewsForIssue(this.props.match.params.id)
+            .then(reviews => {
+                this.setState({
+                    reviews: reviews,
+                    addReview: false
+                })
+            })
 
     addIssueToCollection = () =>
         ComicBooKService.createComicBook(this.props.userId, {
@@ -312,33 +329,15 @@ class Issue extends React.Component {
                         <ul className="list-group wbdv-review-list">
                             {
                                 this.state.addReview &&
-                                <IssueNewReview name={this.state.user.username}/>
+                                <IssueNewReview issue={this.state.issue} user={this.state.user} closeReview={this.reloadReviews}/>
                             }
-                            <IssueReview
-                                name={"John Wigner"}
-                                mode={this.state.user.role}
-                                stars={4}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            <IssueReview
-                                name={"John Wigner"}
-                                mode={this.state.user.role}
-                                stars={5}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            <IssueReview
-                                name={"John Wigner"}
-                                mode={this.state.user.role}
-                                stars={3}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            <IssueReview
-                                name={"John Wigner"}
-                                mode={this.state.user.role}
-                                stars={2}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                            <IssueReview
-                                name={"John Wigner"}
-                                mode={this.state.user.role}
-                                stars={3}
-                                text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                            {
+                                this.state.reviews.map(review =>
+                                     <IssueReview
+                                          review={review}
+                                          mode={this.state.user.role}
+                                          updateReviews={this.reloadReviews}/>)
+                            }
                         </ul>
                     </div>
                 </div>

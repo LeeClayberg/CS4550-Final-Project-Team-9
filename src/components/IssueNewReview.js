@@ -1,10 +1,28 @@
 import React from 'react'
+import reviewService from "../services/ReviewService";
 
 class IssueNewReview extends React.Component {
     state = {
         text: '',
         starCount: 1
     }
+
+    addReview = () =>
+        reviewService.createReview({
+            issueId: this.props.issue.id,
+            userId: this.props.user.id,
+            username: this.props.user.username,
+            stars: this.state.starCount,
+            text: this.state.text,
+            coverImageURL: this.props.issue.image.super_url,
+            timestamp: (new Date()).toISOString()
+        }).then(() => {
+            this.props.closeReview();
+            this.setState({
+                text: '',
+                starCount: 1
+            })
+        })
 
     render() {
         let elements=[];
@@ -33,7 +51,7 @@ class IssueNewReview extends React.Component {
                 <div className="row wbdv-review-row">
                     <div className="col-5 wbdv-review-user">
                         <span className="wbdv-review-name-color">
-                            {this.props.name}
+                            {this.props.user.username}
                         </span>
                     </div>
                     <div className="col-7 wbdv-review-top-col">
@@ -51,7 +69,7 @@ class IssueNewReview extends React.Component {
                         text: event.target.value
                     })}/>
                 <div className="btn wbdv-review-post"
-                     onClick={() => alert("Will post review")}>
+                     onClick={() => this.addReview()}>
                     Post Review
                 </div>
             </li>
