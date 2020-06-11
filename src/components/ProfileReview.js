@@ -12,7 +12,7 @@ class ProfileReview extends React.Component {
             <li className="list-group-item wbdv-profile-review">
                 <span className="row wbdv-review-row">
                     <div className="col-3 wbdv-covered-review-cover-col">
-                        <img className="btn wbdv-covered-review-cover" src={this.props.review.coverImageURL}
+                        <img className="wbdv-covered-review-cover" src={this.props.review.coverImageURL}
                              alt="Card image cap"/>
                     </div>
                     <div className="col-9 wbdv-covered-review-text-col">

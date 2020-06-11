@@ -2,11 +2,13 @@ import React from 'react'
 import ProfileCover from "./ProfileCover";
 import ProfileReview from "./ProfileReview";
 import userService from "../services/UserService";
+import reviewService from "../services/ReviewService";
 
 class PublicProfile extends React.Component {
     state = {
         user: {},
-        collection: []
+        collection: [],
+        reviews: []
     }
 
     componentDidMount() {
@@ -18,6 +20,11 @@ class PublicProfile extends React.Component {
                      collection: user.comicBooks
                 })
             });
+        reviewService.findReviewsForUser(this.props.match.params.id)
+            .then(reviews => {
+                this.setState({
+                    reviews: reviews
+                })});
     }
 
     calcLevel = () =>
@@ -107,21 +114,10 @@ class PublicProfile extends React.Component {
                                 <div className="wbdv-profile-review-header">
                                     {this.state.user.username}'s Reviews
                                 </div>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={3}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={5}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                <ProfileReview
-                                    cover={require("../TempCover.png")}
-                                    name={"John Wigner"}
-                                    stars={4}
-                                    text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                {
+                                    this.state.reviews.map(review =>
+                                                               <ProfileReview review={review}/>)
+                                }
                             </div>
                     </div>
                 </div>
