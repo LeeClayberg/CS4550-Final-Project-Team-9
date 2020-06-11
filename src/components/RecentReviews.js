@@ -1,7 +1,21 @@
 import React from 'react'
 import CoverReview from "./CoverReview";
+import ReviewService from "../services/ReviewService";
 
 class RecentReviews extends React.Component {
+    state = {
+        reviews: []
+    }
+
+    componentDidMount() {
+        ReviewService.findRecentReviews()
+            .then(reviews => {
+                this.setState({
+                    reviews: reviews
+                })
+            });
+    }
+
     render() {
         return (
             <div className="wbdv-recent-reviews">
@@ -9,30 +23,10 @@ class RecentReviews extends React.Component {
                     Recent Reviews
                 </div>
                     <span className="row">
-                        <CoverReview
-                            cover={require("../TempCover.png")}
-                            issueId={""}
-                            name={"John Wigner"}
-                            stars={3}
-                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                        <CoverReview
-                            cover={require("../TempCover.png")}
-                            issueId={""}
-                            name={"John Wigner"}
-                            stars={3}
-                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                        <CoverReview
-                            cover={require("../TempCover.png")}
-                            issueId={""}
-                            name={"John Wigner"}
-                            stars={3}
-                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                        <CoverReview
-                            cover={require("../TempCover.png")}
-                            issueId={""}
-                            name={"John Wigner"}
-                            stars={3}
-                            text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                        {
+                            this.state.reviews.map(review =>
+                                <CoverReview review={review}/>)
+                        }
                     </span>
             </div>
         )

@@ -703,7 +703,7 @@ b {
   border: 2px solid black;
   width: 100%;
   padding: 0px;
-  max-height: 163px;
+  max-height: 183px;
 }
 
 .wbdv-covered-review-text-col {
@@ -716,11 +716,12 @@ b {
   border-radius: 0px;
   border: 2px solid black;
   margin-top: 10px;
-  padding: 5px;
+  padding: 5px 7px;
+  height: 142px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-line-clamp: 5; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 
