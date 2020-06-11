@@ -1021,6 +1021,19 @@ b {
   font-size: 18px;
 }
 
+.wbdv-profile-reviews-empty {
+  color: black;
+  text-align: center;
+  padding-top: 140px;
+  font-size: 40px;
+}
+
+.wbdv-profile-reviews-empty-sm {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
 /* Profile Reviews */
 
 .wbdv-profile-reviews {

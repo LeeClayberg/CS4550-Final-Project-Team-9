@@ -386,8 +386,20 @@ class Profile extends React.Component {
                                         My Reviews
                                     </div>
                                     {
+                                        this.state.reviews.length > 0 &&
                                         this.state.reviews.map(review =>
                                              <ProfileReview review={review}/>)
+                                    }
+                                    {
+                                        this.state.reviews.length == 0 &&
+                                        <div className="wbdv-profile-reviews-empty">
+                                            No reviews<br/>
+                                            <div className="wbdv-profile-reviews-empty-sm">
+                                                Add a review to any issues using the <br/>
+                                                <b> + </b> button under the review section<br/>
+                                                of any issue
+                                            </div>
+                                        </div>
                                     }
                                 </div>
                             </Link>
