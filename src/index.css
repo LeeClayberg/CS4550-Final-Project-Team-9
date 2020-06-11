@@ -1209,6 +1209,14 @@ b {
   font-weight: bolder;
 }
 
+.wbdv-regular-review-cover {
+  border-radius: 0px;
+  border: 2px solid black;
+  width: 100%;
+  padding: 0px;
+  max-height: 183px;
+}
+
 .wbdv-regular-review-message {
   background-color: white;
   color: black;
@@ -1219,7 +1227,8 @@ b {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
+  height: 146px;
+  -webkit-line-clamp: 5; /* number of lines to show */
   -webkit-box-orient: vertical;
   font-size: 19px;
 }
