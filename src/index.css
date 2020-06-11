@@ -628,7 +628,7 @@ b {
 .wbdv-home-profile {
   background-color: #e9ecef;
   border: 2px solid black;
-  padding: 5px 20px 0px;
+  padding: 5px 30px 0px;
   width: 100%;
   height: 100%;
   font-size: 26px;
@@ -659,12 +659,8 @@ b {
   padding: 2px;
 }
 
-.wbdv-home-profile-col-left {
-  padding-right: 4px;
-}
-
-.wbdv-home-profile-col-right {
-  padding-left: 4px;
+.wbdv-home-profile-col {
+  padding: 0px 4px;
 }
 
 .wbdv-home-cover-col {

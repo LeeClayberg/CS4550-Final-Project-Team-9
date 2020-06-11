@@ -13,7 +13,7 @@ class IssueReview extends React.Component {
         return (
             <li className="list-group-item wbdv-review">
                 {
-                    this.props.mode == 'admin' &&
+                    this.props.mode == 'admin' || this.props.userId == this.props.review.userId &&
                     <div className="btn wbdv-delete-review"
                         onClick={() => {
                             reviewService.deleteReview(this.props.review.id)

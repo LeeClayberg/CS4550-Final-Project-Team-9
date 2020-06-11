@@ -334,6 +334,7 @@ class Issue extends React.Component {
                             {
                                 this.state.reviews.map(review =>
                                      <IssueReview
+                                          userId={this.props.userId}
                                           review={review}
                                           mode={this.state.user.role}
                                           updateReviews={this.reloadReviews}/>)

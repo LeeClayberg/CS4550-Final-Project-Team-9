@@ -141,24 +141,24 @@ class Home extends React.Component {
                                     {this.state.user.username}
                                 </div>
                                 <span className="row">
-                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-left">
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col">
                                         <Link className="btn wbdv-home-profile-btn" to={`/profile`}>
                                             Profile
                                         </Link>
                                     </div>
-                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-right">
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col">
                                         <Link className="btn wbdv-home-profile-btn" to={`/collection&sortby=grade`}>
                                             Collection
                                         </Link>
                                     </div>
                                 </span>
                                 <span className="row">
-                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-left">
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col">
                                         <Link className="btn wbdv-home-profile-btn" to={`/reviews`}>
                                             Reviews
                                         </Link>
                                     </div>
-                                    <div className="col-12 col-lg-6 wbdv-home-profile-col-right">
+                                    <div className="col-12 col-lg-6 wbdv-home-profile-col">
                                         <Link className="btn wbdv-home-profile-btn"
                                               onClick={() => this.props.logoutUser()}>
                                             Logout
