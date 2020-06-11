@@ -4,7 +4,7 @@ import ProfileReview from "./ProfileReview";
 import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
 import userService from "../services/UserService";
-import comicBookService from "../services/ComicBookService";
+import reviewService from "../services/ReviewService";
 
 class Profile extends React.Component {
     state = {
@@ -12,6 +12,7 @@ class Profile extends React.Component {
         userHistory: [],
         allUsers: [],
         collection: [],
+        reviews: [],
         level: "",
         user: {},
         password: '', first: '', last: '', email: '', dob: '',
@@ -40,16 +41,23 @@ class Profile extends React.Component {
                 })
             }).then(() => {
                 if (this.state.user.role == 'admin') {
-                userService.findUserHistory()
-                    .then(list => {
-                        this.setState({
-                            userHistory: list
-                        })});
-                userService.findAllUsers()
-                    .then(users => {
-                        this.setState({
-                            allUsers: users
-                        })})}
+                    userService.findUserHistory()
+                        .then(list => {
+                            this.setState({
+                                userHistory: list
+                            })});
+                    userService.findAllUsers()
+                        .then(users => {
+                            this.setState({
+                                allUsers: users
+                            })})
+                } else {
+                    reviewService.findReviewsForUser(this.state.user.id)
+                        .then(reviews => {
+                            this.setState({
+                                reviews: reviews
+                            })});
+                }
             })
     }
 
@@ -377,21 +385,10 @@ class Profile extends React.Component {
                                     <div className="wbdv-profile-review-header">
                                         My Reviews
                                     </div>
-                                    <ProfileReview
-                                        cover={require("../TempCover.png")}
-                                        name={"John Wigner"}
-                                        stars={3}
-                                        text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                    <ProfileReview
-                                        cover={require("../TempCover.png")}
-                                        name={"John Wigner"}
-                                        stars={5}
-                                        text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
-                                    <ProfileReview
-                                        cover={require("../TempCover.png")}
-                                        name={"John Wigner"}
-                                        stars={4}
-                                        text={"Mephisto finally reveals his plan to the Surfer and shows him the image of, lost among billions on Earth, freezing and starving. If the Surfer pledges himself to Mephisto he will reunite them. The Surfer gives in and as a test Mephisto tells him"}/>
+                                    {
+                                        this.state.reviews.map(review =>
+                                             <ProfileReview review={review}/>)
+                                    }
                                 </div>
                             </Link>
                         </div>
