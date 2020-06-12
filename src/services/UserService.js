@@ -28,7 +28,7 @@ const deleteUser = (userId) =>
 
 const findUserById = (userId) =>
     fetch(server + "/users/" + userId)
-        .then(response => response.json())
+        .then(response => response? response.json(): {})
 
 const findAllUsers = () =>
     fetch(server + "/users")
