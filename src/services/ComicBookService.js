@@ -1,8 +1,8 @@
 
-const server = "https://comicstack.herokuapp.com/api";
+const server = "http://localhost:8080/api";
 
-const createComicBook = (userId, comicBook) =>
-    fetch(server + "/users/" + userId + "/collection", {
+const createComicBook = (comicBook) =>
+    fetch(server + "/api/comic-books", {
         method: 'POST',
         body: JSON.stringify(comicBook),
         headers: {
@@ -11,14 +11,14 @@ const createComicBook = (userId, comicBook) =>
     })
         .then(response => response.json())
 
-const deleteComicBook = (userId, comicBookId) =>
-    fetch(server + "/users/" + userId + "/collection/" + comicBookId, {
+const deleteComicBook = (comicBookId) =>
+    fetch(server + "/api/comic-books/" + comicBookId, {
         method: 'DELETE'
     })
         .then(response => response.json())
 
-const findComicBookById = (userId, comicBookId) =>
-    fetch(server + "/users/" + userId + "/collection/" + comicBookId)
+const findComicBookById = (comicBookId) =>
+    fetch(server + "/api/comic-books/" + comicBookId)
         .then(response => response.json())
 
 const findComicBooksForUser = (userId) =>

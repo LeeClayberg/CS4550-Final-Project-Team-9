@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import AdminRow from "./AdminRow";
 import userService from "../services/UserService";
 import reviewService from "../services/ReviewService";
+import comicBookService from "../services/ComicBookService";
 
 class Profile extends React.Component {
     state = {
@@ -36,7 +37,6 @@ class Profile extends React.Component {
                      zip: user.zip,
                      bio: user.bio,
                      picture: user.pictureURL,
-                     collection: user.comicBooks,
                      level: this.calcLevel(user)
                 })
             }).then(() => {
@@ -56,6 +56,11 @@ class Profile extends React.Component {
                         .then(reviews => {
                             this.setState({
                                 reviews: reviews
+                            })});
+                    comicBookService.findComicBooksForUser(this.state.user.id)
+                        .then(comicBooks => {
+                            this.setState({
+                                collection: comicBooks
                             })});
                 }
             })

@@ -3,6 +3,7 @@ import ProfileCover from "./ProfileCover";
 import ProfileReview from "./ProfileReview";
 import userService from "../services/UserService";
 import reviewService from "../services/ReviewService";
+import comicBookService from "../services/ComicBookService";
 
 class PublicProfile extends React.Component {
     state = {
@@ -17,13 +18,17 @@ class PublicProfile extends React.Component {
             .then(user => {
                 this.setState({
                      user: user,
-                     collection: user.comicBooks
                 })
             });
         reviewService.findReviewsForUser(this.props.match.params.id)
             .then(reviews => {
                 this.setState({
                     reviews: reviews
+                })});
+        comicBookService.findComicBooksForUser(this.props.match.params.id)
+            .then(comicBooks => {
+                this.setState({
+                    collection: comicBooks
                 })});
     }
 

@@ -44,11 +44,12 @@ class Collection extends React.Component {
         }))
 
     deleteComicBook = (comicBookId) => {
-        comicBookService.deleteComicBook(this.props.userId, comicBookId)
-            .then(list => {
-                this.setState({
-                    collection: list
-                })})
+        comicBookService.deleteComicBook(comicBookId)
+            .then(() => comicBookService.findComicBooksForUserSorted(this.props.userId, this.state.sortBy)
+                .then(list => {
+                    this.setState({
+                        collection: list
+                    })}).then(() => this.props.history.push(`/collection&sortby=${this.state.sortBy}`)))
     }
 
     search = () =>

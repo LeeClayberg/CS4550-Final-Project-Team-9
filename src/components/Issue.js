@@ -6,7 +6,7 @@ import IssueReview from "./IssueReview";
 import {Link} from "react-router-dom";
 import DetailsLoadingIndicator from "./DetailsLoading";
 import IssueNewReview from "./IssueNewReview";
-import ComicBooKService from "../services/ComicBookService";
+import ComicBookService from "../services/ComicBookService";
 import UserService from "../services/UserService";
 import ReviewService from "../services/ReviewService";
 
@@ -51,17 +51,17 @@ class Issue extends React.Component {
                                           loaded: true
                                       })
                     });
+                UserService.findUserById(this.props.userId)
+                    .then(user =>
+                        this.setState({
+                            user: user
+                        }))
                 ReviewService.findReviewsForIssue(this.props.match.params.id)
                     .then(reviews => {
                         this.setState({
                             reviews: reviews
                         })
                     });
-                UserService.findUserById(this.props.userId)
-                    .then(user =>
-                        this.setState({
-                             user: user
-                        }))
             })
 
     nextIssue = () =>
@@ -118,7 +118,7 @@ class Issue extends React.Component {
             })
 
     addIssueToCollection = () =>
-        ComicBooKService.createComicBook(this.props.userId, {
+        ComicBookService.createComicBook({
             issueId: this.state.issue.id,
             userId: this.props.userId,
             grade: this.state.grade,

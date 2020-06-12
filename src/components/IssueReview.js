@@ -10,10 +10,11 @@ class IssueReview extends React.Component {
             elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-filled"/>):
             elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>);
         }
+        console.log(this.props.mode);
         return (
             <li className="list-group-item wbdv-review">
                 {
-                    this.props.mode == 'admin' || this.props.userId == this.props.review.userId &&
+                    (this.props.mode == "admin" || this.props.userId == this.props.review.userId) &&
                     <div className="btn wbdv-delete-review"
                         onClick={() => {
                             reviewService.deleteReview(this.props.review.id)

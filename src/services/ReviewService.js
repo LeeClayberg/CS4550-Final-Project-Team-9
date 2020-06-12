@@ -1,5 +1,5 @@
 
-const server = "https://comicstack.herokuapp.com/api";
+const server = "http://localhost:8080/api";
 
 const createReview = (review) =>
     fetch(server + "/reviews", {
