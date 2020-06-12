@@ -11,6 +11,16 @@ const createComicBook = (comicBook) =>
     })
         .then(response => response.json())
 
+const updateComicBook = (comicBookId, comicBook) =>
+    fetch(server + "/comic-books/" + comicBookId, {
+        method: 'PUT',
+        body: JSON.stringify(comicBook),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+
 const deleteComicBook = (comicBookId) =>
     fetch(server + "/comic-books/" + comicBookId, {
         method: 'DELETE'
@@ -34,6 +44,7 @@ const findComicBooksForUserSortedSearch = (userId, sortBy, resource, query) =>
 
 export default {
     createComicBook,
+    updateComicBook,
     deleteComicBook,
     findComicBookById,
     findComicBooksForUser,
