@@ -2,7 +2,7 @@
 const server = "http://localhost:8080/api";
 
 const createComicBook = (comicBook) =>
-    fetch(server + "/api/comic-books", {
+    fetch(server + "/comic-books", {
         method: 'POST',
         body: JSON.stringify(comicBook),
         headers: {
@@ -12,13 +12,12 @@ const createComicBook = (comicBook) =>
         .then(response => response.json())
 
 const deleteComicBook = (comicBookId) =>
-    fetch(server + "/api/comic-books/" + comicBookId, {
+    fetch(server + "/comic-books/" + comicBookId, {
         method: 'DELETE'
     })
-        .then(response => response.json())
 
 const findComicBookById = (comicBookId) =>
-    fetch(server + "/api/comic-books/" + comicBookId)
+    fetch(server + "/comic-books/" + comicBookId)
         .then(response => response.json())
 
 const findComicBooksForUser = (userId) =>

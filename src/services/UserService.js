@@ -25,7 +25,6 @@ const deleteUser = (userId) =>
     fetch(server + "/users/" + userId, {
         method: 'DELETE'
     })
-        .then(response => response.json())
 
 const findUserById = (userId) =>
     fetch(server + "/users/" + userId)

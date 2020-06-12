@@ -36,8 +36,7 @@ class Profile extends React.Component {
                      state: user.state,
                      zip: user.zip,
                      bio: user.bio,
-                     picture: user.pictureURL,
-                     level: this.calcLevel(user)
+                     picture: user.pictureURL
                 })
             }).then(() => {
                 if (this.state.user.role == 'admin') {
@@ -57,12 +56,13 @@ class Profile extends React.Component {
                             this.setState({
                                 reviews: reviews
                             })});
-                    comicBookService.findComicBooksForUser(this.state.user.id)
-                        .then(comicBooks => {
-                            this.setState({
-                                collection: comicBooks
-                            })});
                 }
+                comicBookService.findComicBooksForUser(this.state.user.id)
+                    .then(comicBooks => {
+                        this.setState({
+                            collection: comicBooks,
+                            level: this.calcLevel()
+                        })});
             })
     }
 
@@ -122,14 +122,14 @@ class Profile extends React.Component {
             bio: newString
         }))
 
-    calcLevel = (user) =>
-        !user.comicBooks? "":
-        user.comicBooks.length < 10? "Beginner":
-        user.comicBooks.length < 25? "Intermediate":
-        user.comicBooks.length < 50? "Seasoned":
-        user.comicBooks.length < 100? "Proficient":
-        user.comicBooks.length < 200? "Experienced":
-        user.comicBooks.length < 500? "Advanced":"Expert"
+    calcLevel = () =>
+        !this.state.collection? "":
+        this.state.collection.length < 10? "Beginner":
+        this.state.collection.length < 25? "Intermediate":
+        this.state.collection.length < 50? "Seasoned":
+        this.state.collection.length < 100? "Proficient":
+        this.state.collection.length < 200? "Experienced":
+        this.state.collection.length < 500? "Advanced":"Expert"
 
     updateUser = () => {
         userService.updateUser(this.props.userId, {
