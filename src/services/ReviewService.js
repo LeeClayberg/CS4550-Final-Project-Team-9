@@ -15,7 +15,6 @@ const deleteReview = (reviewId) =>
     fetch(server + "/reviews/" + reviewId, {
         method: 'DELETE'
     })
-        .then(response => response.json())
 
 const findAllReviews = () =>
     fetch(server + "/reviews")

@@ -39,16 +39,11 @@ const findIdFromLogin = (username, password) =>
         .then((res) => res.text())
         .then((text) => text.length ? JSON.parse(text) : {})
 
-const findUserHistory = () =>
-    fetch(server + "/users/history")
-        .then(response => response.json())
-
 export default {
     createUser,
     updateUser,
     deleteUser,
     findUserById,
     findAllUsers,
-    findIdFromLogin,
-    findUserHistory
+    findIdFromLogin
 }

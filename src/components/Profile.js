@@ -6,6 +6,7 @@ import AdminRow from "./AdminRow";
 import userService from "../services/UserService";
 import reviewService from "../services/ReviewService";
 import comicBookService from "../services/ComicBookService";
+import historyService from "../services/HistoryService";
 
 class Profile extends React.Component {
     state = {
@@ -40,7 +41,7 @@ class Profile extends React.Component {
                 })
             }).then(() => {
                 if (this.state.user.role == 'admin') {
-                    userService.findUserHistory()
+                    historyService.findRecentHistory()
                         .then(list => {
                             this.setState({
                                 userHistory: list
@@ -60,9 +61,11 @@ class Profile extends React.Component {
                 comicBookService.findComicBooksForUser(this.state.user.id)
                     .then(comicBooks => {
                         this.setState({
-                            collection: comicBooks,
-                            level: this.calcLevel()
-                        })});
+                            collection: comicBooks
+                        })}).then(() =>
+                            this.setState({
+                                level: this.calcLevel()
+                            }));
             })
     }
 
@@ -170,10 +173,12 @@ class Profile extends React.Component {
 
     deleteUser = (userId) => {
         userService.deleteUser(userId)
-            .then(users => {
-                this.setState({
-                    allUsers: users
-                })})
+            .then(() =>
+                userService.findAllUsers()
+                    .then(users => {
+                        this.setState({
+                            allUsers: users
+                        })}))
     }
 
     render() {
@@ -451,7 +456,14 @@ class Profile extends React.Component {
                                 <div className="wbdv-profile-admin-history-text" align="left">
                                     <p className="wbdv-admin-history-p">
                                         {this.state.userHistory.map(row =>
-                                                                        <span>{row}<br/></span>)}
+                                            <span>
+                                                {row.userId ? "user " : ""}
+                                                <a href={`/user/${row.userId}`}>{row.userId ? row.userId : ""}</a>
+                                                {row.userId ? " -- " : ""}
+                                                {row.action}
+                                                {row.issueId ? " -- issue " : ""}
+                                                <a href={`/issue/${row.issueId}`}>{row.issueId ? row.issueId : ""}</a>
+                                            <br/></span>)}
                                     </p>
                                 </div>
                             </div>

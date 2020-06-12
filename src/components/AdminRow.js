@@ -64,7 +64,7 @@ class AdminRow extends React.Component {
                                         selected: true
                                     })
                                 }}/>
-                            <i className="btn fa fa-trash wbdv-admin-icon" onClick={() => this.props.deleteUser(this.props.id)}/>
+                            <i className="btn fa fa-trash wbdv-admin-icon" onClick={() => this.props.deleteUser(this.props.user.id)}/>
                         </span>
                     }
                 </div>
