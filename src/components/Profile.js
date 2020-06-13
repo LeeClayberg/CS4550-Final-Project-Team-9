@@ -458,11 +458,11 @@ class Profile extends React.Component {
                                         {this.state.userHistory.map(row =>
                                             <span>
                                                 {row.userId ? "user " : ""}
-                                                <a href={`/user/${row.userId}`}>{row.userId ? row.userId : ""}</a>
+                                                <Link to={`/user/${row.userId}`}>{row.userId ? row.userId : ""}</Link>
                                                 {row.userId ? " -- " : ""}
                                                 {row.action}
                                                 {row.issueId ? " -- issue " : ""}
-                                                <a href={`/issue/${row.issueId}`}>{row.issueId ? row.issueId : ""}</a>
+                                                <Link to={`/issue/${row.issueId}`}>{row.issueId ? row.issueId : ""}</Link>
                                             <br/></span>)}
                                     </p>
                                 </div>
