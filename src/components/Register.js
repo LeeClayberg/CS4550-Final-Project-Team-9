@@ -14,10 +14,11 @@ class Register extends React.Component {
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
-    updateUsername = (newString) =>
+    updateUsername = (newString) => {
+        let lowerString = newString.toLowerCase().replace(' ', '');
         this.setState(prevState => ({
-            username: newString
-        }))
+            username: lowerString
+        }))}
 
     updatePassword = (newString) =>
         this.setState(prevState => ({
