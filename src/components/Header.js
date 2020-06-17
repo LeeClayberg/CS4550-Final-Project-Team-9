@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import userService from "../services/UserService";
 
 class Header extends React.Component {
@@ -34,6 +34,12 @@ class Header extends React.Component {
             searchString: newString
         }))
 
+    keyPressed(event) {
+        if(event.key == 'Enter') {
+            this.props.history.push(`/search/${this.state.searchString}`)
+        }
+    }
+
     render() {
         return (
             <span className="fixed-top">
@@ -58,6 +64,7 @@ class Header extends React.Component {
                                        placeholder="Search"
                                        onChange={(event) => this.updateSearchString(
                                            event.target.value)}
+                                       onKeyPress={this.keyPressed}
                                        value={this.state.searchString}/>
                                 <div className="input-group-append">
                                     <Link to={`/search/${this.state.searchString}`}>
@@ -135,4 +142,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header
+export default withRouter(Header)

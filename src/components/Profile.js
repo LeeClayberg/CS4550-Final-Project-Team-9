@@ -190,20 +190,6 @@ class Profile extends React.Component {
                         <div className="wbdv-profile-info">
                             <div className="row">
                                 <span className="col-md-5 wbdv-profile-picture-surround wbdv-profile-field-labels">
-                                    <div className="btn add-picture-btn">
-                                        <input type="file" className="add-picture-input" onChange={(event) => this.updateProfilePicture(event)}/>
-                                        <i className="fa fa-plus"/>
-                                    </div>
-                                    {
-                                        this.state.picture != "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg" &&
-                                        <div className="btn remove-picture-btn"
-                                             onClick={() => {
-                                                 this.setState({
-                                                     picture: "https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg"
-                                                 })}}>
-                                            <i className="fa fa-trash"/>
-                                        </div>
-                                    }
                                     <img className="wbdv-profile-picture" src={this.state.picture}/>
                                     Profile Picture
                                 </span>
@@ -462,7 +448,7 @@ class Profile extends React.Component {
                                                 {row.userId ? " -- " : ""}
                                                 {row.action}
                                                 {row.issueId ? " -- issue " : ""}
-                                                <Link to={`/issue/${row.issueId}`}>{row.issueId ? row.issueId : ""}</Link>
+                                                <Link to={`/details/issue/${row.issueId}`}>{row.issueId ? row.issueId : ""}</Link>
                                             <br/></span>)}
                                     </p>
                                 </div>

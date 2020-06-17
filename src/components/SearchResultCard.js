@@ -5,7 +5,7 @@ class SearchResultCard extends React.Component {
     render() {
         return (
             <div className="col mb-4">
-                <Link to={`/issue/${this.props.issue.id}`}>
+                <Link to={`/details/issue/${this.props.issue.id}`}>
                 <div className="card">
                     <img className="card-img-top wbdv-card-img" src={this.props.issue.image.super_url}
                          alt="Card image cap"/>

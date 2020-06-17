@@ -11,7 +11,7 @@ class Review extends React.Component {
         }
         return (
             <div className="col-md-6">
-                <Link to={`/issue/${this.props.review.issueId}`}>
+                <Link to={`/details/issue/${this.props.review.issueId}`}>
                     <li className="list-group-item wbdv-review">
                         <span className="row wbdv-review-row">
                             <div className="col-3 wbdv-covered-review-cover-col">

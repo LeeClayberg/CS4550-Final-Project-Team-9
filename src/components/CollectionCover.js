@@ -25,7 +25,7 @@ class CollectionCover extends React.Component {
                         <i className="fa fa-trash"/>
                     </div>
                 }
-                <Link to={`/issue/${this.props.comicBook.issueId}`}>
+                <Link to={`/details/issue/${this.props.comicBook.issueId}`}>
                     <img className="wbdv-collection-cover" src={this.props.comicBook.coverImageURL}
                          alt="Temporary"/>
                 </Link>

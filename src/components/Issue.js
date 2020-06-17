@@ -69,7 +69,7 @@ class Issue extends React.Component {
             .then(issue => issue.results)
             .then(results =>
                       results[0] ?
-                      this.props.history.push(`/issue/${results[0].id}`) :
+                      this.props.history.push(`/details/issue/${results[0].id}`) :
                       alert("This is the last issue in the volume")
             )
 
@@ -78,14 +78,14 @@ class Issue extends React.Component {
             .then(issue => issue.results)
             .then(results =>
                       results[0] ?
-                      this.props.history.push(`/issue/${results[0].id}`) :
+                      this.props.history.push(`/details/issue/${results[0].id}`) :
                       alert("This is the first issue in the volume")
             )
 
     displayList = (character, i) => {
         return (
             <span>
-                <Link to={`/character/${character.id}`} className={"wbdv-character-link"}>
+                <Link to={`/details/character/${character.id}`} className={"wbdv-character-link"}>
                     {character.name}
                 </Link>
                 {(i < this.state.issue.character_credits.length - 1) ?

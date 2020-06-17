@@ -43,7 +43,7 @@ class Character extends React.Component {
     displayList = (character, i) => {
         return (
             <span>
-                <Link to={`/character/${character.id}`} className={"wbdv-character-link"}>
+                <Link to={`/details/character/${character.id}`} className={"wbdv-character-link"}>
                     {character.name}
                 </Link>
                 {(i < this.state.character.character_enemies.length - 1) ?
@@ -138,7 +138,7 @@ class Character extends React.Component {
                                             {
                                                 this.state.character.first_appeared_in_issue.name ?
                                                 <Link
-                                                    to={`/issue/${this.state.character.first_appeared_in_issue.id}`}
+                                                    to={`/details/issue/${this.state.character.first_appeared_in_issue.id}`}
                                                     className={"wbdv-character-link"}>
                                                     {this.state.character.first_appeared_in_issue.name}
                                                 </Link> :

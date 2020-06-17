@@ -43,9 +43,9 @@ class ComicStack extends React.Component {
                     <Route path="/" exact={true} render={(props) =>
                         <Home {...props} loginUser={this.loginUser} logoutUser={this.logoutUser} userId={this.state.userId}/>}/>
                     <Route path="/search/:query" exact={true} component={SearchResults}/>
-                    <Route path="/issue/:id" exact={true} render={(props) =>
+                    <Route path="/details/issue/:id" exact={true} render={(props) =>
                         <Issue {...props} userId={this.state.userId} />}/>
-                    <Route path="/character/:id" exact={true} component={Character}/>
+                    <Route path="/details/character/:id" exact={true} component={Character}/>
                     <Route path="/login" exact={true} render={(props) =>
                         <Login {...props} loginUser={this.loginUser} />}/>
                     <Route path="/register" exact={true} render={(props) =>

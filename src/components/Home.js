@@ -119,15 +119,13 @@ class Home extends React.Component {
                                      Login
                                  </Link>
                                  <span className="row">
-                                    <div className="col-6 wbdv-home-small-login-btn" align="left">
+                                    <div className="col-6 wbdv-home-small-login-btn" align="left"/>
+                                    <div className="col-6 wbdv-home-small-login-btn" align="right">
                                         <Link to={`/register`}>
                                             <span className="wbdv-small-btn-color">
                                                 Register
                                             </span>
                                         </Link>
-                                    </div>
-                                    <div className="col-6 wbdv-home-small-login-btn" align="right">
-                                        Forgot Password?
                                     </div>
                                 </span>
                              </div>

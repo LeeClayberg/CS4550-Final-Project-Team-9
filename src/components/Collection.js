@@ -108,6 +108,7 @@ class Collection extends React.Component {
                                            placeholder="Search Collection"
                                            onChange={(event) => this.updateSearchString(
                                                event.target.value)}
+                                           onKeyPress={(event) => event.key == 'Enter' ? this.search() : 0}
                                            value={this.state.searchString}/>
                                     <div className="input-group-append">
                                         <Link onClick={() => this.search()}>

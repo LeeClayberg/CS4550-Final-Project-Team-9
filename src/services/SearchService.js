@@ -18,13 +18,13 @@ const search = (content, page, amountPerPage) => {
 
 const findIssueById = (id) => {
     issueApi = (issueApi + 1) % keys.length;
-    return fetch(proxy + "https://comicvine.gamespot.com/api/issue/4000-" +
+    return fetch(proxy + "https://comicvine.gamespot.com/api/details/issue/4000-" +
             id + "/?api_key=" + keys[issueApi] + "&format=json")
         .then(response => response.json())}
 
 const findCharacterById = (id) => {
     characterApi = (characterApi + 1) % keys.length;
-    return fetch(proxy + "https://comicvine.gamespot.com/api/character/4005-" +
+    return fetch(proxy + "https://comicvine.gamespot.com/api/details/character/4005-" +
                  id + "/?api_key=" + keys[characterApi] + "&format=json")
         .then(response => response.json())}
 
