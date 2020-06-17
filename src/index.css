@@ -320,11 +320,15 @@ b {
   border: 2px solid black;
   padding: 8px;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.wbdv-scroll {
+  overflow: scroll;
   line-height: 1.6rem;
+  -webkit-box-orient: vertical;
+  display: block;
   display: -webkit-box;
   -webkit-line-clamp: 4; /* number of lines to show */
-  -webkit-box-orient: vertical;
 }
 
 .wbdv-top-spacer {
@@ -1264,12 +1268,15 @@ b {
   border-radius: 0px;
   border: 2px solid black;
   padding: 8px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.wbdv-character-scroll {
+  overflow: scroll;
   line-height: 1.6rem;
+  -webkit-box-orient: vertical;
+  display: block;
   display: -webkit-box;
   -webkit-line-clamp: 5; /* number of lines to show */
-  -webkit-box-orient: vertical;
 }
 
 .wbdv-character-related {

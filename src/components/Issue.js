@@ -275,7 +275,9 @@ class Issue extends React.Component {
                                              this.displayListTooltip)}>
                                         <div
                                             className="font-weight-bold wbdv-section-title">Characters</div>
-                                        {this.state.issue.character_credits.map(this.displayList)}
+                                        <span className="wbdv-scroll">
+                                            {this.state.issue.character_credits.map(this.displayList)}
+                                        </span>
                                     </div>
                                 </span>
                             </span>

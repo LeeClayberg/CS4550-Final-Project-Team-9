@@ -64,7 +64,7 @@ class Header extends React.Component {
                                        placeholder="Search"
                                        onChange={(event) => this.updateSearchString(
                                            event.target.value)}
-                                       onKeyPress={this.keyPressed}
+                                       onKeyPress={(event) => this.keyPressed(event)}
                                        value={this.state.searchString}/>
                                 <div className="input-group-append">
                                     <Link to={`/search/${this.state.searchString}`}>

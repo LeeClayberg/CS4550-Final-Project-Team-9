@@ -42,7 +42,7 @@ class ComicStack extends React.Component {
                 <div className="container">
                     <Route path="/" exact={true} render={(props) =>
                         <Home {...props} loginUser={this.loginUser} logoutUser={this.logoutUser} userId={this.state.userId}/>}/>
-                    <Route path="/search/:query" exact={true} component={SearchResults}/>
+                    <Route path={["/search/:query", "/search/"]} exact={true} component={SearchResults}/>
                     <Route path="/details/issue/:id" exact={true} render={(props) =>
                         <Issue {...props} userId={this.state.userId} />}/>
                     <Route path="/details/character/:id" exact={true} component={Character}/>
@@ -53,7 +53,7 @@ class ComicStack extends React.Component {
                     <Route path="/profile" exact={true} render={(props) =>
                         <Profile {...props} userId={this.state.userId} imageChange={this.imageChange}/>}/>
                     <Route path="/user/:id" exact={true} component={PublicProfile}/>
-                    <Route path={["/collection&sortby=:sortBy"]} exact={true} render={(props) =>
+                    <Route path="/collection&sortby=:sortBy" exact={true} render={(props) =>
                         <Collection {...props} userId={this.state.userId} />}/>
                     <Route path="/reviews" exact={true} render={(props) =>
                         <Reviews {...props} userId={this.state.userId}/>}/>

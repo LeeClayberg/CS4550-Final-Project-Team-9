@@ -165,7 +165,9 @@ class Character extends React.Component {
                                          this.displayListTooltip)}>
                                     <div
                                         className="font-weight-bold wbdv-section-title">Enemies</div>
-                                    {this.state.character.character_enemies.map(this.displayList)}
+                                    <span className="wbdv-character-scroll">
+                                        {this.state.character.character_enemies.map(this.displayList)}
+                                    </span>
                                 </div>
                             </span>
                         </span>

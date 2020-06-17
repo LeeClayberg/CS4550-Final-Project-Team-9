@@ -41,14 +41,23 @@ class SearchResults extends React.Component {
                         Page {this.state.page}
                     </div>
                 </div>
-                <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-                    {
-                        this.state.issues.map(issue =>
-                             <SearchResultCard
-                                 id={issue.id}
-                                issue={issue}/>)
-                    }
-                </div>
+                {
+                    this.state.issues.length > 0 &&
+                    <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                        {
+                            this.state.issues.map(issue =>
+                                                      <SearchResultCard
+                                                          id={issue.id}
+                                                          issue={issue}/>)
+                        }
+                    </div>
+                }
+                {
+                    this.state.issues.length == 0 &&
+                    <div className="wbdv-no-search-results">
+                        No results match your search criteria
+                    </div>
+                }
                 <div className="wbdv-search-bottom-buttons">
                     {
                         this.state.page > 2 &&
@@ -71,9 +80,12 @@ class SearchResults extends React.Component {
                             {this.state.page - 1}
                         </div>
                     }
-                    <div className="btn wbdv-page-btn wbdv-current-page font-weight-bold">
-                        {this.state.page}
-                    </div>
+                    {
+                        this.state.issues.length > 0 &&
+                        <div className="btn wbdv-page-btn wbdv-current-page font-weight-bold">
+                            {this.state.page}
+                        </div>
+                    }
                     {
                         this.state.page < this.state.pageCount &&
                         <div className="btn wbdv-page-btn font-weight-bold"
