@@ -1172,7 +1172,7 @@ b {
   color: white;
   top: 4%;
   left: 14.5%;
-  padding: 3px 5px;
+  padding: 4px 6px;
   border-radius: 0px;
   border: 2px solid black;
   text-align: center;
@@ -1243,7 +1243,19 @@ b {
   height: 146px;
   -webkit-line-clamp: 5; /* number of lines to show */
   -webkit-box-orient: vertical;
-  font-size: 19px;
+  font-size: 18px;
+}
+
+.wbdv-regular-delete-review {
+  position: absolute;
+  top: 26px;
+  left: 21px;
+  background-color: #3AB1E3;
+  color: white;
+  z-index: 30;
+  border-radius: 0px;
+  border: 2px solid black;
+  padding: 2px 7px;
 }
 
 /* Character */

@@ -16,6 +16,14 @@ class Reviews extends React.Component {
                 })})
     }
 
+    deleteReview = (reviewId) =>
+        reviewService.deleteReview(reviewId)
+            .then(() => reviewService.findReviewsForUser(this.props.userId)
+                .then(reviews => {
+                    this.setState({
+                         reviews: reviews
+                    })}))
+
     render() {
         return (
             <div className="wbdv-reviews">
@@ -26,7 +34,8 @@ class Reviews extends React.Component {
                     this.state.reviews.length > 0 &&
                     <span className="row">
                         {
-                            this.state.reviews.map(review => <Review review={review}/>)
+                            this.state.reviews.map(review =>
+                                                       <Review deleteReview={this.deleteReview} review={review}/>)
                         }
                     </span>
                 }

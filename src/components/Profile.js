@@ -191,7 +191,6 @@ class Profile extends React.Component {
                             <div className="row">
                                 <span className="col-md-5 wbdv-profile-picture-surround wbdv-profile-field-labels">
                                     <img className="wbdv-profile-picture" src={this.state.picture}/>
-                                    Profile Picture
                                 </span>
                                 <span className="col-md-7 wbdv-simple-info wbdv-profile-field-labels">
                                     <div className="">

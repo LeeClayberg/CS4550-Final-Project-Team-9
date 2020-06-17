@@ -1,7 +1,11 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import reviewService from "../services/ReviewService";
 
 class Review extends React.Component {
+    state={
+        hover: false
+    }
     render() {
         let elements=[];
         for (let i = 0; i < 5; i++) {
@@ -10,7 +14,20 @@ class Review extends React.Component {
             elements.push(<i className="fa fa-star wbdv-review-star wbdv-review-star-blank"/>);
         }
         return (
-            <div className="col-md-6">
+            <div className="col-md-6"
+                 onMouseEnter={() => this.setState({
+                                                       hover: true
+                                                   })}
+                 onMouseLeave={() => this.setState({
+                                                       hover: false
+                                                   })}>
+                {
+                    this.state.hover &&
+                    <div className="btn wbdv-regular-delete-review"
+                         onClick={() => this.props.deleteReview(this.props.review.id)}>
+                        <i className="fa fa-trash"/>
+                    </div>
+                }
                 <Link to={`/details/issue/${this.props.review.issueId}`}>
                     <li className="list-group-item wbdv-review">
                         <span className="row wbdv-review-row">
