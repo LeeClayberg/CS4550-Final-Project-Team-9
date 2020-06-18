@@ -52,7 +52,7 @@ class ComicStack extends React.Component {
                         <Register {...props} loginUser={this.loginUser} />}/>
                     <Route path="/profile" exact={true} render={(props) =>
                         <Profile {...props} userId={this.state.userId} imageChange={this.imageChange}/>}/>
-                    <Route path="/user/:id" exact={true} component={PublicProfile}/>
+                    <Route path="/profile/:id" exact={true} component={PublicProfile}/>
                     <Route path="/collection&sortby=:sortBy" exact={true} render={(props) =>
                         <Collection {...props} userId={this.state.userId} />}/>
                     <Route path="/reviews" exact={true} render={(props) =>

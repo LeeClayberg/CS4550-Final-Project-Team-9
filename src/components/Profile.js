@@ -443,7 +443,7 @@ class Profile extends React.Component {
                                         {this.state.userHistory.map(row =>
                                             <span>
                                                 {row.userId ? "user " : ""}
-                                                <Link to={`/user/${row.userId}`}>{row.userId ? row.userId : ""}</Link>
+                                                <Link to={`/profile/${row.userId}`}>{row.userId ? row.userId : ""}</Link>
                                                 {row.userId ? " -- " : ""}
                                                 {row.action}
                                                 {row.issueId ? " -- issue " : ""}

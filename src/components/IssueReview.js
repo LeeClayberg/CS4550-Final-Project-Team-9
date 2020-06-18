@@ -25,7 +25,7 @@ class IssueReview extends React.Component {
                 }
                 <div className="row wbdv-review-row">
                     <div className="col-5 wbdv-review-user">
-                        <Link to={`/user/${this.props.review.userId}`}>
+                        <Link to={`/profile/${this.props.review.userId}`}>
                             <span className="wbdv-review-name-color">
                                 {this.props.review.username}
                             </span>
