@@ -134,7 +134,7 @@ class Profile extends React.Component {
         this.state.collection.length < 200? "Experienced":
         this.state.collection.length < 500? "Advanced":"Expert"
 
-    updateUser = () => {
+    updateUser = () =>
         userService.updateUser(this.props.userId, {
             password: this.state.password,
             first: this.state.first,
@@ -147,8 +147,8 @@ class Profile extends React.Component {
             zip: this.state.zip,
             bio: this.state.bio,
             pictureURL: this.state.picture,
-            role: 'admin'
-        }).then(() => this.props.imageChange())}
+            role: this.state.user.role
+        }).then(() => this.props.imageChange())
 
     adminUpdateUser = (user, role) =>
         userService.updateUser(user.id, {
