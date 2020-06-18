@@ -34,7 +34,6 @@ class Register extends React.Component {
         userService.createUser({
              username: this.state.username,
              password: this.state.password,
-             role: 'collector',
              startDate: (new Date()).toISOString().substring(0, 10)
         })
             .then(user => this.props.loginUser(user.id))
