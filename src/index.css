@@ -1166,6 +1166,23 @@ b {
   font-weight: bold;
 }
 
+.wbdv-collection-grade-dropdown {
+  position: absolute;
+  background-color: #FFDF00;
+  color: black;
+  border-radius: 0px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  bottom: 9%;
+  right: 14%;
+  height: 30px;
+  width: 75px;
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2px 5px;
+}
+
 .wbdv-delete-box {
   position: absolute;
   background-color: #3AB1E3;

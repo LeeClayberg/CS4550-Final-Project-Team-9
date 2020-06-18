@@ -48,8 +48,19 @@ class Collection extends React.Component {
             .then(() => comicBookService.findComicBooksForUserSorted(this.props.userId, this.state.sortBy)
                 .then(list => {
                     this.setState({
-                        collection: list
-                    })}).then(() => this.props.history.push(`/collection&sortby=${this.state.sortBy}`)))
+                                      collection: list
+                                  })}).then(() => this.props.history.push(`/collection&sortby=${this.state.sortBy}`)))
+    }
+
+    updateComicBook = (comicBookId, newGrade) => {
+        comicBookService.updateComicBook(comicBookId, {
+            grade: newGrade
+        })
+            .then(() => comicBookService.findComicBooksForUserSorted(this.props.userId, this.state.sortBy)
+                .then(list => {
+                    this.setState({
+                                      collection: list
+                                  })}).then(() => this.props.history.push(`/collection&sortby=${this.state.sortBy}`)))
     }
 
     search = () =>
@@ -130,7 +141,8 @@ class Collection extends React.Component {
                     <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 wbdv-cover-row">
                         {this.state.collection.map(comicBook =>
                              <CollectionCover comicBook={comicBook}
-                                  deleteComicBook={this.deleteComicBook}/>)}
+                                  deleteComicBook={this.deleteComicBook}
+                                  updateComicBook={this.updateComicBook}/>)}
                     </div>
                 }
                 {
