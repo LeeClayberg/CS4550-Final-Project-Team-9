@@ -230,7 +230,7 @@ class Profile extends React.Component {
                                         </span>
                                     </div>
                                     <div className="wbdv-profile-field-group">
-                                        Email (recovery)
+                                        Email
                                         <input type="email"
                                                className="form-control wbdv-profile-field"
                                                value={this.state.email}
