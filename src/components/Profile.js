@@ -410,19 +410,19 @@ class Profile extends React.Component {
                                     User Information
                                 </div>
                                 <div className="row wbdv-admin-row">
-                                    <div className="col-3 wbdv-admin-field-group">
+                                    <div className="col-5 col-md-3 wbdv-admin-field-group">
                                         Username
                                     </div>
-                                    <div className="col-3 wbdv-admin-field-group">
+                                    <div className="col-3 d-none d-md-block wbdv-admin-field-group">
                                         Password
                                     </div>
-                                    <div className="col-2 wbdv-admin-field-group">
+                                    <div className="col-4 col-md-2 wbdv-admin-field-group">
                                         Role
                                     </div>
                                     <div className="col-2 d-none d-md-block wbdv-admin-field-group">
                                         ID
                                     </div>
-                                    <div className="col-2 wbdv-admin-field-group"/>
+                                    <div className="col-3 col-md-2 wbdv-admin-field-group"/>
                                 </div>
                                 <span>
                                     {this.state.allUsers.map(user =>

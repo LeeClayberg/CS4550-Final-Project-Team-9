@@ -21,13 +21,13 @@ class AdminRow extends React.Component {
     render() {
         return (
             <div className="row wbdv-admin-entry">
-                <div className="col-3 wbdv-admin-field-row">
+                <div className="col-5 col-md-3 wbdv-admin-field-row">
                     {this.props.user.username}
                 </div>
-                <div className="col-3 wbdv-admin-field-row">
+                <div className="col-3 d-none d-md-block wbdv-admin-field-row">
                     {this.props.user.password}
                 </div>
-                <div className="col-3 col-md-2 wbdv-admin-field-row">
+                <div className="col-4 col-md-2 wbdv-admin-field-row">
                     {
                         !this.state.selected && this.props.user.role
                     }
